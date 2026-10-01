@@ -1530,6 +1530,65 @@ select:focus {
   margin-bottom: 6px;
 }
 
+/* --- 📲 눈에 확 띄는 홈화면 앱 설치 배너 스타일 --- */
+.pwa-hero-banner {
+  display: flex;
+  justify-content: center;
+  margin: 16px auto 4px auto;
+  width: 100%;
+  max-width: 520px;
+}
+
+.btn-hero-install {
+  width: 100%;
+  background: linear-gradient(135deg, #FF6B4A 0%, #FF8E53 100%);
+  color: #ffffff;
+  border: 3px solid #ffccba;
+  padding: 14px 20px;
+  border-radius: 20px;
+  font-family: 'Jua', cursive;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 107, 74, 0.32);
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  text-decoration: none;
+}
+
+.btn-hero-install:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 25px rgba(255, 107, 74, 0.45);
+}
+
+.btn-hero-install:active {
+  transform: scale(0.98);
+}
+
+.pulse-icon {
+  font-size: 1.3rem;
+  animation: bounceSoft 1.5s infinite;
+}
+
+.badge-free {
+  background: #ffffff;
+  color: #ff5722;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
 </style>
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1584,7 +1643,7 @@ select:focus {
         <span class="sparkle">✨</span>
       </div>
       <div class="nav-actions">
-        <button id="installPwaBtn" class="btn btn-cute-install hidden" title="홈 화면에 앱 설치하기">
+        <button id="installPwaBtn" class="btn btn-cute-install" title="홈 화면에 앱 설치하기">
           <i class="fa-solid fa-cloud-arrow-down"></i> <span>앱 설치</span>
         </button>
         <button id="lockAppBtn" class="btn-lock-app" title="앱 다시 잠그기"><i class="fa-solid fa-lock"></i> <span>잠그기</span></button>
@@ -1602,6 +1661,15 @@ select:focus {
       <div class="header-badge">🍲 냉장고 파먹기 대작전!</div>
       <h1 class="main-title">오늘 우리 집 식탁을 부탁해! 🍳</h1>
       <p class="subtitle">냉장고 속 잠자고 있는 재료들로 마법 같은 3가지 요리를 만들어줄게요 🪄</p>
+      
+      <!-- 📲 눈에 잘 띄는 홈 화면 앱 설치 배너 -->
+      <div class="pwa-hero-banner" style="margin-top: 14px;">
+        <button type="button" id="heroInstallBtn" class="btn-hero-install">
+          <span class="pulse-icon">📲</span>
+          <strong>스마트폰 홈 화면에 '서울맛피아' 앱 설치하기</strong>
+          <span class="badge-free">원클릭</span>
+        </button>
+      </div>
     </header>
 
     <!-- 메인 콘텐츠 영역 -->
@@ -2423,34 +2491,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // PWA 설치 버튼 핸들러
+  // PWA 설치 버튼 & 가이드 모달 핸들러
   let deferredPrompt = null;
   const installPwaBtn = document.getElementById('installPwaBtn');
+  const heroInstallBtn = document.getElementById('heroInstallBtn');
+  const pwaGuideModal = document.getElementById('pwaGuideModal');
+  const closePwaModalBtn = document.getElementById('closePwaModalBtn');
+  const triggerNativeInstallBtn = document.getElementById('triggerNativeInstallBtn');
+  const iosInstallGuide = document.getElementById('iosInstallGuide');
+  const androidInstallGuide = document.getElementById('androidInstallGuide');
+
+  // 이미 홈화면 앱으로 실행 중인 경우 설치 버튼 숨김
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (isStandalone) {
+    if (installPwaBtn) installPwaBtn.style.display = 'none';
+    const heroBanner = document.querySelector('.pwa-hero-banner');
+    if (heroBanner) heroBanner.style.display = 'none';
+  }
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (installPwaBtn) {
-      installPwaBtn.classList.remove('hidden');
-    }
+    console.log('beforeinstallprompt 이벤트 캡처 완료');
   });
 
-  if (installPwaBtn) {
-    installPwaBtn.addEventListener('click', async () => {
-      if (!deferredPrompt) return;
+  function openPwaGuide() {
+    if (!pwaGuideModal) return;
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
+    const isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
+
+    if (iosInstallGuide && androidInstallGuide) {
+      if (isIOS) {
+        iosInstallGuide.style.display = 'block';
+        androidInstallGuide.style.display = 'none';
+      } else if (isAndroid) {
+        iosInstallGuide.style.display = 'none';
+        androidInstallGuide.style.display = 'block';
+      } else {
+        iosInstallGuide.style.display = 'block';
+        androidInstallGuide.style.display = 'block';
+      }
+    }
+    pwaGuideModal.classList.remove('hidden');
+  }
+
+  function closePwaGuide() {
+    if (pwaGuideModal) pwaGuideModal.classList.add('hidden');
+  }
+
+  async function handleInstallClick() {
+    if (deferredPrompt) {
       deferredPrompt.prompt();
       const { outcome } = await deferredPrompt.userChoice;
       console.log('PWA 설치 응답:', outcome);
-      deferredPrompt = null;
-      installPwaBtn.classList.add('hidden');
+      if (outcome === 'accepted') {
+        deferredPrompt = null;
+        closePwaGuide();
+      }
+    } else {
+      openPwaGuide();
+    }
+  }
+
+  if (installPwaBtn) installPwaBtn.addEventListener('click', handleInstallClick);
+  if (heroInstallBtn) heroInstallBtn.addEventListener('click', handleInstallClick);
+  if (triggerNativeInstallBtn) triggerNativeInstallBtn.addEventListener('click', handleInstallClick);
+  if (closePwaModalBtn) closePwaModalBtn.addEventListener('click', closePwaGuide);
+
+  if (pwaGuideModal) {
+    pwaGuideModal.addEventListener('click', (e) => {
+      if (e.target === pwaGuideModal) closePwaGuide();
     });
   }
 
   window.addEventListener('appinstalled', () => {
     console.log('PWA가 성공적으로 설치되었습니다!');
-    if (installPwaBtn) {
-      installPwaBtn.classList.add('hidden');
-    }
+    closePwaGuide();
+    if (installPwaBtn) installPwaBtn.style.display = 'none';
+    const heroBanner = document.querySelector('.pwa-hero-banner');
+    if (heroBanner) heroBanner.style.display = 'none';
   });
 
   // --- 🔒 비밀번호 잠금 해제 시스템 ---
