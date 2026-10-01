@@ -8,8 +8,9 @@
   <link rel="icon" type="image/svg+xml" href="/static/icons/icon.svg">
   <link rel="icon" type="image/png" href="/static/icons/icon-192.png">
   <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
-  <link rel="manifest" href="/manifest.json">
+  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
   <meta name="theme-color" content="#FF7E67">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="후니요리책">
@@ -19,7 +20,6 @@
   <meta property="og:description" content="냉장고 속 재료로 만드는 AI 맞춤형 레시피 스튜디오">
   <meta property="og:image" content="/static/icons/icon-512.png">
   
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- 인라인 CSS 임베드 (Vercel Serverless 배포 시 스타일 100% 무적 보장) -->
   <style>
 /* --- 귀여운 꼬마 셰프 테마 스타일 --- */
@@ -1585,7 +1585,6 @@ select:focus {
     </div>
   </div>
 
-  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
   <!-- 자바스크립트 인라인 임베드 (Vercel 배포 시 스크립트 실행 100% 무적 보장) -->
   <script>
 document.addEventListener('DOMContentLoaded', () => {
