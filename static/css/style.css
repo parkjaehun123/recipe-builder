@@ -1033,30 +1033,198 @@ select:focus {
   padding-bottom: 25px;
 }
 
-/* --- 반응형 미디어 쿼리 --- */
-@media (max-width: 650px) {
-  .recipe-tabs-grid,
+/* --- 완벽 모바일 최적화 미디어 쿼리 --- */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .container {
+    padding: 18px 12px;
+  }
+
+  /* 상단 네비게이션 모바일 최적화 */
+  .navbar {
+    padding: 10px 14px;
+  }
+
+  .nav-container {
+    gap: 6px;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+    gap: 5px;
+  }
+
+  .chef-hat {
+    font-size: 1.35rem;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .btn-cute-install,
+  .btn-cute-bookmark {
+    padding: 6px 10px;
+    font-size: 0.82rem;
+    border-radius: 18px;
+    gap: 4px;
+  }
+
+  /* 헤더 텍스트 모바일 크기 */
+  .header-badge {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+
+  .main-title {
+    font-size: 1.55rem;
+    line-height: 1.35;
+    margin-top: 8px;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    padding: 0 5px;
+  }
+
+  /* 카드 패딩 및 레이아웃 */
+  .cute-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .btn-surprise-cute {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+  }
+
+  .form-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* 폼 요소 모바일 최적화 */
   .form-row,
   .recipe-grid,
   .tips-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
-  .nutrition-grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  input[type="text"],
+  select {
+    font-size: 16px !important; /* iOS 자동 확대 방지 */
+    padding: 12px 14px;
+    height: 48px; /* 터치 친화적 높이 */
   }
-  .cute-card {
-    padding: 24px 18px;
+
+  /* 재료 칩 모바일 터치 최적화 */
+  .chips-list {
+    gap: 6px;
   }
-  .main-title {
-    font-size: 1.7rem;
+
+  .ingredient-chip {
+    padding: 6px 10px;
+    font-size: 0.84rem;
+    height: 36px;
   }
-  .cute-tv-card {
+
+  /* 추천 메뉴 3가지 탭 모바일 1열 카드 배치 */
+  .recipe-tabs-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tab-card {
+    padding: 14px 16px;
+  }
+
+  /* 상세 결과 헤더 및 액션 버튼 그리드 */
+  .result-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 12px;
   }
+
+  .recipe-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .btn-cute-action {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.84rem;
+  }
+
+  .menu-title {
+    font-size: 1.45rem;
+  }
+
+  /* 영양 성분 카드 2열 그리드 */
+  .nutrition-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .cute-nutri-item {
+    padding: 10px 8px;
+  }
+
+  .nutri-val {
+    font-size: 1.05rem;
+  }
+
+  /* 유튜브 카드 세로 정렬 */
+  .cute-tv-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+  }
+
   .btn-youtube-cute {
     width: 100%;
     text-align: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  /* 배경 이모지 모바일에서 은은하게 */
+  .decor-item {
+    opacity: 0.18;
+    font-size: 1.6rem;
+  }
+}
+
+/* 400px 이하 초소형 스마트폰 (iPhone SE 등) */
+@media (max-width: 400px) {
+  .logo-text {
+    font-size: 0.98rem;
+  }
+  .btn-cute-install span,
+  .btn-cute-bookmark span:first-child {
+    display: none; /* 아이콘과 뱃지만 표시 */
+  }
+  .btn-cute-install,
+  .btn-cute-bookmark {
+    padding: 6px 8px;
+  }
+  .main-title {
+    font-size: 1.35rem;
   }
 }
 
