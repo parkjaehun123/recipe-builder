@@ -100,18 +100,39 @@ def get_static_dir(rel_path):
     return app.static_folder
 
 
-@app.route("/", defaults={"path": ""})
-@app.route("/<path:path>", methods=["GET"])
+@app.after_request
+def add_cors_headers(response):
+    """모든 요청에 CORS 허용 헤더 추가"""
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type,Authorization"
+    response.headers["Access-Control-Allow-Methods"] = "GET,POST,OPTIONS"
+    return response
+
+
+@app.route("/", defaults={"path": ""}, methods=["GET", "POST", "OPTIONS"])
+@app.route("/<path:path>", methods=["GET", "POST", "OPTIONS"])
 def catch_all(path):
-    """Vercel Serverless 및 PWA 정적 파일/페이지 Catch-All 서빙"""
-    if path == "manifest.json" or path == "api/manifest.json":
+    """Vercel Serverless 및 PWA 정적 파일/페이지/API Catch-All 서빙"""
+    if request.method == "OPTIONS":
+        return "", 200
+
+    # POST 요청이거나 generate 경로인 경우 레시피 생성 API로 직결
+    if request.method == "POST" or path == "generate" or path.endswith("/generate") or path.endswith("generate"):
+        return generate_recipe()
+
+    if path == "manifest.json" or path.endswith("manifest.json"):
         static_dir = get_static_dir("manifest.json")
-        return send_from_directory(static_dir, "manifest.json", mimetype="application/manifest+json")
-    if path == "sw.js" or path == "api/sw.js":
+        response = send_from_directory(static_dir, "manifest.json", mimetype="application/manifest+json")
+        response.headers["Content-Type"] = "application/manifest+json; charset=utf-8"
+        return response
+
+    if path == "sw.js" or path.endswith("sw.js"):
         static_dir = get_static_dir("sw.js")
         response = send_from_directory(static_dir, "sw.js", mimetype="application/javascript")
+        response.headers["Content-Type"] = "application/javascript; charset=utf-8"
         response.headers["Service-Worker-Allowed"] = "/"
         return response
+
     if path.startswith("static/") or path.startswith("api/static/"):
         rel_path = path[7:] if path.startswith("static/") else path[11:]
         mimetype = None
@@ -124,19 +145,24 @@ def catch_all(path):
         elif rel_path.endswith(".svg"):
             mimetype = "image/svg+xml"
         elif rel_path.endswith(".json"):
-            mimetype = "application/json"
+            mimetype = "application/json; charset=utf-8"
         elif rel_path.endswith(".ico"):
             mimetype = "image/x-icon"
         static_dir = get_static_dir(rel_path)
         return send_from_directory(static_dir, rel_path, mimetype=mimetype)
+
     return render_template("index.html")
 
 
-@app.route("/generate", methods=["POST"])
-@app.route("/api/generate", methods=["POST"])
-@app.route("/api/index.py/generate", methods=["POST"])
+@app.route("/generate", methods=["GET", "POST", "OPTIONS"])
+@app.route("/api/generate", methods=["GET", "POST", "OPTIONS"])
+@app.route("/api/index.py/generate", methods=["GET", "POST", "OPTIONS"])
 def generate_recipe():
     """레시피 3종 후보 생성 및 유튜브 연동 엔드포인트"""
+    if request.method == "OPTIONS":
+        return "", 200
+    if request.method == "GET":
+        return jsonify({"success": True, "message": "Recipe API is active."})
     try:
         data = request.get_json()
         if not data:
