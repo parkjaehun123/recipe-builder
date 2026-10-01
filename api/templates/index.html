@@ -22,46 +22,46 @@
   <!-- 넷플릭스 흑백요리사 시네마틱 다크 럭셔리 스타일 -->
   <style>
 /* ==========================================================================
-   ⚔️ NETFLIX 흑백요리사 (Culinary Class Wars) 테마 디자인 시스템
+   ⚔️ NETFLIX 흑백요리사 (Culinary Class Wars) - 고가독성 프리미엄 테마
    ========================================================================== */
 :root {
-  --bg-deep: #07070a;
-  --bg-main: #0d0d14;
-  --bg-card: rgba(18, 18, 27, 0.92);
-  --bg-card-solid: #13131e;
-  --bg-inner: #191926;
-  --bg-inner-hover: #222233;
+  --bg-deep: #0a0b10;
+  --bg-main: #0f1017;
+  --bg-card: #141522;
+  --bg-card-solid: #171827;
+  --bg-inner: #1c1d2e;
+  --bg-inner-hover: #26283d;
   
-  /* 흑백요리사 시그니처 컬러 */
-  --white-spoon: #f8fafc;
-  --white-muted: #cbd5e1;
-  --black-spoon: #09090d;
+  /* 흑백 대비 및 가독성 최적화 텍스트 */
+  --text-main: #ffffff;
+  --text-body: #f8fafc;
+  --text-sub: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-caption: #94a3b8;
   
   /* 골드 & 넷플릭스 레드 악센트 */
-  --gold-primary: #f59e0b;
-  --gold-light: #fbbf24;
-  --gold-glow: rgba(245, 158, 11, 0.35);
-  --gold-border: rgba(245, 158, 11, 0.3);
+  --gold-primary: #fbbf24;
+  --gold-dark: #f59e0b;
+  --gold-light: #fef08a;
+  --gold-glow: rgba(251, 191, 36, 0.35);
+  --gold-border: rgba(251, 191, 36, 0.45);
   
   --netflix-red: #E50914;
-  --netflix-dark: #b81d24;
+  --netflix-bright: #ff3340;
   --netflix-glow: rgba(229, 9, 20, 0.45);
   
-  --text-main: #f8fafc;
-  --text-sub: #94a3b8;
-  --text-muted: #64748b;
-  
-  --border-subtle: #242435;
-  --border-glow: rgba(255, 255, 255, 0.12);
+  --border-subtle: #2d3049;
+  --border-strong: #3f4366;
+  --border-glow: rgba(255, 255, 255, 0.18);
   
   --radius-xl: 24px;
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-sm: 8px;
   
-  --shadow-cinema: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.15);
-  --shadow-gold: 0 0 25px rgba(245, 158, 11, 0.35);
-  --shadow-red: 0 0 30px rgba(229, 9, 20, 0.4);
+  --shadow-cinema: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 1px rgba(255, 255, 255, 0.2);
+  --shadow-gold: 0 0 25px rgba(251, 191, 36, 0.35);
+  --shadow-red: 0 0 30px rgba(229, 9, 20, 0.45);
 }
 
 * {
@@ -71,19 +71,22 @@
 }
 
 body {
-  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background-color: var(--bg-deep);
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.15), transparent 45%),
-    radial-gradient(circle at 10% 40%, rgba(245, 158, 11, 0.08), transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.04), transparent 40%),
-    linear-gradient(to bottom, #07070a 0%, #0d0d14 100%);
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.18), transparent 45%),
+    radial-gradient(circle at 10% 40%, rgba(251, 191, 36, 0.1), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05), transparent 40%),
+    linear-gradient(to bottom, #0a0b10 0%, #10111a 100%);
   background-attachment: fixed;
-  color: var(--text-main);
-  line-height: 1.6;
+  color: var(--text-body);
+  line-height: 1.7;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 /* --- 흑백요리사 배경 스포트라이트 & 엠블럼 --- */
@@ -101,8 +104,8 @@ body {
 .decor-item {
   position: absolute;
   font-size: 2.2rem;
-  opacity: 0.12;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  opacity: 0.15;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
   animation: floatCinematic 10s ease-in-out infinite alternate;
 }
 
@@ -118,9 +121,9 @@ body {
   100% { transform: translateY(-25px) rotate(15deg) scale(1.08); }
 }
 
-/* --- 상단 내비게이션 바 (넷플릭스 글래스모피즘) --- */
+/* --- 상단 내비게이션 바 (선명한 넷플릭스 글래스) --- */
 .navbar {
-  background: rgba(13, 13, 20, 0.85);
+  background: rgba(16, 17, 26, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -128,7 +131,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
 }
 
 .nav-container {
@@ -143,28 +146,28 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-weight: 900;
   font-size: 1.35rem;
-  color: var(--white-spoon);
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  letter-spacing: -0.02em;
 }
 
 .logo-tag {
   background: linear-gradient(135deg, var(--netflix-red) 0%, #b81d24 100%);
   color: #fff;
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.75rem;
+  font-weight: 900;
   padding: 2px 7px;
   border-radius: 4px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   font-family: 'Montserrat', sans-serif;
 }
 
 .chef-hat {
   font-size: 1.5rem;
   display: inline-block;
-  filter: drop-shadow(0 0 8px var(--gold-glow));
+  filter: drop-shadow(0 0 10px var(--gold-glow));
 }
 
 .nav-actions {
@@ -174,36 +177,36 @@ body {
 }
 
 .btn-cute-install {
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid var(--gold-primary);
+  background: rgba(251, 191, 36, 0.15);
+  border: 1.5px solid var(--gold-primary);
   color: var(--gold-light);
   padding: 8px 14px;
   border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.88rem;
+  font-weight: 800;
+  font-size: 0.9rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   transition: all 0.25s ease;
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
+  box-shadow: 0 0 14px rgba(251, 191, 36, 0.2);
 }
 
 .btn-cute-install:hover {
   background: var(--gold-primary);
-  color: #000;
+  color: #000000;
   box-shadow: var(--shadow-gold);
   transform: translateY(-2px);
 }
 
 .btn-lock-app {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-strong);
   color: var(--text-sub);
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -212,14 +215,14 @@ body {
 }
 
 .btn-lock-app:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: var(--white-spoon);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
 }
 
 .btn-cute-bookmark {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--white-spoon);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-strong);
+  color: #ffffff;
   padding: 8px 14px;
   border-radius: 20px;
   font-weight: 700;
@@ -232,15 +235,15 @@ body {
 }
 
 .btn-cute-bookmark:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
 
 .badge-cute {
   background: var(--netflix-red);
   color: #fff;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   padding: 2px 7px;
   border-radius: 10px;
   font-weight: 800;
@@ -251,41 +254,40 @@ body {
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 34px 20px;
+  padding: 36px 20px;
   position: relative;
   z-index: 1;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 34px;
+  margin-bottom: 36px;
 }
 
 .header-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(229, 9, 20, 0.12);
-  color: #ff5252;
-  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  background: rgba(229, 9, 20, 0.16);
+  color: #ff6b6b;
   font-weight: 800;
-  font-size: 0.88rem;
-  letter-spacing: 1.5px;
-  padding: 6px 18px;
+  font-size: 0.92rem;
+  letter-spacing: 0.5px;
+  padding: 7px 20px;
   border-radius: 20px;
-  border: 1px solid rgba(229, 9, 20, 0.35);
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
+  border: 1.5px solid rgba(229, 9, 20, 0.45);
+  margin-bottom: 14px;
+  box-shadow: 0 0 18px rgba(229, 9, 20, 0.25);
 }
 
 .main-title {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 2.5rem;
-  color: var(--white-spoon);
-  margin-bottom: 10px;
-  letter-spacing: 0.5px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.2);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
 }
 
 .main-title .highlight-gold {
@@ -295,29 +297,31 @@ body {
 
 .subtitle {
   color: var(--text-sub);
-  font-size: 1.05rem;
-  max-width: 620px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  max-width: 660px;
   margin: 0 auto;
+  line-height: 1.65;
 }
 
 /* --- 📲 눈에 잘 띄는 홈 화면 앱 설치 배너 --- */
 .pwa-hero-banner {
   display: flex;
   justify-content: center;
-  margin: 20px auto 4px auto;
+  margin: 22px auto 6px auto;
   width: 100%;
-  max-width: 540px;
+  max-width: 560px;
 }
 
 .btn-hero-install {
   width: 100%;
-  background: linear-gradient(135deg, #181824 0%, #242436 100%);
-  color: var(--white-spoon);
+  background: linear-gradient(135deg, #1c1d2e 0%, #292b42 100%);
+  color: #ffffff;
   border: 1.5px solid var(--gold-primary);
-  padding: 14px 22px;
+  padding: 15px 24px;
   border-radius: 20px;
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.05rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -330,8 +334,8 @@ body {
 
 .btn-hero-install:hover {
   transform: translateY(-2px) scale(1.02);
-  background: linear-gradient(135deg, #242436 0%, #303046 100%);
-  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
+  background: linear-gradient(135deg, #26283d 0%, #353856 100%);
+  box-shadow: 0 12px 30px rgba(251, 191, 36, 0.45);
 }
 
 .btn-hero-install:active {
@@ -339,19 +343,18 @@ body {
 }
 
 .pulse-icon {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   animation: bounceSoft 1.5s infinite;
 }
 
 .badge-free {
   background: var(--gold-primary);
-  color: #000;
-  font-size: 0.75rem;
+  color: #000000;
+  font-size: 0.78rem;
   font-weight: 900;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  letter-spacing: 0.5px;
 }
 
 @keyframes bounceSoft {
@@ -359,14 +362,14 @@ body {
   50% { transform: translateY(-4px); }
 }
 
-/* --- ⚔️ 흑백요리사 글래스모피즘 카드 공통 스타일 --- */
+/* --- ⚔️ 흑백요리사 카드 공통 스타일 (고선명) --- */
 .cute-card {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
-  padding: 34px 30px;
+  padding: 36px 32px;
   box-shadow: var(--shadow-cinema);
-  margin-bottom: 30px;
-  border: 1px solid var(--border-subtle);
+  margin-bottom: 32px;
+  border: 1.5px solid var(--border-subtle);
   position: relative;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -376,92 +379,92 @@ body {
   content: "";
   position: absolute;
   top: 0;
-  left: 30px;
-  right: 30px;
+  left: 32px;
+  right: 32px;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--gold-primary), var(--netflix-red), transparent);
   border-radius: 2px;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .form-title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
   flex-wrap: wrap;
   gap: 12px;
 }
 
 .card-title {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.45rem;
-  color: var(--white-spoon);
+  font-weight: 900;
+  color: #ffffff;
   display: flex;
   align-items: center;
   gap: 10px;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.02em;
 }
 
 .btn-surprise-cute {
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.4);
+  background: rgba(251, 191, 36, 0.15);
+  border: 1.5px solid rgba(251, 191, 36, 0.5);
   color: var(--gold-light);
-  padding: 8px 16px;
+  padding: 9px 18px;
   border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 800;
+  font-size: 0.92rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transition: all 0.25s ease;
 }
 
 .btn-surprise-cute:hover {
   transform: translateY(-2px) scale(1.04);
   background: var(--gold-primary);
-  color: #000;
+  color: #000000;
   box-shadow: var(--shadow-gold);
 }
 
-/* --- 폼 입력 요소 --- */
+/* --- 폼 입력 요소 (초고가독성) --- */
 .form-group {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .label-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .form-group label {
   font-weight: 700;
-  color: var(--white-muted);
-  font-size: 0.95rem;
+  color: #ffffff;
+  font-size: 1.02rem;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .icon-bubble {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .required-star {
-  color: var(--netflix-red);
+  color: #ff4d4f;
   font-size: 1.1rem;
 }
 
 .btn-text-clear {
   background: none;
   border: none;
-  color: var(--text-muted);
-  font-size: 0.82rem;
-  font-weight: 600;
+  color: var(--text-caption);
+  font-size: 0.85rem;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -470,43 +473,50 @@ body {
 }
 
 .btn-text-clear:hover {
-  color: var(--netflix-red);
+  color: #ff6b6b;
 }
 
 input[type="text"],
 select {
   width: 100%;
-  padding: 14px 18px;
-  border: 1px solid var(--border-subtle);
+  padding: 15px 18px;
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-md);
-  font-size: 1rem;
-  color: var(--text-main);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #ffffff;
   background-color: var(--bg-inner);
   transition: all 0.2s ease;
   outline: none;
 }
 
+input[type="text"]::placeholder {
+  color: var(--text-caption);
+  opacity: 0.9;
+}
+
 input[type="text"]:focus,
 select:focus {
   border-color: var(--gold-primary);
-  background-color: var(--bg-card-solid);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+  background-color: #212338;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.3);
 }
 
 select option {
-  background: var(--bg-card-solid);
-  color: var(--text-main);
+  background: #171827;
+  color: #ffffff;
+  padding: 10px;
 }
 
-/* --- 톡톡 누르는 인기 재료 칩 --- */
+/* --- 인기 재료 칩 (높은 대비) --- */
 .quick-chips-wrapper {
   margin-top: 14px;
 }
 
 .chips-label {
   display: block;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   color: var(--gold-primary);
   margin-bottom: 10px;
 }
@@ -519,12 +529,12 @@ select option {
 
 .ingredient-chip {
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: 20px;
-  padding: 7px 14px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-sub);
+  padding: 8px 15px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -534,61 +544,61 @@ select option {
 
 .ingredient-chip:hover {
   background: var(--bg-inner-hover);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: var(--white-spoon);
+  border-color: var(--gold-primary);
+  color: #ffffff;
   transform: translateY(-2px);
 }
 
 .ingredient-chip.chip-active {
-  background: linear-gradient(135deg, var(--gold-primary) 0%, #d97706 100%);
+  background: linear-gradient(135deg, var(--gold-primary) 0%, #f59e0b 100%);
   border-color: var(--gold-light);
   color: #000000;
-  font-weight: 800;
+  font-weight: 900;
   box-shadow: 0 0 14px var(--gold-glow);
 }
 
 .chip-emoji {
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 18px;
 }
 
-/* --- 넷플릭스 레드 & 챔피언 골드 생성 버튼 --- */
+/* --- 생성 버튼 (선명한 넷플릭스 레드/골드) --- */
 .btn-cute-submit {
   width: 100%;
-  background: linear-gradient(135deg, #E50914 0%, #b81d24 50%, #f59e0b 100%);
+  background: linear-gradient(135deg, #E50914 0%, #c41822 50%, #d97706 100%);
   color: #ffffff;
-  padding: 16px 24px;
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
-  font-size: 1.35rem;
-  letter-spacing: 1px;
+  padding: 17px 26px;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  box-shadow: 0 8px 30px rgba(229, 9, 20, 0.45), 0 0 20px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 8px 30px rgba(229, 9, 20, 0.5), 0 0 20px rgba(251, 191, 36, 0.25);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  margin-top: 14px;
+  margin-top: 16px;
   text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .btn-cute-submit:hover {
   transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.6), 0 0 25px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.65), 0 0 25px rgba(251, 191, 36, 0.45);
 }
 
 .btn-cute-submit:active {
   transform: scale(0.99);
 }
 
-/* --- 블라인드 테이스팅 로딩 인디케이터 --- */
+/* --- 로딩 애니메이션 --- */
 .cute-cooking-pot {
   position: relative;
   width: 100px;
@@ -629,8 +639,8 @@ select option {
 }
 
 .loading-title {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.45rem;
+  font-weight: 900;
   color: var(--gold-primary);
   margin-bottom: 8px;
   text-shadow: 0 0 15px var(--gold-glow);
@@ -638,18 +648,18 @@ select option {
 
 .loading-subtext {
   color: var(--text-sub);
-  font-size: 0.95rem;
+  font-size: 1.02rem;
 }
 
-/* --- 3종 추천 요리 선택 탭 (서바이버 랭킹 카드) --- */
+/* --- 3종 서바이버 랭킹 카드 (선명한 탭) --- */
 .recipe-selection-section {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .selection-title {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.4rem;
-  color: var(--white-spoon);
+  font-weight: 900;
+  color: #ffffff;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -664,9 +674,9 @@ select option {
 
 .recipe-tab-card {
   background: var(--bg-card);
-  border: 1.5px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  padding: 18px 16px;
+  padding: 20px 18px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
@@ -678,50 +688,49 @@ select option {
 
 .recipe-tab-card:hover {
   transform: translateY(-4px) scale(1.02);
-  border-color: rgba(245, 158, 11, 0.6);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px var(--gold-glow);
+  border-color: var(--gold-primary);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 18px var(--gold-glow);
 }
 
 .recipe-tab-card.active-tab {
   border-color: var(--gold-primary);
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(19, 19, 27, 0.95) 100%);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.16) 0%, rgba(23, 24, 39, 0.95) 100%);
   box-shadow: 0 0 0 2px var(--gold-primary), var(--shadow-gold);
 }
 
 .tab-tag {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 800;
+  font-size: 0.82rem;
+  font-weight: 900;
   color: var(--gold-light);
-  background: rgba(245, 158, 11, 0.16);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  padding: 3px 8px;
+  background: rgba(251, 191, 36, 0.2);
+  border: 1px solid rgba(251, 191, 36, 0.45);
+  padding: 4px 10px;
   border-radius: 6px;
   display: inline-block;
   margin-bottom: 10px;
   align-self: flex-start;
-  letter-spacing: 0.5px;
 }
 
 .tab-title {
-  font-family: 'Black Han Sans', 'Noto Sans KR', sans-serif;
-  font-size: 1.2rem;
-  color: var(--white-spoon);
-  margin-bottom: 8px;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
   line-height: 1.35;
 }
 
 .tab-meta {
-  font-size: 0.82rem;
-  color: var(--text-sub);
+  font-size: 0.88rem;
+  color: var(--text-muted);
   display: flex;
-  gap: 10px;
+  gap: 12px;
   font-weight: 600;
 }
 
-/* --- 레시피 북 스타일 상세 결과 카드 --- */
+/* --- 상세 레시피 결과 카드 (초고선명 플레이팅) --- */
 .recipe-book-card {
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   background: var(--bg-card);
   position: relative;
   padding-top: 36px;
@@ -731,30 +740,29 @@ select option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   flex-wrap: wrap;
   gap: 12px;
 }
 
 .cute-badge {
-  background: rgba(245, 158, 11, 0.15);
+  background: rgba(251, 191, 36, 0.18);
   color: var(--gold-light);
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 0.95rem;
-  padding: 6px 14px;
+  font-weight: 900;
+  font-size: 1rem;
+  padding: 7px 16px;
   border-radius: 20px;
-  border: 1px solid var(--gold-border);
-  letter-spacing: 0.5px;
+  border: 1.5px solid var(--gold-border);
 }
 
 .btn-cute-action {
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-main);
-  padding: 8px 14px;
+  border: 1.5px solid var(--border-strong);
+  color: #ffffff;
+  padding: 9px 16px;
   border-radius: 14px;
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -764,45 +772,47 @@ select option {
 
 .btn-cute-action:hover {
   background: var(--bg-inner-hover);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: var(--white-spoon);
+  border-color: #ffffff;
   transform: translateY(-1px);
 }
 
 .btn-bookmarked {
-  background: rgba(229, 9, 20, 0.2) !important;
-  color: #ff5252 !important;
+  background: rgba(229, 9, 20, 0.25) !important;
+  color: #ff6b6b !important;
   border-color: var(--netflix-red) !important;
 }
 
 .menu-title {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
-  font-size: 2.2rem;
-  color: var(--white-spoon);
-  margin-bottom: 8px;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .menu-desc {
   color: var(--text-sub);
-  font-size: 1.05rem;
-  margin-bottom: 16px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.65;
+  margin-bottom: 18px;
 }
 
 .menu-tags {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .tag-cute {
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
-  padding: 6px 14px;
+  border: 1.5px solid var(--border-strong);
+  padding: 7px 16px;
   border-radius: 20px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--white-muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -810,11 +820,11 @@ select option {
 
 /* --- 넷플릭스 시네마 유튜브 배너 --- */
 .cute-tv-card {
-  background: linear-gradient(135deg, rgba(229, 9, 20, 0.12) 0%, rgba(20, 20, 30, 0.9) 100%);
-  border: 1px solid rgba(229, 9, 20, 0.35);
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.18) 0%, rgba(26, 27, 44, 0.95) 100%);
+  border: 1.5px solid rgba(229, 9, 20, 0.45);
   border-radius: var(--radius-lg);
-  padding: 18px 22px;
-  margin: 22px 0;
+  padding: 20px 24px;
+  margin: 24px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -823,31 +833,31 @@ select option {
 }
 
 .youtube-badge {
-  color: var(--netflix-red);
-  font-weight: 800;
-  font-size: 0.9rem;
+  color: #ff4d4f;
+  font-weight: 900;
+  font-size: 0.92rem;
   margin-bottom: 4px;
   letter-spacing: 0.5px;
 }
 
 .yt-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--white-spoon);
-  margin-bottom: 2px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
 
 .yt-channel {
-  font-size: 0.85rem;
+  font-size: 0.92rem;
   color: var(--text-sub);
 }
 
 .btn-youtube-cute {
   background: var(--netflix-red);
-  color: #fff;
-  padding: 10px 20px;
-  font-weight: 800;
-  font-size: 0.95rem;
+  color: #ffffff;
+  padding: 12px 22px;
+  font-weight: 900;
+  font-size: 1rem;
   border-radius: 20px;
   text-decoration: none;
   flex-shrink: 0;
@@ -861,28 +871,28 @@ select option {
 .btn-youtube-cute:hover {
   transform: scale(1.05);
   background: #ff1e27;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* --- 다크 럭셔리 영양 성분 카드 --- */
+/* --- 다크 럭셔리 영양 분석 카드 (선명한 수치) --- */
 .cute-nutrition-card {
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  padding: 20px;
-  margin: 22px 0;
+  padding: 22px;
+  margin: 24px 0;
 }
 
 .nutrition-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .nutrition-header h3 {
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 900;
   color: var(--gold-light);
   display: flex;
   align-items: center;
@@ -890,59 +900,60 @@ select option {
 }
 
 .calories-badge-cute {
-  background: rgba(245, 158, 11, 0.18);
+  background: rgba(251, 191, 36, 0.2);
   color: var(--gold-light);
-  font-weight: 800;
-  font-size: 1rem;
-  padding: 4px 14px;
+  font-weight: 900;
+  font-size: 1.05rem;
+  padding: 5px 16px;
   border-radius: 20px;
-  border: 1px solid var(--gold-border);
+  border: 1.5px solid var(--gold-border);
 }
 
 .nutrition-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 14px;
 }
 
 .cute-nutri-item {
   background: var(--bg-card-solid);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-md);
-  padding: 10px;
+  padding: 12px 10px;
   text-align: center;
 }
 
 .nutri-label {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-muted);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .nutri-val {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--white-spoon);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #ffffff;
 }
 
 .nutri-summary-cute {
-  font-size: 0.88rem;
-  color: var(--text-sub);
-  background: rgba(255, 255, 255, 0.04);
-  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 12px 16px;
   border-radius: var(--radius-sm);
-  margin-top: 8px;
-  border: 1px solid var(--border-subtle);
+  margin-top: 10px;
+  border: 1px solid var(--border-strong);
 }
 
 /* 흑백요리사 구분선 */
 .cute-divider {
   text-align: center;
-  margin: 28px 0;
+  margin: 30px 0;
   position: relative;
 }
 
@@ -953,22 +964,22 @@ select option {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
   z-index: 0;
 }
 
 .cute-divider span {
   background: var(--bg-card-solid);
-  padding: 4px 16px;
+  padding: 5px 18px;
   border-radius: 20px;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-strong);
   position: relative;
   z-index: 1;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: 6px;
 }
 
-/* --- 재료 & 양념 그리드 --- */
+/* --- 재료 & 양념 그리드 (선명한 텍스트) --- */
 .recipe-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -976,8 +987,8 @@ select option {
 }
 
 .cute-box h3 {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
+  font-weight: 900;
   color: var(--gold-light);
   margin-bottom: 14px;
   display: flex;
@@ -988,18 +999,19 @@ select option {
 .cute-list {
   list-style: none;
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  padding: 12px 18px;
+  padding: 14px 20px;
 }
 
 .cute-list li {
   position: relative;
-  padding: 9px 0 9px 24px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--text-main);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 10px 0 10px 26px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  line-height: 1.6;
 }
 
 .cute-list li:last-child {
@@ -1008,13 +1020,13 @@ select option {
 
 .cute-list li::before {
   content: "🥄";
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   position: absolute;
   left: 2px;
-  top: 9px;
+  top: 11px;
 }
 
-/* --- 단계별 조리 순서 --- */
+/* --- 단계별 조리 순서 (선명한 카드와 뱃지) --- */
 .cute-steps {
   list-style: none;
   counter-reset: cute-step;
@@ -1023,51 +1035,52 @@ select option {
 .cute-steps li {
   counter-increment: cute-step;
   position: relative;
-  padding: 16px 18px 16px 58px;
+  padding: 18px 20px 18px 62px;
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-md);
-  margin-bottom: 12px;
-  font-size: 0.98rem;
-  line-height: 1.6;
-  color: var(--text-main);
+  margin-bottom: 14px;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .cute-steps li::before {
   content: counter(cute-step);
   position: absolute;
-  left: 16px;
-  top: 16px;
-  background: linear-gradient(135deg, var(--gold-primary) 0%, #d97706 100%);
-  color: #000;
+  left: 18px;
+  top: 18px;
+  background: linear-gradient(135deg, var(--gold-primary) 0%, #f59e0b 100%);
+  color: #000000;
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.95rem;
+  font-size: 1rem;
   box-shadow: 0 0 10px var(--gold-glow);
 }
 
-/* --- 팁 & 대체 가이드 --- */
+/* --- 팁 & 대체 가이드 (고대비 하이라이트) --- */
 .tips-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 18px;
 }
 
 .cute-tip-box {
-  padding: 20px;
+  padding: 22px;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
 }
 
 .cute-tip-box h4 {
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  font-weight: 900;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -1075,19 +1088,19 @@ select option {
 }
 
 .cute-tip-box ul {
-  padding-left: 18px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--text-sub);
+  padding-left: 20px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: #ffffff;
 }
 
 .cute-tip-box li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .fail-proof {
-  background-color: rgba(245, 158, 11, 0.08);
-  border-color: rgba(245, 158, 11, 0.3);
+  background-color: rgba(251, 191, 36, 0.14);
+  border-color: rgba(251, 191, 36, 0.5);
 }
 
 .fail-proof h4 {
@@ -1095,37 +1108,37 @@ select option {
 }
 
 .substitute {
-  background-color: rgba(34, 197, 94, 0.08);
-  border-color: rgba(34, 197, 94, 0.3);
+  background-color: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.5);
 }
 
 .substitute h4 {
   color: #4ade80;
 }
 
-/* --- 비밀 요리책 드로어 (다크 럭셔리) --- */
+/* --- 시크릿 레시피북 보관함 드로어 --- */
 .drawer-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   z-index: 200;
   display: flex;
   justify-content: flex-end;
 }
 
 .cute-drawer {
-  background: #101018;
-  border-left: 1px solid var(--border-subtle);
+  background: #12131f;
+  border-left: 1.5px solid var(--border-strong);
   width: 100%;
-  max-width: 440px;
+  max-width: 460px;
   height: 100%;
-  padding: 28px 22px;
+  padding: 30px 24px;
   overflow-y: auto;
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
 }
@@ -1134,95 +1147,96 @@ select option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 16px;
-  margin-bottom: 20px;
+  border-bottom: 1.5px solid var(--border-strong);
+  padding-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .drawer-header h2 {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
-  font-size: 1.4rem;
-  color: var(--white-spoon);
+  font-size: 1.45rem;
+  font-weight: 900;
+  color: #ffffff;
 }
 
 .btn-close {
   background: none;
   border: none;
-  font-size: 2rem;
+  font-size: 2.2rem;
   cursor: pointer;
-  color: var(--text-muted);
+  color: var(--text-caption);
   transition: color 0.2s;
 }
 
 .btn-close:hover {
-  color: #fff;
+  color: #ffffff;
 }
 
 .bookmark-item {
   background: var(--bg-card-solid);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-lg);
-  padding: 16px;
+  padding: 18px;
   margin-bottom: 14px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .bookmark-item-title {
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 1.15rem;
-  color: var(--white-spoon);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
   margin-bottom: 6px;
 }
 
 .bookmark-item-meta {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-sub);
   font-weight: 500;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .bookmark-item-actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .bookmark-item-actions .load-btn {
   background: var(--gold-primary);
-  color: #000;
+  color: #000000;
   border: none;
-  padding: 6px 14px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
   font-weight: 800;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   cursor: pointer;
 }
 
 .bookmark-item-actions .delete-btn {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--text-sub);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   border: none;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.82rem;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.88rem;
   cursor: pointer;
 }
 
 /* --- 에러 알림 --- */
 .cute-alert {
-  background: rgba(229, 9, 20, 0.15);
-  border: 1px solid rgba(229, 9, 20, 0.4);
-  color: #ff8080;
+  background: rgba(229, 9, 20, 0.18);
+  border: 1.5px solid rgba(229, 9, 20, 0.5);
+  color: #ff9999;
   border-radius: var(--radius-lg);
-  padding: 16px 20px;
+  padding: 18px 22px;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.02rem;
 }
 
 .alert-icon {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 /* --- 푸터 & 유틸리티 --- */
@@ -1232,20 +1246,20 @@ select option {
 
 .footer {
   text-align: center;
-  color: var(--text-muted);
-  font-size: 0.88rem;
+  color: var(--text-sub);
+  font-size: 0.92rem;
   margin-top: 40px;
   padding-bottom: 30px;
 }
 
-/* --- 🔒 흑백요리사 블라인드 심사관 비밀번호 잠금 화면 --- */
+/* --- 🔒 흑백요리사 블라인드 심사관 잠금 화면 --- */
 .lock-screen-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(7, 7, 10, 0.95);
+  background: rgba(8, 9, 14, 0.96);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   z-index: 99999;
@@ -1264,11 +1278,11 @@ select option {
 
 .lock-card {
   width: 100%;
-  max-width: 400px;
-  background: linear-gradient(135deg, #12121b 0%, #1a1a28 100%);
-  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  max-width: 410px;
+  background: linear-gradient(135deg, #151624 0%, #1e1f33 100%);
+  border: 1.5px solid var(--gold-border);
   border-radius: 28px;
-  padding: 38px 28px;
+  padding: 40px 30px;
   text-align: center;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), var(--shadow-gold);
   animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1308,24 +1322,24 @@ select option {
   right: -6px;
   font-size: 1.4rem;
   background: #111;
-  border: 1px solid var(--gold-primary);
+  border: 1.5px solid var(--gold-primary);
   border-radius: 50%;
   padding: 4px;
 }
 
 .lock-title {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.65rem;
-  color: var(--white-spoon);
-  margin-bottom: 8px;
-  text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.35);
 }
 
 .lock-desc {
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   color: var(--text-sub);
-  line-height: 1.55;
-  margin-bottom: 24px;
+  line-height: 1.6;
+  margin-bottom: 26px;
 }
 
 .lock-form {
@@ -1341,14 +1355,15 @@ select option {
 
 .lock-input {
   width: 100%;
-  height: 52px;
-  border: 1.5px solid var(--border-subtle);
+  height: 54px;
+  border: 1.5px solid var(--border-strong);
   border-radius: 16px;
   padding: 0 45px 0 16px;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 600;
   text-align: center;
-  background: var(--bg-deep);
-  color: var(--white-spoon);
+  background: #0e0f18;
+  color: #ffffff;
   outline: none;
   transition: all 0.2s ease;
   letter-spacing: 2px;
@@ -1356,7 +1371,7 @@ select option {
 
 .lock-input:focus {
   border-color: var(--gold-primary);
-  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.35);
 }
 
 .btn-toggle-pw {
@@ -1366,43 +1381,43 @@ select option {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: var(--text-muted);
-  font-size: 1.1rem;
+  color: var(--text-caption);
+  font-size: 1.15rem;
   cursor: pointer;
   padding: 4px;
 }
 
 .lock-error-msg {
   color: #ff6b6b;
-  font-size: 0.85rem;
-  font-weight: 700;
-  background: rgba(229, 9, 20, 0.15);
-  border: 1px solid rgba(229, 9, 20, 0.35);
+  font-size: 0.9rem;
+  font-weight: 800;
+  background: rgba(229, 9, 20, 0.2);
+  border: 1.5px solid rgba(229, 9, 20, 0.45);
   border-radius: 10px;
-  padding: 9px;
+  padding: 10px;
 }
 
 .btn-unlock {
   margin-top: 6px;
-  padding: 15px;
-  font-size: 1.15rem;
+  padding: 16px;
+  font-size: 1.2rem;
 }
 
-/* --- 📲 모바일 하단 고정 플로팅 바 (다크 럭셔리) --- */
+/* --- 📲 모바일 하단 고정 플로팅 바 --- */
 .mobile-floating-install {
   display: none;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(13, 13, 20, 0.95);
+  background: rgba(18, 19, 30, 0.96);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid var(--gold-border);
+  border-top: 1.5px solid var(--gold-border);
   padding: 12px 18px;
   padding-bottom: max(12px, env(safe-area-inset-bottom));
   z-index: 99990;
-  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.85);
   animation: slideUpFloat 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1434,7 +1449,7 @@ select option {
   border-radius: 12px;
   flex-shrink: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
 }
 
 .floating-app-info {
@@ -1444,18 +1459,18 @@ select option {
 }
 
 .floating-app-info strong {
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 0.95rem;
-  color: var(--white-spoon);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #ffffff;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .floating-app-info span {
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: var(--gold-primary);
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1469,12 +1484,12 @@ select option {
 }
 
 .btn-floating-install {
-  background: linear-gradient(135deg, var(--gold-primary) 0%, #d97706 100%);
+  background: linear-gradient(135deg, var(--gold-primary) 0%, #f59e0b 100%);
   color: #000000;
   border: none;
-  padding: 9px 18px;
+  padding: 10px 18px;
   border-radius: 20px;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 0.95rem;
   cursor: pointer;
   box-shadow: 0 0 14px var(--gold-glow);
@@ -1484,21 +1499,21 @@ select option {
 .btn-floating-close {
   background: none;
   border: none;
-  color: var(--text-muted);
-  font-size: 1.4rem;
+  color: var(--text-caption);
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 4px;
   line-height: 1;
 }
 
-/* --- 📲 PWA 설치 가이드 모달 (다크 모드) --- */
+/* --- 📲 PWA 설치 가이드 모달 --- */
 .pwa-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px);
   z-index: 999999;
   display: flex;
@@ -1509,12 +1524,12 @@ select option {
 
 .pwa-modal-card {
   width: 100%;
-  max-width: 440px;
-  background: #13131e;
+  max-width: 450px;
+  background: #171828;
   border: 1.5px solid var(--gold-border);
   border-radius: 24px;
-  padding: 26px 22px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.9), var(--shadow-gold);
+  padding: 28px 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.95), var(--shadow-gold);
   animation: popIn 0.3s ease;
 }
 
@@ -1522,14 +1537,14 @@ select option {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-subtle);
-  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--border-strong);
+  padding-bottom: 14px;
   margin-bottom: 18px;
 }
 
 .pwa-modal-header h3 {
-  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  font-weight: 900;
   color: var(--gold-light);
 }
 
@@ -1538,9 +1553,9 @@ select option {
   align-items: center;
   gap: 14px;
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: 16px;
-  padding: 12px 14px;
+  padding: 14px 16px;
   margin-bottom: 16px;
 }
 
@@ -1552,14 +1567,15 @@ select option {
 }
 
 .inapp-warning-box {
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.35);
+  background: rgba(251, 191, 36, 0.15);
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
   border-radius: 12px;
-  padding: 10px 12px;
-  margin-bottom: 14px;
-  font-size: 0.82rem;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--gold-light);
-  line-height: 1.45;
+  line-height: 1.5;
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -1567,28 +1583,29 @@ select option {
 
 .install-guide-box {
   background: var(--bg-inner);
-  border: 1px solid var(--border-subtle);
+  border: 1.5px solid var(--border-strong);
   border-radius: 16px;
-  padding: 16px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
+  padding: 18px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
 }
 
 .install-guide-box h4 {
-  font-family: 'Black Han Sans', sans-serif;
-  font-size: 1.05rem;
-  color: var(--white-spoon);
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #ffffff;
   margin-bottom: 10px;
 }
 
 .guide-steps {
   padding-left: 18px;
-  line-height: 1.6;
-  color: var(--text-sub);
+  line-height: 1.7;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .guide-steps li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 /* 모바일 화면에서 하단 플로팅 배너 노출 */
@@ -1597,11 +1614,11 @@ select option {
     display: block;
   }
   body {
-    padding-bottom: 75px;
+    padding-bottom: 80px;
   }
 }
 
-/* --- 완벽 모바일 최적화 미디어 쿼리 --- */
+/* --- 모바일 최적화 미디어 쿼리 --- */
 @media (max-width: 768px) {
   html, body {
     overflow-x: hidden;
@@ -1609,40 +1626,40 @@ select option {
   }
 
   .container {
-    padding: 20px 14px;
+    padding: 22px 14px;
   }
 
   .navbar {
-    padding: 10px 14px;
+    padding: 12px 16px;
   }
 
   .logo {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     gap: 6px;
   }
 
   .main-title {
-    font-size: 1.65rem;
+    font-size: 1.75rem;
     line-height: 1.35;
   }
 
   .subtitle {
-    font-size: 0.88rem;
+    font-size: 0.95rem;
   }
 
   .cute-card {
-    padding: 22px 16px;
+    padding: 24px 16px;
   }
 
   .card-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 
   .form-row,
   .recipe-grid,
   .tips-grid {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 16px;
   }
 
   .recipe-tabs-grid {
@@ -1666,23 +1683,23 @@ select option {
   .btn-cute-action {
     width: 100%;
     justify-content: center;
-    padding: 8px 10px;
+    padding: 10px 12px;
   }
 
   .menu-title {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
   }
 
   .nutrition-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 10px;
   }
 
   .cute-tv-card {
     flex-direction: column;
     align-items: stretch;
     gap: 14px;
-    padding: 16px;
+    padding: 18px;
   }
 
   .btn-youtube-cute {
@@ -1694,7 +1711,7 @@ select option {
 
 @media (max-width: 400px) {
   .logo-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
   .btn-cute-bookmark span:first-child {
     display: none;
@@ -1702,10 +1719,10 @@ select option {
   .btn-cute-install,
   .btn-cute-bookmark {
     padding: 6px 10px;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
   }
   .main-title {
-    font-size: 1.45rem;
+    font-size: 1.55rem;
   }
 }
 
