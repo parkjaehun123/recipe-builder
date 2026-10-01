@@ -1,0 +1,16 @@
+# 가상환경
+venv/
+.venv/
+
+# 환경변수 및 비밀 API 키 (절대 유출 방지)
+.env
+
+# 파이썬 캐시 파일
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS 임시 파일
+.DS_Store
+Thumbs.db

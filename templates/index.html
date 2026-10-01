@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>👨‍🍳 후니의 비밀 요리책 ✨</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Font Awesome 아이콘 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- 귀여운 한글 폰트 (Jua & Pretendard) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- 귀여운 배경 장식 요소들 -->
+  <div class="bg-decorations" aria-hidden="true">
+    <span class="decor-item decor-1">🍳</span>
+    <span class="decor-item decor-2">🥕</span>
+    <span class="decor-item decor-3">🥞</span>
+    <span class="decor-item decor-4">🥑</span>
+    <span class="decor-item decor-5">🍓</span>
+    <span class="decor-item decor-6">🧁</span>
+  </div>
+
+  <!-- 상단 내비게이션 바 -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="chef-hat">👨‍🍳</span>
+        <span class="logo-text">후니의 비밀 요리책</span>
+        <span class="sparkle">✨</span>
+      </div>
+      <button id="openBookmarksBtn" class="btn btn-cute-bookmark">
+        <span>🎀 비밀 요리책</span>
+        <span id="bookmarkCountBadge" class="badge-cute">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- 헤더 영역 -->
+    <header class="header">
+      <div class="header-badge">🍲 냉장고 파먹기 대작전!</div>
+      <h1 class="main-title">오늘 우리 집 식탁을 부탁해! 🍳</h1>
+      <p class="subtitle">냉장고 속 잠자고 있는 재료들로 마법 같은 3가지 요리를 만들어줄게요 🪄</p>
+    </header>
+
+    <!-- 메인 콘텐츠 영역 -->
+    <main class="main-content">
+      <!-- 1. 입력 폼 카드 (요리 주문서 테마) -->
+      <section class="card input-card cute-card">
+        <div class="tape-sticker"></div>
+        <div class="form-title-row">
+          <h2 class="card-title">
+            <span class="title-icon">📋</span> 오늘의 요리 주문서
+          </h2>
+          <button type="button" id="randomRecipeBtn" class="btn-surprise-cute">
+            <span>🎲 오늘 뭐 먹을까냥?</span>
+          </button>
+        </div>
+
+        <form id="recipeForm">
+          <!-- 보유 재료 -->
+          <div class="form-group">
+            <div class="label-row">
+              <label for="ingredients">
+                <span class="icon-bubble">🧺</span> 내 냉장고 속 재료들 <span class="required-star">★</span>
+              </label>
+              <button type="button" id="clearIngredientsBtn" class="btn-text-clear hidden">
+                <i class="fa-solid fa-rotate-left"></i> 싹 비우기
+              </button>
+            </div>
+            
+            <input type="text" id="ingredients" name="ingredients" 
+                   placeholder="재료를 적거나 아래 재료 칩을 콕콕 눌러보세요!" required>
+            
+            <!-- 원터치 인기 식재료 태그 칩 -->
+            <div class="quick-chips-wrapper">
+              <span class="chips-label">👇 콕! 누르면 바구니에 쏙 담겨요:</span>
+              <div class="chips-list">
+                <button type="button" class="ingredient-chip" data-name="계란"><span class="chip-emoji">🥚</span> 계란</button>
+                <button type="button" class="ingredient-chip" data-name="양파"><span class="chip-emoji">🧅</span> 양파</button>
+                <button type="button" class="ingredient-chip" data-name="감자"><span class="chip-emoji">🥔</span> 감자</button>
+                <button type="button" class="ingredient-chip" data-name="스팸"><span class="chip-emoji">🥓</span> 스팸</button>
+                <button type="button" class="ingredient-chip" data-name="돼지고기"><span class="chip-emoji">🥩</span> 돼지고기</button>
+                <button type="button" class="ingredient-chip" data-name="김치"><span class="chip-emoji">🥬</span> 김치</button>
+                <button type="button" class="ingredient-chip" data-name="대파"><span class="chip-emoji">🌱</span> 대파</button>
+                <button type="button" class="ingredient-chip" data-name="마늘"><span class="chip-emoji">🧄</span> 마늘</button>
+                <button type="button" class="ingredient-chip" data-name="참치캔"><span class="chip-emoji">🥫</span> 참치캔</button>
+                <button type="button" class="ingredient-chip" data-name="치즈"><span class="chip-emoji">🧀</span> 치즈</button>
+                <button type="button" class="ingredient-chip" data-name="두부"><span class="chip-emoji">🥘</span> 두부</button>
+                <button type="button" class="ingredient-chip" data-name="버섯"><span class="chip-emoji">🍄</span> 버섯</button>
+                <button type="button" class="ingredient-chip" data-name="청양고추"><span class="chip-emoji">🌶️</span> 청양고추</button>
+                <button type="button" class="ingredient-chip" data-name="버터"><span class="chip-emoji">🧈</span> 버터</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 인원수 & 조리시간 그리드 -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="servings"><span class="icon-bubble">🍽️</span> 몇 명이서 먹나요?</label>
+              <select id="servings" name="servings">
+                <option value="1인분 (혼밥)">1인분 (나 혼자 냠냠)</option>
+                <option value="2인분" selected>2인분 (알콩달콩 둘이서)</option>
+                <option value="3~4인분 (가족)">3~4인분 (다 함께 왁자지껄)</option>
+                <option value="5인분 이상 (파티)">5인분 이상 (파티 타임! 🎉)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="cookingTime"><span class="icon-bubble">⏰</span> 조리 시간</label>
+              <select id="cookingTime" name="cookingTime">
+                <option value="10분 컷 초간단">10분 컷 (초스피드 ⚡)</option>
+                <option value="20분 이내" selected>20분 이내 (적당히 뚝딱 🍳)</option>
+                <option value="30분 이내">30분 이내 (여유롭게 🍲)</option>
+                <option value="40분 이상 정성 요리">40분 이상 (정성 가득 특식 👑)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- 조리도구 -->
+          <div class="form-group">
+            <label for="tools"><span class="icon-bubble">🍳</span> 사용 가능한 조리도구</label>
+            <input type="text" id="tools" name="tools" 
+                   placeholder="예: 프라이팬, 냄비, 전자레인지, 에어프라이어" 
+                   value="프라이팬, 냄비">
+          </div>
+
+          <!-- 알레르기 & 비선호 성분 -->
+          <div class="form-group">
+            <label for="allergies"><span class="icon-bubble">🚫</span> 피하고 싶은 재료 (알레르기)</label>
+            <input type="text" id="allergies" name="allergies" 
+                   placeholder="예: 땅콩 빼주세요, 갑각류 알레르기 (없으면 비워두세요)">
+          </div>
+
+          <!-- 선호 음식 / 스타일 -->
+          <div class="form-group">
+            <label for="preference"><span class="icon-bubble">💖</span> 내가 원하는 요리 스타일</label>
+            <input type="text" id="preference" name="preference" 
+                   placeholder="예: 매콤 칼칼한 맛, 치즈 듬뿍, 저탄고지 다이어트, 달콤 짭조름">
+          </div>
+
+          <!-- 생성 버튼 -->
+          <button type="submit" id="generateBtn" class="btn btn-cute-submit">
+            <span class="btn-sparkle">✨</span> 맛있는 맞춤 요리 만들어줘! 🪄
+          </button>
+        </form>
+      </section>
+
+      <!-- 2. 로딩 인디케이터 (보글보글 요리 애니메이션) -->
+      <section id="loadingSection" class="card loading-card cute-card hidden">
+        <div class="cute-cooking-pot">
+          <span class="steam steam-1">🫧</span>
+          <span class="steam steam-2">💨</span>
+          <span class="steam steam-3">🫧</span>
+          <div class="pot-emoji">🍲</div>
+        </div>
+        <h3 class="loading-title">후니가 보글보글 요리 구상 중... 🍳</h3>
+        <p class="loading-subtext">영양 가득 3가지 요리와 유튜브 영상 레시피를 정성껏 끓이고 있어요 🧂✨</p>
+      </section>
+
+      <!-- 3. 에러 알림창 -->
+      <div id="errorAlert" class="alert alert-danger cute-alert hidden">
+        <span class="alert-icon">😿</span>
+        <span id="errorMessage">앗! 요리 레시피를 만드는 중 문제가 생겼어요.</span>
+      </div>
+
+      <!-- 4. 다중 레시피 선택 탭 (3종 메뉴 선택 카드) -->
+      <section id="recipeSelectionSection" class="recipe-selection-section hidden">
+        <h3 class="selection-title">
+          <span>✨</span> 오늘의 특급 추천 메뉴 3가지! <span>👇</span>
+        </h3>
+        <div id="recipeTabs" class="recipe-tabs-grid">
+          <!-- 3가지 요리 카드가 동적으로 생성됩니다 -->
+        </div>
+      </section>
+
+      <!-- 5. 선택된 레시피 상세 결과 카드 (레시피 북 스타일) -->
+      <section id="resultSection" class="card result-card recipe-book-card hidden">
+        <div class="spiral-binding" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <!-- 결과 상단 헤더 & 액션 버튼 -->
+        <div class="result-header">
+          <div id="categoryBadge" class="recipe-badge cute-badge">✨ 후니의 특선 요리</div>
+          <div class="recipe-actions">
+            <button id="bookmarkBtn" class="btn btn-cute-action" title="보관함에 찜하기">
+              <i class="fa-regular fa-heart"></i> <span>찜하기</span>
+            </button>
+            <button id="copyBtn" class="btn btn-cute-action" title="레시피 복사">
+              <i class="fa-regular fa-copy"></i> 복사
+            </button>
+            <button id="printBtn" class="btn btn-cute-action" title="인쇄하기">
+              <i class="fa-solid fa-print"></i> 인쇄
+            </button>
+            <button id="downloadBtn" class="btn btn-cute-action" title="파일 다운로드">
+              <i class="fa-solid fa-download"></i> 다운로드
+            </button>
+          </div>
+        </div>
+
+        <!-- 메뉴 이름 및 정보 -->
+        <div class="menu-intro">
+          <h2 id="menuName" class="menu-title">메뉴 이름</h2>
+          <p id="oneLineIntro" class="menu-desc">한 줄 소개</p>
+          <div class="menu-tags">
+            <span class="tag-cute"><i class="fa-solid fa-clock"></i> <span id="metaTime">20분</span></span>
+            <span class="tag-cute"><i class="fa-solid fa-user-group"></i> <span id="metaServings">2인분</span></span>
+            <span class="tag-cute"><i class="fa-solid fa-star"></i> <span id="metaDifficulty">초급</span></span>
+          </div>
+        </div>
+
+        <!-- 6. 유튜브 요리 영상 연동 배너 (귀여운 TV 스타일) -->
+        <div class="youtube-card cute-tv-card">
+          <div class="youtube-info">
+            <div class="youtube-badge"><i class="fa-brands fa-youtube"></i> 📺 셰프 영상 레시피</div>
+            <h4 id="ytTitle" class="yt-title">유튜브에서 실제 조리 영상을 함께 봐요!</h4>
+            <p id="ytChannel" class="yt-channel">따라 하기 쉬운 셰프들의 생생한 꿀팁이 담겨있어요 🎬</p>
+          </div>
+          <a id="ytLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-youtube-cute">
+            <i class="fa-solid fa-play"></i> 영상 보러가기!
+          </a>
+        </div>
+
+        <!-- 7. 스마트 영양 성분 & 칼로리 카드 (건강 쑥쑥 노트) -->
+        <div class="nutrition-card cute-nutrition-card">
+          <div class="nutrition-header">
+            <h3><span class="nutri-icon">💖</span> 건강 쑥쑥 영양 노트</h3>
+            <span id="nutriCalories" class="calories-badge-cute">약 420 kcal</span>
+          </div>
+          <div class="nutrition-grid">
+            <div class="nutri-item cute-nutri-item">
+              <span class="nutri-label">🍚 탄수화물</span>
+              <span id="nutriCarbs" class="nutri-val">45g</span>
+            </div>
+            <div class="nutri-item cute-nutri-item">
+              <span class="nutri-label">🥩 단백질</span>
+              <span id="nutriProtein" class="nutri-val">28g</span>
+            </div>
+            <div class="nutri-item cute-nutri-item">
+              <span class="nutri-label">🥑 지방</span>
+              <span id="nutriFat" class="nutri-val">14g</span>
+            </div>
+            <div class="nutri-item cute-nutri-item">
+              <span class="nutri-label">🧂 나트륨</span>
+              <span id="nutriSodium" class="nutri-val">650mg</span>
+            </div>
+          </div>
+          <p id="nutriSummary" class="nutri-summary-cute"><i class="fa-solid fa-seedling"></i> 단백질이 풍부하고 영양이 꽉 찬 건강한 한 끼예요!</p>
+        </div>
+
+        <div class="cute-divider"><span>🥕 🍳 🧅</span></div>
+
+        <!-- 재료 & 양념 섹션 -->
+        <div class="recipe-grid">
+          <div class="recipe-box cute-box">
+            <h3><span class="box-icon">🧺</span> 필요한 쏙쏙 재료</h3>
+            <ul id="ingredientsList" class="custom-list cute-list"></ul>
+          </div>
+          <div class="recipe-box cute-box">
+            <h3><span class="box-icon">🍯</span> 황금 양념장 비율</h3>
+            <ul id="sauceList" class="custom-list cute-list"></ul>
+          </div>
+        </div>
+
+        <div class="cute-divider"><span>🍳 🍲 🍳</span></div>
+
+        <!-- 조리 순서 -->
+        <div class="cooking-section cute-box">
+          <h3><span class="box-icon">👩‍🍳</span> 차근차근 조리 순서</h3>
+          <ol id="cookingSteps" class="step-list cute-steps"></ol>
+        </div>
+
+        <div class="cute-divider"><span>✨ 💡 🪄</span></div>
+
+        <!-- 팁 & 대체 가이드 -->
+        <div class="tips-grid">
+          <div class="tip-box fail-proof cute-tip-box">
+            <h4><span class="tip-icon">🛡️</span> 절대 안 망하는 비법 팁</h4>
+            <ul id="failProofTips"></ul>
+          </div>
+          <div class="tip-box substitute cute-tip-box">
+            <h4><span class="tip-icon">🔄</span> 없으면 이걸로 대체해요</h4>
+            <ul id="substituteGuide"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+      <p>🐾 후니의 비밀 요리책 🐾 | 맛있게 드시고 행복한 하루 되세요 💖</p>
+    </footer>
+  </div>
+
+  <!-- 비밀 요리책 보관함 드로어 -->
+  <div id="bookmarkDrawer" class="drawer-overlay hidden">
+    <div class="drawer-content cute-drawer">
+      <div class="drawer-header">
+        <h2><span>🎀</span> 후니의 비밀 요리책 <span>📖</span></h2>
+        <button id="closeDrawerBtn" class="btn-close">&times;</button>
+      </div>
+      <div id="bookmarkList" class="bookmark-list">
+        <!-- 북마크 아이템들이 동적으로 추가됩니다 -->
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
