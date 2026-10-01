@@ -75,31 +75,28 @@ def search_youtube_video(menu_name):
     return video_info
 
 
-@app.route("/")
-@app.route("/api/index.py")
-@app.route("/api/index")
-@app.route("/api")
-def index():
-    """메인 페이지 렌더링"""
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>", methods=["GET"])
+def catch_all(path):
+    """Vercel Serverless 및 PWA 정적 파일/페이지 Catch-All 서빙"""
+    if path == "manifest.json" or path == "api/manifest.json":
+        return send_from_directory(app.static_folder, "manifest.json", mimetype="application/manifest+json")
+    if path == "sw.js" or path == "api/sw.js":
+        response = send_from_directory(app.static_folder, "sw.js", mimetype="application/javascript")
+        response.headers["Service-Worker-Allowed"] = "/"
+        return response
+    if path.startswith("static/"):
+        rel_path = path[7:]
+        return send_from_directory(app.static_folder, rel_path)
+    if path.startswith("api/static/"):
+        rel_path = path[11:]
+        return send_from_directory(app.static_folder, rel_path)
     return render_template("index.html")
-
-
-@app.route("/manifest.json")
-def manifest():
-    """PWA 매니페스트 제공"""
-    return send_from_directory("static", "manifest.json", mimetype="application/manifest+json")
-
-
-@app.route("/sw.js")
-def service_worker():
-    """PWA 서비스 워커 제공 (루트 스코프 헤더 포함)"""
-    response = send_from_directory("static", "sw.js", mimetype="application/javascript")
-    response.headers["Service-Worker-Allowed"] = "/"
-    return response
 
 
 @app.route("/generate", methods=["POST"])
 @app.route("/api/generate", methods=["POST"])
+@app.route("/api/index.py/generate", methods=["POST"])
 def generate_recipe():
     """레시피 3종 후보 생성 및 유튜브 연동 엔드포인트"""
     try:
