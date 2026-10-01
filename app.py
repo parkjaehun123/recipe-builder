@@ -88,11 +88,12 @@ def search_youtube_video(menu_name):
         "thumbnail": None
     }
 
-    if SERPER_API_KEY and SERPER_API_KEY != "your_serper_api_key_here":
-        try:
+    try:
+        serper_key = get_serper_api_key()
+        if serper_key:
             url = "https://google.serper.dev/videos"
             payload = json.dumps({"q": f"{menu_name} 요리 레시피 만드는법", "gl": "kr", "hl": "ko", "num": 1})
-            headers = {"X-API-KEY": SERPER_API_KEY, "Content-Type": "application/json"}
+            headers = {"X-API-KEY": serper_key, "Content-Type": "application/json"}
             response = requests.post(url, headers=headers, data=payload, timeout=4)
             if response.status_code == 200:
                 data = response.json()
@@ -103,8 +104,8 @@ def search_youtube_video(menu_name):
                     video_info["title"] = v.get("title", f"{menu_name} 영상 레시피")
                     video_info["channel"] = v.get("channel", "YouTube")
                     video_info["thumbnail"] = v.get("imageUrl")
-        except Exception as e:
-            logging.warning(f"유튜브 영상 검색 중 오류 (직접 링크로 대체): {e}")
+    except Exception as e:
+        logging.warning(f"유튜브 영상 검색 중 오류 (직접 링크로 대체): {e}")
 
     return video_info
 

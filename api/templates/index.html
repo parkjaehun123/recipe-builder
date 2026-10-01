@@ -7,8 +7,7 @@
   <!-- 파비콘 및 PWA 설정 -->
   <link rel="icon" type="image/svg+xml" href="/static/icons/icon.svg">
   <link rel="icon" type="image/png" href="/static/icons/icon-192.png">
-  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
-  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+  <link rel="manifest" href="data:application/manifest+json;utf-8,%7B%22name%22%3A%22%ED%9B%84%EB%8B%88%EC%9D%98%20%EB%B9%84%EB%B0%80%20%EC%9A%94%EB%A6%AC%EC%B1%85%22%2C%22short_name%22%3A%22%ED%9B%84%EB%8B%88%EC%9A%94%EB%A6%AC%EC%B1%85%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FFFDF9%22%2C%22theme_color%22%3A%22%23FF7E67%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-192.png%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-512.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
   <meta name="theme-color" content="#FF7E67">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2129,14 +2128,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- PWA (Progressive Web App) 서비스 워커 등록 및 설치 지원 ---
-  if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js', { scope: '/' })
         .then((reg) => {
-          console.log('Service Worker 등록 성공:', reg.scope);
+          console.log('Service Worker 활성화됨');
         })
-        .catch((err) => {
-          console.log('Service Worker 등록 실패:', err);
+        .catch(() => {
+          // 프리뷰 배포 잠금 환경에서는 조용히 넘어감
         });
     });
   }
