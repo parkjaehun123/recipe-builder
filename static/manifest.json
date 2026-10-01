@@ -1,14 +1,14 @@
 {
   "id": "/",
-  "name": "서울맛피아의 비밀 요리책",
-  "short_name": "서울맛피아",
-  "description": "냉장고 속 재료로 맞춤 요리 레시피를 만드는 AI 스마트 요리책",
+  "name": "흑백요리사 : 서울맛피아의 비밀 요리책",
+  "short_name": "흑백요리사",
+  "description": "오직 '맛'으로만 계급을 증명하라! 냉장고 재료로 만드는 미슐랭 3대 레시피",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#FFFDF9",
-  "theme_color": "#FF7E67",
+  "background_color": "#07070a",
+  "theme_color": "#0a0a0e",
   "categories": ["food", "lifestyle", "utilities"],
   "icons": [
     {

@@ -3,47 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👩‍🍳 서울맛피아의 비밀 요리책 ✨</title>
+  <title>⚔️ 흑백요리사 : 서울맛피아의 비밀 요리책 🏆</title>
   <!-- 파비콘 및 PWA 설정 -->
   <link rel="icon" type="image/svg+xml" href="/static/icons/icon.svg">
   <link rel="icon" type="image/png" href="/static/icons/icon-192.png">
   <link rel="manifest" href="/manifest.json">
-  <!-- <link rel="manifest-data" href="data:application/manifest+json;utf-8,%7B%22name%22%3A%22%EC%84%9C%EC%9A%B8%EB%A7%9B%ED%94%BC%EC%95%84%EC%9D%98%20%EB%B9%84%EB%B0%80%20%EC%9A%94%EB%A6%AC%EC%B1%85%22%2C%22short_name%22%3A%22%EC%84%9C%EC%9A%B8%EB%A7%9B%ED%94%BC%EC%95%84%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FFFDF9%22%2C%22theme_color%22%3A%22%23FF7E67%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-192.png%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-512.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
-  <meta name="theme-color" content="#FF7E67">
+  <meta name="theme-color" content="#0a0a0e">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="서울맛피아">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="흑백요리사">
   
-  <!-- OpenGraph 메타 (미리보기 이미지) -->
-  <meta property="og:title" content="서울맛피아의 비밀 요리책">
-  <meta property="og:description" content="냉장고 속 재료로 만드는 AI 맞춤형 레시피 스튜디오">
+  <!-- OpenGraph 메타 -->
+  <meta property="og:title" content="흑백요리사 : 서울맛피아의 비밀 요리책">
+  <meta property="og:description" content="오직 '맛'으로만 계급을 증명하라! 냉장고 속 재료로 만드는 미슐랭 3대 레시피">
   <meta property="og:image" content="/static/icons/icon-512.png">
   
-  <!-- 인라인 CSS 임베드 (Vercel Serverless 배포 시 스타일 100% 무적 보장) -->
+  <!-- 넷플릭스 흑백요리사 시네마틱 다크 럭셔리 스타일 -->
   <style>
-/* --- 귀여운 꼬마 셰프 테마 스타일 --- */
+/* ==========================================================================
+   ⚔️ NETFLIX 흑백요리사 (Culinary Class Wars) 테마 디자인 시스템
+   ========================================================================== */
 :root {
-  --primary: #ff7e67;
-  --primary-hover: #ff654a;
-  --primary-light: #fff0ec;
-  --yellow-accent: #ffd166;
-  --yellow-light: #fff9e6;
-  --mint-accent: #06d6a0;
-  --mint-light: #e8fbf6;
-  --bg-color: #fdfaf5;
-  --card-bg: #ffffff;
-  --text-dark: #3d3a45;
-  --text-soft: #7a7684;
-  --border-cute: #f2e8dc;
-  --border-highlight: #ffd8cc;
-  --youtube-red: #ff334b;
-  --radius-xl: 26px;
-  --radius-lg: 18px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
-  --shadow-cute: 0 10px 25px -4px rgba(230, 160, 130, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
-  --shadow-hover: 0 16px 30px -4px rgba(255, 126, 103, 0.22);
+  --bg-deep: #07070a;
+  --bg-main: #0d0d14;
+  --bg-card: rgba(18, 18, 27, 0.92);
+  --bg-card-solid: #13131e;
+  --bg-inner: #191926;
+  --bg-inner-hover: #222233;
+  
+  /* 흑백요리사 시그니처 컬러 */
+  --white-spoon: #f8fafc;
+  --white-muted: #cbd5e1;
+  --black-spoon: #09090d;
+  
+  /* 골드 & 넷플릭스 레드 악센트 */
+  --gold-primary: #f59e0b;
+  --gold-light: #fbbf24;
+  --gold-glow: rgba(245, 158, 11, 0.35);
+  --gold-border: rgba(245, 158, 11, 0.3);
+  
+  --netflix-red: #E50914;
+  --netflix-dark: #b81d24;
+  --netflix-glow: rgba(229, 9, 20, 0.45);
+  
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+  --text-muted: #64748b;
+  
+  --border-subtle: #242435;
+  --border-glow: rgba(255, 255, 255, 0.12);
+  
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  
+  --shadow-cinema: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.15);
+  --shadow-gold: 0 0 25px rgba(245, 158, 11, 0.35);
+  --shadow-red: 0 0 30px rgba(229, 9, 20, 0.4);
 }
 
 * {
@@ -53,18 +71,22 @@
 }
 
 body {
-  font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
-  background-color: var(--bg-color);
-  background-image: radial-gradient(#faecd8 1px, transparent 1px);
-  background-size: 22px 22px;
-  color: var(--text-dark);
+  font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(229, 9, 20, 0.15), transparent 45%),
+    radial-gradient(circle at 10% 40%, rgba(245, 158, 11, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.04), transparent 40%),
+    linear-gradient(to bottom, #07070a 0%, #0d0d14 100%);
+  background-attachment: fixed;
+  color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
 }
 
-/* --- 귀여운 배경 떠다니는 장식 --- */
+/* --- 흑백요리사 배경 스포트라이트 & 엠블럼 --- */
 .bg-decorations {
   position: fixed;
   top: 0;
@@ -79,35 +101,38 @@ body {
 .decor-item {
   position: absolute;
   font-size: 2.2rem;
-  opacity: 0.35;
-  animation: floatEmoji 7s ease-in-out infinite alternate;
+  opacity: 0.12;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+  animation: floatCinematic 10s ease-in-out infinite alternate;
 }
 
-.decor-1 { top: 12%; left: 4%; animation-delay: 0s; }
-.decor-2 { top: 28%; right: 5%; animation-delay: 1.5s; font-size: 2rem; }
-.decor-3 { top: 58%; left: 3%; animation-delay: 3s; }
-.decor-4 { top: 75%; right: 4%; animation-delay: 2s; }
-.decor-5 { top: 90%; left: 8%; animation-delay: 4.5s; }
-.decor-6 { top: 45%; right: 3%; animation-delay: 3.5s; }
+.decor-1 { top: 12%; left: 5%; animation-delay: 0s; font-size: 2.5rem; }
+.decor-2 { top: 25%; right: 6%; animation-delay: 2s; font-size: 2rem; }
+.decor-3 { top: 60%; left: 4%; animation-delay: 4s; }
+.decor-4 { top: 78%; right: 5%; animation-delay: 3s; font-size: 2.4rem; }
+.decor-5 { top: 92%; left: 8%; animation-delay: 6s; }
+.decor-6 { top: 42%; right: 4%; animation-delay: 5s; }
 
-@keyframes floatEmoji {
-  0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-20px) rotate(12deg); }
+@keyframes floatCinematic {
+  0% { transform: translateY(0px) rotate(0deg) scale(1); }
+  100% { transform: translateY(-25px) rotate(15deg) scale(1.08); }
 }
 
-/* --- 귀여운 상단 내비게이션 바 --- */
+/* --- 상단 내비게이션 바 (넷플릭스 글래스모피즘) --- */
 .navbar {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 2px dashed #f5decb;
-  padding: 14px 20px;
+  background: rgba(13, 13, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 14px 22px;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
 }
 
 .nav-container {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -117,27 +142,29 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-family: 'Jua', cursive;
-  font-size: 1.4rem;
-  color: var(--primary);
+  gap: 10px;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 1.35rem;
+  color: var(--white-spoon);
   letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.logo-tag {
+  background: linear-gradient(135deg, var(--netflix-red) 0%, #b81d24 100%);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .chef-hat {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   display: inline-block;
-  animation: bounceHead 2s infinite ease-in-out;
-}
-
-@keyframes bounceHead {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-.sparkle {
-  color: #ffb703;
-  font-size: 1.1rem;
+  filter: drop-shadow(0 0 8px var(--gold-glow));
 }
 
 .nav-actions {
@@ -147,160 +174,259 @@ body {
 }
 
 .btn-cute-install {
-  background: var(--coral-light);
-  border: 2px solid var(--primary);
-  color: var(--primary-dark);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-light);
   padding: 8px 14px;
-  border-radius: 25px;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.88rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.25s ease;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15);
 }
 
 .btn-cute-install:hover {
-  transform: scale(1.05);
-  background: var(--primary);
-  color: #fff;
+  background: var(--gold-primary);
+  color: #000;
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.btn-lock-app {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-sub);
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-lock-app:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white-spoon);
 }
 
 .btn-cute-bookmark {
-  background: var(--yellow-light);
-  border: 2px solid var(--yellow-accent);
-  color: #8f5a00;
-  padding: 8px 16px;
-  border-radius: 25px;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white-spoon);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.88rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.25s ease;
 }
 
 .btn-cute-bookmark:hover {
-  transform: scale(1.05);
-  background: var(--yellow-accent);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }
 
 .badge-cute {
-  background: var(--primary);
+  background: var(--netflix-red);
   color: #fff;
   font-size: 0.75rem;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-weight: bold;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 0 0 8px var(--netflix-glow);
 }
 
 /* --- 메인 컨테이너 & 헤더 --- */
 .container {
-  max-width: 860px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: 30px 18px;
+  padding: 34px 20px;
   position: relative;
   z-index: 1;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 34px;
 }
 
 .header-badge {
-  display: inline-block;
-  background: #fff2e0;
-  color: #c96218;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
-  padding: 6px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 9, 20, 0.12);
+  color: #ff5252;
+  font-family: 'Montserrat', 'Noto Sans KR', sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem;
+  letter-spacing: 1.5px;
+  padding: 6px 18px;
   border-radius: 20px;
-  border: 1.5px dashed #f8c291;
-  margin-bottom: 10px;
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  box-shadow: 0 0 15px rgba(229, 9, 20, 0.2);
 }
 
 .main-title {
-  font-family: 'Jua', cursive;
-  font-size: 2.3rem;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 2.5rem;
+  color: var(--white-spoon);
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 158, 11, 0.2);
+}
+
+.main-title .highlight-gold {
+  color: var(--gold-primary);
+  text-shadow: 0 0 20px var(--gold-glow);
 }
 
 .subtitle {
-  color: var(--text-soft);
+  color: var(--text-sub);
   font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
 }
 
-/* --- 귀여운 카드 공통 스타일 --- */
+/* --- 📲 눈에 잘 띄는 홈 화면 앱 설치 배너 --- */
+.pwa-hero-banner {
+  display: flex;
+  justify-content: center;
+  margin: 20px auto 4px auto;
+  width: 100%;
+  max-width: 540px;
+}
+
+.btn-hero-install {
+  width: 100%;
+  background: linear-gradient(135deg, #181824 0%, #242436 100%);
+  color: var(--white-spoon);
+  border: 1.5px solid var(--gold-primary);
+  padding: 14px 22px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6), var(--shadow-gold);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-hero-install:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: linear-gradient(135deg, #242436 0%, #303046 100%);
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.4);
+}
+
+.btn-hero-install:active {
+  transform: scale(0.98);
+}
+
+.pulse-icon {
+  font-size: 1.3rem;
+  animation: bounceSoft 1.5s infinite;
+}
+
+.badge-free {
+  background: var(--gold-primary);
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  letter-spacing: 0.5px;
+}
+
+@keyframes bounceSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* --- ⚔️ 흑백요리사 글래스모피즘 카드 공통 스타일 --- */
 .cute-card {
-  background: var(--card-bg);
+  background: var(--bg-card);
   border-radius: var(--radius-xl);
-  padding: 32px 28px;
-  box-shadow: var(--shadow-cute);
-  margin-bottom: 28px;
-  border: 2px solid var(--border-cute);
+  padding: 34px 30px;
+  box-shadow: var(--shadow-cinema);
+  margin-bottom: 30px;
+  border: 1px solid var(--border-subtle);
   position: relative;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
-/* 마스킹 테이프 장식 */
-.tape-sticker {
+.cute-card::before {
+  content: "";
   position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-1deg);
-  width: 120px;
-  height: 26px;
-  background: rgba(255, 222, 173, 0.75);
-  border-left: 2px dashed rgba(200, 160, 120, 0.4);
-  border-right: 2px dashed rgba(200, 160, 120, 0.4);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  top: 0;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-primary), var(--netflix-red), transparent);
+  border-radius: 2px;
+  opacity: 0.6;
 }
 
 .form-title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .card-title {
-  font-family: 'Jua', cursive;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.45rem;
-  color: var(--text-dark);
+  color: var(--white-spoon);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  letter-spacing: 0.5px;
 }
 
 .btn-surprise-cute {
-  background: linear-gradient(135deg, #fff3b0 0%, #ffcbf2 100%);
-  border: 2px solid #ffb3c6;
-  color: #6a1b9a;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--gold-light);
   padding: 8px 16px;
   border-radius: 20px;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
+  font-weight: 700;
+  font-size: 0.9rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 10px rgba(255, 179, 198, 0.35);
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
 }
 
 .btn-surprise-cute:hover {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 8px 16px rgba(255, 179, 198, 0.5);
+  background: var(--gold-primary);
+  color: #000;
+  box-shadow: var(--shadow-gold);
 }
 
-/* --- 폼 스타일 --- */
+/* --- 폼 입력 요소 --- */
 .form-group {
   margin-bottom: 22px;
 }
@@ -314,109 +440,115 @@ body {
 
 .form-group label {
   font-weight: 700;
-  color: var(--text-dark);
-  font-size: 1rem;
+  color: var(--white-muted);
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 .icon-bubble {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 
 .required-star {
-  color: var(--primary);
+  color: var(--netflix-red);
   font-size: 1.1rem;
 }
 
 .btn-text-clear {
   background: none;
   border: none;
-  color: var(--text-soft);
+  color: var(--text-muted);
   font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  transition: color 0.2s;
 }
 
 .btn-text-clear:hover {
-  color: var(--primary);
+  color: var(--netflix-red);
 }
 
 input[type="text"],
 select {
   width: 100%;
   padding: 14px 18px;
-  border: 2px solid #ecdcd0;
-  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
   font-size: 1rem;
-  color: var(--text-dark);
-  background-color: #fffdfa;
+  color: var(--text-main);
+  background-color: var(--bg-inner);
   transition: all 0.2s ease;
   outline: none;
 }
 
 input[type="text"]:focus,
 select:focus {
-  border-color: var(--primary);
-  background-color: #ffffff;
-  box-shadow: 0 0 0 4px rgba(255, 126, 103, 0.18);
+  border-color: var(--gold-primary);
+  background-color: var(--bg-card-solid);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.25);
+}
+
+select option {
+  background: var(--bg-card-solid);
+  color: var(--text-main);
 }
 
 /* --- 톡톡 누르는 인기 재료 칩 --- */
 .quick-chips-wrapper {
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 .chips-label {
   display: block;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #b5835a;
-  margin-bottom: 8px;
+  color: var(--gold-primary);
+  margin-bottom: 10px;
 }
 
 .chips-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
 }
 
 .ingredient-chip {
-  background: #ffffff;
-  border: 2px solid #fae1d2;
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
   border-radius: 20px;
-  padding: 6px 13px;
+  padding: 7px 14px;
   font-size: 0.88rem;
-  font-weight: 700;
-  color: #634b3e;
+  font-weight: 600;
+  color: var(--text-sub);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  box-shadow: 0 2px 5px rgba(230, 160, 130, 0.08);
-  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  gap: 6px;
+  transition: all 0.2s ease;
 }
 
 .ingredient-chip:hover {
-  background: var(--primary-light);
-  border-color: var(--primary);
-  color: var(--primary);
-  transform: translateY(-2px) scale(1.05);
+  background: var(--bg-inner-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--white-spoon);
+  transform: translateY(-2px);
 }
 
 .ingredient-chip.chip-active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 4px 10px rgba(255, 126, 103, 0.35);
+  background: linear-gradient(135deg, var(--gold-primary) 0%, #d97706 100%);
+  border-color: var(--gold-light);
+  color: #000000;
+  font-weight: 800;
+  box-shadow: 0 0 14px var(--gold-glow);
 }
 
 .chip-emoji {
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .form-row {
@@ -425,37 +557,43 @@ select:focus {
   gap: 16px;
 }
 
-/* --- 메인 버튼 스타일 --- */
+/* --- 넷플릭스 레드 & 챔피언 골드 생성 버튼 --- */
 .btn-cute-submit {
   width: 100%;
-  background: linear-gradient(135deg, #ff7e67 0%, #ff5252 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #E50914 0%, #b81d24 50%, #f59e0b 100%);
+  color: #ffffff;
   padding: 16px 24px;
-  font-family: 'Jua', cursive;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.35rem;
+  letter-spacing: 1px;
   border-radius: var(--radius-lg);
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255, 82, 82, 0.35);
+  box-shadow: 0 8px 30px rgba(229, 9, 20, 0.45), 0 0 20px rgba(245, 158, 11, 0.2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  margin-top: 10px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 14px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .btn-cute-submit:hover {
   transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 10px 25px rgba(255, 82, 82, 0.45);
+  box-shadow: 0 12px 35px rgba(229, 9, 20, 0.6), 0 0 25px rgba(245, 158, 11, 0.4);
 }
 
-/* --- 보글보글 로딩 애니메이션 --- */
+.btn-cute-submit:active {
+  transform: scale(0.99);
+}
+
+/* --- 블라인드 테이스팅 로딩 인디케이터 --- */
 .cute-cooking-pot {
   position: relative;
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 15px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -463,13 +601,14 @@ select:focus {
 
 .pot-emoji {
   font-size: 4.5rem;
-  animation: potWiggle 1.2s infinite ease-in-out;
+  animation: potWiggle 1.4s infinite ease-in-out;
+  filter: drop-shadow(0 0 15px var(--gold-glow));
 }
 
 @keyframes potWiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg) scale(1.05); }
-  75% { transform: rotate(5deg) scale(1.05); }
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-6deg) scale(1.06); }
+  75% { transform: rotate(6deg) scale(1.06); }
 }
 
 .steam {
@@ -480,7 +619,7 @@ select:focus {
 }
 
 .steam-1 { top: 0px; left: 20px; animation-delay: 0s; }
-.steam-2 { top: -10px; left: 40px; animation-delay: 0.6s; }
+.steam-2 { top: -12px; left: 45px; animation-delay: 0.6s; }
 .steam-3 { top: 0px; right: 20px; animation-delay: 1.2s; }
 
 @keyframes steamRise {
@@ -490,174 +629,164 @@ select:focus {
 }
 
 .loading-title {
-  font-family: 'Jua', cursive;
-  font-size: 1.4rem;
-  color: var(--primary);
-  margin-bottom: 6px;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 1.45rem;
+  color: var(--gold-primary);
+  margin-bottom: 8px;
+  text-shadow: 0 0 15px var(--gold-glow);
 }
 
 .loading-subtext {
-  color: var(--text-soft);
+  color: var(--text-sub);
   font-size: 0.95rem;
 }
 
-/* --- 3종 추천 요리 선택 탭 --- */
+/* --- 3종 추천 요리 선택 탭 (서바이버 랭킹 카드) --- */
 .recipe-selection-section {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .selection-title {
-  font-family: 'Jua', cursive;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
   font-size: 1.4rem;
-  color: var(--text-dark);
-  margin-bottom: 14px;
+  color: var(--white-spoon);
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .recipe-tabs-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 14px;
 }
 
 .recipe-tab-card {
-  background: #ffffff;
-  border: 2.5px solid #fae3d5;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 16px 14px;
+  padding: 18px 16px;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 12px rgba(240, 180, 150, 0.1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  backdrop-filter: blur(12px);
 }
 
 .recipe-tab-card:hover {
-  transform: translateY(-3px) scale(1.02);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px var(--gold-glow);
 }
 
 .recipe-tab-card.active-tab {
-  border-color: var(--primary);
-  background: #fff8f5;
-  box-shadow: 0 0 0 3px rgba(255, 126, 103, 0.25), var(--shadow-hover);
+  border-color: var(--gold-primary);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(19, 19, 27, 0.95) 100%);
+  box-shadow: 0 0 0 2px var(--gold-primary), var(--shadow-gold);
 }
 
 .tab-tag {
-  font-family: 'Jua', cursive;
-  font-size: 0.85rem;
-  color: #ff5252;
-  background: #ffebe6;
-  padding: 4px 10px;
-  border-radius: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  background: rgba(245, 158, 11, 0.16);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  padding: 3px 8px;
+  border-radius: 6px;
   display: inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   align-self: flex-start;
+  letter-spacing: 0.5px;
 }
 
 .tab-title {
-  font-family: 'Jua', cursive;
-  font-size: 1.15rem;
-  color: var(--text-dark);
-  margin-bottom: 6px;
-  line-height: 1.3;
+  font-family: 'Black Han Sans', 'Noto Sans KR', sans-serif;
+  font-size: 1.2rem;
+  color: var(--white-spoon);
+  margin-bottom: 8px;
+  line-height: 1.35;
 }
 
 .tab-meta {
   font-size: 0.82rem;
-  color: var(--text-soft);
+  color: var(--text-sub);
   display: flex;
-  gap: 8px;
+  gap: 10px;
   font-weight: 600;
 }
 
 /* --- 레시피 북 스타일 상세 결과 카드 --- */
 .recipe-book-card {
-  border: 3px solid #f2dbcb;
-  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
   position: relative;
-  padding-top: 40px;
-}
-
-.spiral-binding {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.spiral-binding span {
-  width: 14px;
-  height: 14px;
-  background: #f7ede2;
-  border: 2px solid #dfcfc0;
-  border-radius: 50%;
+  padding-top: 36px;
 }
 
 .result-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .cute-badge {
-  background: #fff0eb;
-  color: var(--primary);
-  font-family: 'Jua', cursive;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--gold-light);
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 0.95rem;
   padding: 6px 14px;
   border-radius: 20px;
-  border: 1.5px solid #ffd2c7;
+  border: 1px solid var(--gold-border);
+  letter-spacing: 0.5px;
 }
 
 .btn-cute-action {
-  background: #f7fafc;
-  border: 1.5px solid #e2e8f0;
-  color: var(--text-dark);
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
   padding: 8px 14px;
-  border-radius: 18px;
+  border-radius: 14px;
   font-size: 0.85rem;
   font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .btn-cute-action:hover {
-  background: var(--primary-light);
-  border-color: var(--primary);
-  color: var(--primary);
+  background: var(--bg-inner-hover);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--white-spoon);
   transform: translateY(-1px);
 }
 
 .btn-bookmarked {
-  background: #fff0f3 !important;
-  color: #ff3366 !important;
-  border-color: #ffb3c6 !important;
+  background: rgba(229, 9, 20, 0.2) !important;
+  color: #ff5252 !important;
+  border-color: var(--netflix-red) !important;
 }
 
 .menu-title {
-  font-family: 'Jua', cursive;
-  font-size: 2.1rem;
-  color: var(--text-dark);
-  margin-bottom: 6px;
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 2.2rem;
+  color: var(--white-spoon);
+  margin-bottom: 8px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .menu-desc {
-  color: var(--text-soft);
+  color: var(--text-sub);
   font-size: 1.05rem;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .menu-tags {
@@ -667,76 +796,81 @@ select:focus {
 }
 
 .tag-cute {
-  background: #fef7ee;
-  border: 1.5px solid #fae1c5;
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 0.88rem;
-  font-weight: 700;
-  color: #a45a19;
+  font-weight: 600;
+  color: var(--white-muted);
   display: inline-flex;
   align-items: center;
   gap: 6px;
 }
 
-/* --- 귀여운 TV 유튜브 배너 --- */
+/* --- 넷플릭스 시네마 유튜브 배너 --- */
 .cute-tv-card {
-  background: #fff5f5;
-  border: 2px dashed #ffccd5;
+  background: linear-gradient(135deg, rgba(229, 9, 20, 0.12) 0%, rgba(20, 20, 30, 0.9) 100%);
+  border: 1px solid rgba(229, 9, 20, 0.35);
   border-radius: var(--radius-lg);
   padding: 18px 22px;
-  margin: 20px 0;
+  margin: 22px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 .youtube-badge {
-  color: var(--youtube-red);
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
+  color: var(--netflix-red);
+  font-weight: 800;
+  font-size: 0.9rem;
   margin-bottom: 4px;
+  letter-spacing: 0.5px;
 }
 
 .yt-title {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--white-spoon);
   margin-bottom: 2px;
 }
 
 .yt-channel {
   font-size: 0.85rem;
-  color: var(--text-soft);
+  color: var(--text-sub);
 }
 
 .btn-youtube-cute {
-  background: var(--youtube-red);
+  background: var(--netflix-red);
   color: #fff;
   padding: 10px 20px;
-  font-family: 'Jua', cursive;
-  font-size: 1rem;
-  border-radius: 25px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: 20px;
   text-decoration: none;
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(255, 51, 75, 0.3);
-  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 15px var(--netflix-glow);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .btn-youtube-cute:hover {
   transform: scale(1.05);
-  background: #e6203a;
+  background: #ff1e27;
   color: #fff;
 }
 
-/* --- 귀여운 건강 쑥쑥 영양 노트 --- */
+/* --- 다크 럭셔리 영양 성분 카드 --- */
 .cute-nutrition-card {
-  background: #fffcf7;
-  border: 2px solid #ffeedb;
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 20px;
-  margin: 20px 0;
+  margin: 22px 0;
 }
 
 .nutrition-header {
@@ -747,22 +881,22 @@ select:focus {
 }
 
 .nutrition-header h3 {
-  font-family: 'Jua', cursive;
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 1.25rem;
-  color: #d96b27;
+  color: var(--gold-light);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .calories-badge-cute {
-  background: var(--yellow-accent);
-  color: #704800;
-  font-family: 'Jua', cursive;
-  font-size: 1.05rem;
+  background: rgba(245, 158, 11, 0.18);
+  color: var(--gold-light);
+  font-weight: 800;
+  font-size: 1rem;
   padding: 4px 14px;
   border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(255, 209, 102, 0.4);
+  border: 1px solid var(--gold-border);
 }
 
 .nutrition-grid {
@@ -773,8 +907,8 @@ select:focus {
 }
 
 .cute-nutri-item {
-  background: #ffffff;
-  border: 1.5px solid #ffe3c6;
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 10px;
   text-align: center;
@@ -784,30 +918,31 @@ select:focus {
   display: block;
   font-size: 0.78rem;
   font-weight: 700;
-  color: var(--text-soft);
+  color: var(--text-muted);
   margin-bottom: 2px;
 }
 
 .nutri-val {
-  font-family: 'Jua', cursive;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.15rem;
-  color: var(--text-dark);
+  font-weight: 800;
+  color: var(--white-spoon);
 }
 
 .nutri-summary-cute {
   font-size: 0.88rem;
-  color: #634720;
-  background: #fff8eb;
+  color: var(--text-sub);
+  background: rgba(255, 255, 255, 0.04);
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   margin-top: 8px;
-  border: 1px dashed #fbd79e;
+  border: 1px solid var(--border-subtle);
 }
 
-/* 귀여운 구분선 */
+/* 흑백요리사 구분선 */
 .cute-divider {
   text-align: center;
-  margin: 25px 0;
+  margin: 28px 0;
   position: relative;
 }
 
@@ -817,18 +952,20 @@ select:focus {
   top: 50%;
   left: 0;
   right: 0;
-  height: 2px;
-  background: #f7e6d7;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
   z-index: 0;
 }
 
 .cute-divider span {
-  background: #fff;
-  padding: 0 15px;
+  background: var(--bg-card-solid);
+  padding: 4px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
   position: relative;
   z-index: 1;
-  font-size: 0.95rem;
-  letter-spacing: 4px;
+  font-size: 0.85rem;
+  letter-spacing: 6px;
 }
 
 /* --- 재료 & 양념 그리드 --- */
@@ -839,9 +976,9 @@ select:focus {
 }
 
 .cute-box h3 {
-  font-family: 'Jua', cursive;
-  font-size: 1.3rem;
-  color: var(--text-dark);
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 1.25rem;
+  color: var(--gold-light);
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -850,14 +987,19 @@ select:focus {
 
 .cute-list {
   list-style: none;
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 12px 18px;
 }
 
 .cute-list li {
   position: relative;
-  padding: 8px 0 8px 24px;
+  padding: 9px 0 9px 24px;
   font-size: 0.95rem;
-  font-weight: 600;
-  border-bottom: 1px dashed #f5e4d5;
+  font-weight: 500;
+  color: var(--text-main);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .cute-list li:last-child {
@@ -865,11 +1007,11 @@ select:focus {
 }
 
 .cute-list li::before {
-  content: "✨";
+  content: "🥄";
   font-size: 0.85rem;
   position: absolute;
   left: 2px;
-  top: 8px;
+  top: 9px;
 }
 
 /* --- 단계별 조리 순서 --- */
@@ -881,32 +1023,33 @@ select:focus {
 .cute-steps li {
   counter-increment: cute-step;
   position: relative;
-  padding: 14px 16px 14px 54px;
-  background: #fffcf8;
-  border: 1.5px solid #fae8d8;
+  padding: 16px 18px 16px 58px;
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   margin-bottom: 12px;
   font-size: 0.98rem;
-  line-height: 1.55;
-  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text-main);
 }
 
 .cute-steps li::before {
   content: counter(cute-step);
   position: absolute;
-  left: 14px;
-  top: 14px;
-  background: var(--primary);
-  color: #fff;
-  font-family: 'Jua', cursive;
+  left: 16px;
+  top: 16px;
+  background: linear-gradient(135deg, var(--gold-primary) 0%, #d97706 100%);
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
   width: 28px;
   height: 28px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  box-shadow: 0 2px 6px rgba(255, 126, 103, 0.4);
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px var(--gold-glow);
 }
 
 /* --- 팁 & 대체 가이드 --- */
@@ -917,23 +1060,25 @@ select:focus {
 }
 
 .cute-tip-box {
-  padding: 18px;
+  padding: 20px;
   border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
 }
 
 .cute-tip-box h4 {
-  font-family: 'Jua', cursive;
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 1.15rem;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .cute-tip-box ul {
   padding-left: 18px;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: var(--text-sub);
 }
 
 .cute-tip-box li {
@@ -941,53 +1086,63 @@ select:focus {
 }
 
 .fail-proof {
-  background-color: #fff8eb;
-  border: 2px solid #ffe1a8;
+  background-color: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .fail-proof h4 {
-  color: #c96218;
+  color: var(--gold-light);
 }
 
 .substitute {
-  background-color: #f0fdf4;
-  border: 2px solid #bbf7d0;
+  background-color: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.3);
 }
 
 .substitute h4 {
-  color: #15803d;
+  color: #4ade80;
 }
 
-/* --- 비밀 요리책 드로어 --- */
+/* --- 비밀 요리책 드로어 (다크 럭셔리) --- */
 .drawer-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(80, 50, 40, 0.45);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
   z-index: 200;
   display: flex;
   justify-content: flex-end;
 }
 
 .cute-drawer {
-  background: #fffaf4;
+  background: #101018;
+  border-left: 1px solid var(--border-subtle);
   width: 100%;
   max-width: 440px;
   height: 100%;
   padding: 28px 22px;
   overflow-y: auto;
-  box-shadow: -8px 0 30px rgba(100, 50, 30, 0.2);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
 }
 
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
 .drawer-header h2 {
-  font-family: 'Jua', cursive;
-  font-size: 1.5rem;
-  color: var(--text-dark);
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 1.4rem;
+  color: var(--white-spoon);
 }
 
 .btn-close {
@@ -995,29 +1150,34 @@ select:focus {
   border: none;
   font-size: 2rem;
   cursor: pointer;
-  color: var(--text-soft);
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.btn-close:hover {
+  color: #fff;
 }
 
 .bookmark-item {
-  background: #ffffff;
-  border: 2px solid #f8e5d7;
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 10px rgba(220, 160, 130, 0.08);
+  margin-bottom: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .bookmark-item-title {
-  font-family: 'Jua', cursive;
-  font-size: 1.2rem;
-  color: var(--text-dark);
-  margin-bottom: 4px;
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 1.15rem;
+  color: var(--white-spoon);
+  margin-bottom: 6px;
 }
 
 .bookmark-item-meta {
   font-size: 0.82rem;
-  color: var(--text-soft);
-  font-weight: 600;
+  color: var(--text-sub);
+  font-weight: 500;
   margin-bottom: 12px;
 }
 
@@ -1026,35 +1186,419 @@ select:focus {
   gap: 8px;
 }
 
+.bookmark-item-actions .load-btn {
+  background: var(--gold-primary);
+  color: #000;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.bookmark-item-actions .delete-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-sub);
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
 /* --- 에러 알림 --- */
 .cute-alert {
-  background: #fff1f2;
-  border: 2px solid #fecdd3;
-  color: #e11d48;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.4);
+  color: #ff8080;
   border-radius: var(--radius-lg);
   padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 12px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .alert-icon {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
 }
 
-/* --- 유틸리티 & 푸터 --- */
+/* --- 푸터 & 유틸리티 --- */
 .hidden {
   display: none !important;
 }
 
 .footer {
   text-align: center;
-  color: #a49688;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
   margin-top: 40px;
-  padding-bottom: 25px;
+  padding-bottom: 30px;
+}
+
+/* --- 🔒 흑백요리사 블라인드 심사관 비밀번호 잠금 화면 --- */
+.lock-screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 7, 10, 0.95);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.lock-screen-overlay.unlocked {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lock-card {
+  width: 100%;
+  max-width: 400px;
+  background: linear-gradient(135deg, #12121b 0%, #1a1a28 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  border-radius: 28px;
+  padding: 38px 28px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), var(--shadow-gold);
+  animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.lock-card.shake {
+  animation: shakeCard 0.4s ease;
+}
+
+@keyframes shakeCard {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.lock-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.lock-chef {
+  font-size: 3.8rem;
+  display: inline-block;
+  filter: drop-shadow(0 0 15px var(--gold-glow));
+}
+
+.lock-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+  font-size: 1.4rem;
+  background: #111;
+  border: 1px solid var(--gold-primary);
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.lock-title {
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 1.65rem;
+  color: var(--white-spoon);
+  margin-bottom: 8px;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.lock-desc {
+  font-size: 0.92rem;
+  color: var(--text-sub);
+  line-height: 1.55;
+  margin-bottom: 24px;
+}
+
+.lock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lock-input-group {
+  position: relative;
+  width: 100%;
+}
+
+.lock-input {
+  width: 100%;
+  height: 52px;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 0 45px 0 16px;
+  font-size: 1.1rem;
+  text-align: center;
+  background: var(--bg-deep);
+  color: var(--white-spoon);
+  outline: none;
+  transition: all 0.2s ease;
+  letter-spacing: 2px;
+}
+
+.lock-input:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.3);
+}
+
+.btn-toggle-pw {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.lock-error-msg {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: rgba(229, 9, 20, 0.15);
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  border-radius: 10px;
+  padding: 9px;
+}
+
+.btn-unlock {
+  margin-top: 6px;
+  padding: 15px;
+  font-size: 1.15rem;
+}
+
+/* --- 📲 모바일 하단 고정 플로팅 바 (다크 럭셔리) --- */
+.mobile-floating-install {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(13, 13, 20, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--gold-border);
+  padding: 12px 18px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 99990;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.8);
+  animation: slideUpFloat 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFloat {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.floating-install-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.floating-app-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.floating-app-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.floating-app-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.floating-app-info strong {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--white-spoon);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.floating-app-info span {
+  font-size: 0.78rem;
+  color: var(--gold-primary);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.floating-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-floating-install {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, #d97706 100%);
+  color: #000000;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 0 14px var(--gold-glow);
+  white-space: nowrap;
+}
+
+.btn-floating-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+/* --- 📲 PWA 설치 가이드 모달 (다크 모드) --- */
+.pwa-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.pwa-modal-card {
+  width: 100%;
+  max-width: 440px;
+  background: #13131e;
+  border: 1.5px solid var(--gold-border);
+  border-radius: 24px;
+  padding: 26px 22px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.9), var(--shadow-gold);
+  animation: popIn 0.3s ease;
+}
+
+.pwa-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.pwa-modal-header h3 {
+  font-family: 'Black Han Sans', 'Cinzel', sans-serif;
+  font-size: 1.3rem;
+  color: var(--gold-light);
+}
+
+.pwa-app-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.pwa-preview-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.inapp-warning-box {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  color: var(--gold-light);
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.install-guide-box {
+  background: var(--bg-inner);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.install-guide-box h4 {
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 1.05rem;
+  color: var(--white-spoon);
+  margin-bottom: 10px;
+}
+
+.guide-steps {
+  padding-left: 18px;
+  line-height: 1.6;
+  color: var(--text-sub);
+}
+
+.guide-steps li {
+  margin-bottom: 6px;
+}
+
+/* 모바일 화면에서 하단 플로팅 배너 노출 */
+@media (max-width: 768px) {
+  .mobile-floating-install {
+    display: block;
+  }
+  body {
+    padding-bottom: 75px;
+  }
 }
 
 /* --- 완벽 모바일 최적화 미디어 쿼리 --- */
@@ -1065,78 +1609,35 @@ select:focus {
   }
 
   .container {
-    padding: 18px 12px;
+    padding: 20px 14px;
   }
 
-  /* 상단 네비게이션 모바일 최적화 */
   .navbar {
     padding: 10px 14px;
   }
 
-  .nav-container {
-    gap: 6px;
-  }
-
   .logo {
-    font-size: 1.15rem;
-    gap: 5px;
-  }
-
-  .chef-hat {
-    font-size: 1.35rem;
-  }
-
-  .nav-actions {
+    font-size: 1.1rem;
     gap: 6px;
-  }
-
-  .btn-cute-install,
-  .btn-cute-bookmark {
-    padding: 6px 10px;
-    font-size: 0.82rem;
-    border-radius: 18px;
-    gap: 4px;
-  }
-
-  /* 헤더 텍스트 모바일 크기 */
-  .header-badge {
-    font-size: 0.85rem;
-    padding: 5px 12px;
   }
 
   .main-title {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
     line-height: 1.35;
-    margin-top: 8px;
   }
 
   .subtitle {
     font-size: 0.88rem;
-    padding: 0 5px;
   }
 
-  /* 카드 패딩 및 레이아웃 */
   .cute-card {
-    padding: 20px 14px;
-    border-radius: var(--radius-lg);
+    padding: 22px 16px;
   }
 
   .card-title {
     font-size: 1.25rem;
   }
 
-  .btn-surprise-cute {
-    font-size: 0.82rem;
-    padding: 6px 10px;
-  }
-
-  .form-title-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  /* 폼 요소 모바일 최적화 */
   .form-row,
   .recipe-grid,
   .tips-grid {
@@ -1144,35 +1645,11 @@ select:focus {
     gap: 14px;
   }
 
-  input[type="text"],
-  select {
-    font-size: 16px !important; /* iOS 자동 확대 방지 */
-    padding: 12px 14px;
-    height: 48px; /* 터치 친화적 높이 */
-  }
-
-  /* 재료 칩 모바일 터치 최적화 */
-  .chips-list {
-    gap: 6px;
-  }
-
-  .ingredient-chip {
-    padding: 6px 10px;
-    font-size: 0.84rem;
-    height: 36px;
-  }
-
-  /* 추천 메뉴 3가지 탭 모바일 1열 카드 배치 */
   .recipe-tabs-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .tab-card {
-    padding: 14px 16px;
-  }
-
-  /* 상세 결과 헤더 및 액션 버튼 그리드 */
   .result-header {
     flex-direction: column;
     align-items: flex-start;
@@ -1190,28 +1667,17 @@ select:focus {
     width: 100%;
     justify-content: center;
     padding: 8px 10px;
-    font-size: 0.84rem;
   }
 
   .menu-title {
-    font-size: 1.45rem;
+    font-size: 1.55rem;
   }
 
-  /* 영양 성분 카드 2열 그리드 */
   .nutrition-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  .cute-nutri-item {
-    padding: 10px 8px;
-  }
-
-  .nutri-val {
-    font-size: 1.05rem;
-  }
-
-  /* 유튜브 카드 세로 정렬 */
   .cute-tv-card {
     flex-direction: column;
     align-items: stretch;
@@ -1223,24 +1689,15 @@ select:focus {
     width: 100%;
     text-align: center;
     justify-content: center;
-    padding: 12px;
-    font-size: 0.95rem;
-  }
-
-  /* 배경 이모지 모바일에서 은은하게 */
-  .decor-item {
-    opacity: 0.18;
-    font-size: 1.6rem;
   }
 }
 
-/* 400px 이하 초소형 스마트폰 (iPhone SE 등) */
 @media (max-width: 400px) {
   .logo-text {
     font-size: 0.95rem;
   }
   .btn-cute-bookmark span:first-child {
-    display: none; /* 북마크는 아이콘과 뱃지만 표시 */
+    display: none;
   }
   .btn-cute-install,
   .btn-cute-bookmark {
@@ -1248,11 +1705,10 @@ select:focus {
     font-size: 0.8rem;
   }
   .main-title {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
   }
 }
 
-/* --- 인쇄 최적화 --- */
 @media print {
   body {
     background: #fff;
@@ -1275,503 +1731,68 @@ select:focus {
     padding: 0;
   }
 }
-  
-/* --- 🔒 비밀번호 잠금 화면 스타일 --- */
-.lock-screen-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(253, 250, 245, 0.96);
-  backdrop-filter: blur(16px);
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
-}
+  </style>
 
-.lock-screen-overlay.unlocked {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.lock-card {
-  width: 100%;
-  max-width: 380px;
-  background: #ffffff;
-  border: 3px solid #fbd9c8;
-  border-radius: 28px;
-  padding: 34px 26px;
-  text-align: center;
-  box-shadow: 0 20px 45px rgba(255, 126, 103, 0.18);
-  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  position: relative;
-}
-
-@keyframes popIn {
-  0% { transform: scale(0.85); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.lock-card.shake {
-  animation: shakeCard 0.4s ease;
-}
-
-@keyframes shakeCard {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-8px); }
-  40%, 80% { transform: translateX(8px); }
-}
-
-.lock-icon-wrapper {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 12px;
-}
-
-.lock-chef {
-  font-size: 3.5rem;
-  display: inline-block;
-  animation: floatEmoji 4s infinite alternate;
-}
-
-.lock-badge {
-  position: absolute;
-  bottom: -4px;
-  right: -6px;
-  font-size: 1.5rem;
-  background: #fff;
-  border-radius: 50%;
-  padding: 2px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.lock-title {
-  font-family: 'Jua', cursive;
-  font-size: 1.6rem;
-  color: var(--primary);
-  margin-bottom: 6px;
-}
-
-.lock-desc {
-  font-size: 0.92rem;
-  color: var(--text-soft);
-  line-height: 1.5;
-  margin-bottom: 22px;
-}
-
-.lock-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.lock-input-group {
-  position: relative;
-  width: 100%;
-}
-
-.lock-input {
-  width: 100%;
-  height: 50px;
-  border: 2px solid #f2dfd3;
-  border-radius: 16px;
-  padding: 0 45px 0 16px;
-  font-size: 1.1rem;
-  text-align: center;
-  background: #fffaf7;
-  color: var(--text-dark);
-  outline: none;
-  transition: all 0.2s;
-}
-
-.lock-input:focus {
-  border-color: var(--primary);
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(255, 126, 103, 0.15);
-}
-
-.btn-toggle-pw {
-  position: absolute;
-  right: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #a49688;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.lock-error-msg {
-  color: #e11d48;
-  font-size: 0.85rem;
-  font-weight: 700;
-  background: #fff1f2;
-  border: 1px solid #fecdd3;
-  border-radius: 10px;
-  padding: 8px;
-}
-
-.btn-unlock {
-  margin-top: 6px;
-  padding: 14px;
-  font-size: 1.1rem;
-}
-
-.btn-lock-app {
-  background: #f4ede4;
-  border: 2px solid #e0d2c1;
-  color: #7a6e60;
-  padding: 6px 12px;
-  border-radius: 18px;
-  font-family: 'Jua', cursive;
-  font-size: 0.85rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s;
-}
-
-.btn-lock-app:hover {
-  background: #e2d3c0;
-  color: #4a3e30;
-}
-
-
-/* --- 📲 PWA 설치 가이드 모달 스타일 --- */
-.pwa-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  z-index: 999999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.pwa-modal-card {
-  width: 100%;
-  max-width: 420px;
-  background: #ffffff;
-  border: 3px solid #fbd9c8;
-  border-radius: 24px;
-  padding: 24px 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  animation: popIn 0.3s ease;
-}
-
-.pwa-modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px dashed #f5decb;
-  padding-bottom: 12px;
-  margin-bottom: 16px;
-}
-
-.pwa-modal-header h3 {
-  font-family: 'Jua', cursive;
-  font-size: 1.3rem;
-  color: var(--primary);
-}
-
-.pwa-app-preview {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: #fff8f5;
-  border: 2px solid #ffd8cc;
-  border-radius: 16px;
-  padding: 12px 14px;
-  margin-bottom: 16px;
-}
-
-.pwa-preview-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.install-guide-box {
-  background: #faf7f2;
-  border-radius: 16px;
-  padding: 14px 16px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-}
-
-.install-guide-box h4 {
-  font-family: 'Jua', cursive;
-  font-size: 1.05rem;
-  color: #5a4e42;
-  margin-bottom: 8px;
-}
-
-.guide-steps {
-  padding-left: 18px;
-  line-height: 1.6;
-  color: #443c34;
-}
-
-.guide-steps li {
-  margin-bottom: 6px;
-}
-
-/* --- 📲 눈에 확 띄는 홈화면 앱 설치 배너 스타일 --- */
-.pwa-hero-banner {
-  display: flex;
-  justify-content: center;
-  margin: 16px auto 4px auto;
-  width: 100%;
-  max-width: 520px;
-}
-
-.btn-hero-install {
-  width: 100%;
-  background: linear-gradient(135deg, #FF6B4A 0%, #FF8E53 100%);
-  color: #ffffff;
-  border: 3px solid #ffccba;
-  padding: 14px 20px;
-  border-radius: 20px;
-  font-family: 'Jua', cursive;
-  font-size: 1.05rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(255, 107, 74, 0.32);
-  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  text-decoration: none;
-}
-
-.btn-hero-install:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 25px rgba(255, 107, 74, 0.45);
-}
-
-.btn-hero-install:active {
-  transform: scale(0.98);
-}
-
-.pulse-icon {
-  font-size: 1.3rem;
-  animation: bounceSoft 1.5s infinite;
-}
-
-.badge-free {
-  background: #ffffff;
-  color: #ff5722;
-  font-size: 0.75rem;
-  font-weight: 800;
-  padding: 3px 8px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-@keyframes bounceSoft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
-}
-
-/* --- 📲 모바일 하단 고정 설치 플로팅 바 스타일 --- */
-.mobile-floating-install {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 2px solid #ffccba;
-  padding: 10px 16px;
-  padding-bottom: max(10px, env(safe-area-inset-bottom));
-  z-index: 99990;
-  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.12);
-  animation: slideUpFloat 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-@keyframes slideUpFloat {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-.floating-install-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.floating-app-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1;
-  min-width: 0;
-}
-
-.floating-app-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  flex-shrink: 0;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
-}
-
-.floating-app-info {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.floating-app-info strong {
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
-  color: #2d2620;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.floating-app-info span {
-  font-size: 0.78rem;
-  color: #ff5722;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.floating-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.btn-floating-install {
-  background: linear-gradient(135deg, #FF6B4A 0%, #FF8E53 100%);
-  color: #ffffff;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(255, 107, 74, 0.35);
-  white-space: nowrap;
-}
-
-.btn-floating-close {
-  background: none;
-  border: none;
-  color: #a89f91;
-  font-size: 1.4rem;
-  cursor: pointer;
-  padding: 4px;
-  line-height: 1;
-}
-
-.inapp-warning-box {
-  background: #fff8e6;
-  border: 1.5px solid #fde047;
-  border-radius: 12px;
-  padding: 10px 12px;
-  margin-bottom: 14px;
-  font-size: 0.82rem;
-  color: #854d0e;
-  line-height: 1.45;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-/* 모바일 화면에서 하단 플로팅 배너 노출 */
-@media (max-width: 768px) {
-  .mobile-floating-install {
-    display: block;
-  }
-}
-
-</style>
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- 귀여운 한글 폰트 (Jua & Pretendard) -->
+  <!-- 흑백요리사 시네마틱 폰트 (Black Han Sans & Cinzel & Noto Sans KR) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Cinzel:wght@700;900&family=Montserrat:wght@700;800;900&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 🔒 비밀번호 잠금 화면 오버레이 -->
+  <!-- 🔒 흑백요리사 블라인드 심사관 비밀번호 잠금 화면 -->
   <div id="lockScreen" class="lock-screen-overlay">
-    <div class="lock-card cute-card">
+    <div class="lock-card">
       <div class="lock-icon-wrapper">
-        <span class="lock-chef">👩‍🍳</span>
+        <span class="lock-chef">⚔️</span>
         <span class="lock-badge">🔒</span>
       </div>
-      <h2 class="lock-title">쉿! 서울맛피아의 비밀 요리책</h2>
-      <p class="lock-desc">맛있는 마법 레시피를 보려면<br>비밀번호를 입력해 주세요 ✨</p>
+      <h2 class="lock-title">흑백요리사 : 비밀의 미식 챔버</h2>
+      <p class="lock-desc">"오직 자격을 갖춘 자만이 맛의 비밀을 열 수 있다."<br>블라인드 심사 암호를 입력하십시오.</p>
       
       <form id="lockForm" class="lock-form" onsubmit="return false;">
         <div class="lock-input-group">
-          <input type="password" id="appPasswordInput" class="lock-input" placeholder="비밀번호를 입력하세요" autocomplete="current-password" required autofocus>
-          <button type="button" id="togglePasswordBtn" class="btn-toggle-pw" title="비밀번호 보기/숨기기">
+          <input type="password" id="appPasswordInput" class="lock-input" placeholder="심사 암호 입력 (1234)" autocomplete="current-password" required autofocus>
+          <button type="button" id="togglePasswordBtn" class="btn-toggle-pw" title="암호 보기/숨기기">
             <i class="fa-regular fa-eye"></i>
           </button>
         </div>
         <div id="lockErrorMsg" class="lock-error-msg hidden">
-          <span>😿 비밀번호가 맞지 않아요! 다시 입력해 보세요.</span>
+          <span>⚠️ 탈락입니다! 올바른 블라인드 심사 암호를 입력하세요.</span>
         </div>
         <button type="submit" id="unlockBtn" class="btn btn-cute-submit btn-unlock">
-          <span>🪄 요리책 열기 🔓</span>
+          <span>⚔️ 블라인드 심사 입장 🔓</span>
         </button>
       </form>
     </div>
   </div>
-  <!-- 귀여운 배경 장식 요소들 -->
+
+  <!-- 흑백요리사 시네마틱 배경 장식 요소들 -->
   <div class="bg-decorations" aria-hidden="true">
-    <span class="decor-item decor-1">🍳</span>
-    <span class="decor-item decor-2">🥕</span>
-    <span class="decor-item decor-3">🥞</span>
-    <span class="decor-item decor-4">🥑</span>
-    <span class="decor-item decor-5">🍓</span>
-    <span class="decor-item decor-6">🧁</span>
+    <span class="decor-item decor-1">🔪</span>
+    <span class="decor-item decor-2">🥄</span>
+    <span class="decor-item decor-3">🍷</span>
+    <span class="decor-item decor-4">🥩</span>
+    <span class="decor-item decor-5">🔥</span>
+    <span class="decor-item decor-6">👑</span>
   </div>
 
   <!-- 상단 내비게이션 바 -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <span class="chef-hat">👩‍🍳</span>
-        <span class="logo-text">서울맛피아의 비밀 요리책</span>
-        <span class="sparkle">✨</span>
+        <span class="chef-hat">⚔️</span>
+        <span class="logo-tag">NETFLIX</span>
+        <span class="logo-text">흑백요리사</span>
       </div>
       <div class="nav-actions">
         <button id="installPwaBtn" class="btn btn-cute-install trigger-pwa-install" title="홈 화면에 앱 설치하기">
-          <i class="fa-solid fa-cloud-arrow-down"></i> <span>앱 설치</span>
+          <i class="fa-solid fa-cloud-arrow-down"></i> <span>앱 소장</span>
         </button>
         <button id="lockAppBtn" class="btn-lock-app" title="앱 다시 잠그기"><i class="fa-solid fa-lock"></i> <span>잠그기</span></button>
         <button id="openBookmarksBtn" class="btn btn-cute-bookmark">
-          <span>🎀 비밀 요리책</span>
+          <span>⭐ 시크릿 레시피북</span>
           <span id="bookmarkCountBadge" class="badge-cute">0</span>
         </button>
       </div>
@@ -1781,31 +1802,30 @@ select:focus {
   <div class="container">
     <!-- 헤더 영역 -->
     <header class="header">
-      <div class="header-badge">🍲 냉장고 파먹기 대작전!</div>
-      <h1 class="main-title">오늘 우리 집 식탁을 부탁해! 🍳</h1>
-      <p class="subtitle">냉장고 속 잠자고 있는 재료들로 마법 같은 3가지 요리를 만들어줄게요 🪄</p>
+      <div class="header-badge">⚔️ 백수저 vs 흑수저 | 요리 계급 전쟁</div>
+      <h1 class="main-title">서울맛피아의 <span class="highlight-gold">비밀 요리책</span> 🍳</h1>
+      <p class="subtitle">"오직 '맛'으로만 계급을 증명하라!" 냉장고 속 재료로 펼치는 파인다이닝 3대 레시피 🏆</p>
       
       <!-- 📲 눈에 잘 띄는 홈 화면 앱 설치 배너 -->
-      <div class="pwa-hero-banner" style="margin-top: 14px;">
+      <div class="pwa-hero-banner">
         <button type="button" id="heroInstallBtn" class="btn-hero-install trigger-pwa-install">
           <span class="pulse-icon">📲</span>
-          <strong>스마트폰 홈 화면에 '서울맛피아' 앱 설치하기</strong>
-          <span class="badge-free">원클릭</span>
+          <strong>스마트폰에 '흑백요리사 서울맛피아' 앱 소장하기</strong>
+          <span class="badge-free">무료</span>
         </button>
       </div>
     </header>
 
     <!-- 메인 콘텐츠 영역 -->
     <main class="main-content">
-      <!-- 1. 입력 폼 카드 (요리 주문서 테마) -->
+      <!-- 1. 입력 폼 카드 (미션 오더 시트 테마) -->
       <section class="card input-card cute-card">
-        <div class="tape-sticker"></div>
         <div class="form-title-row">
           <h2 class="card-title">
-            <span class="title-icon">📋</span> 오늘의 요리 주문서
+            <span class="title-icon">📋</span> 미션 오더 시트 (Mission Order)
           </h2>
           <button type="button" id="randomRecipeBtn" class="btn-surprise-cute">
-            <span>🎲 오늘 뭐 먹을까냥?</span>
+            <span>🎲 블라인드 랜덤 미션</span>
           </button>
         </div>
 
@@ -1814,19 +1834,19 @@ select:focus {
           <div class="form-group">
             <div class="label-row">
               <label for="ingredients">
-                <span class="icon-bubble">🧺</span> 내 냉장고 속 재료들 <span class="required-star">★</span>
+                <span class="icon-bubble">🧺</span> 주방에 준비된 서바이벌 식재료 <span class="required-star">★</span>
               </label>
               <button type="button" id="clearIngredientsBtn" class="btn-text-clear hidden">
-                <i class="fa-solid fa-rotate-left"></i> 싹 비우기
+                <i class="fa-solid fa-rotate-left"></i> 재료 비우기
               </button>
             </div>
             
             <input type="text" id="ingredients" name="ingredients" 
-                   placeholder="재료를 적거나 아래 재료 칩을 콕콕 눌러보세요!" required>
+                   placeholder="재료를 적거나 아래 재료 칩을 선택하세요!" required>
             
             <!-- 원터치 인기 식재료 태그 칩 -->
             <div class="quick-chips-wrapper">
-              <span class="chips-label">👇 콕! 누르면 바구니에 쏙 담겨요:</span>
+              <span class="chips-label">⚡ 셰프 추천 서바이벌 핵심 재료:</span>
               <div class="chips-list">
                 <button type="button" class="ingredient-chip" data-name="계란"><span class="chip-emoji">🥚</span> 계란</button>
                 <button type="button" class="ingredient-chip" data-name="양파"><span class="chip-emoji">🧅</span> 양파</button>
@@ -1849,29 +1869,29 @@ select:focus {
           <!-- 인원수 & 조리시간 그리드 -->
           <div class="form-row">
             <div class="form-group">
-              <label for="servings"><span class="icon-bubble">🍽️</span> 몇 명이서 먹나요?</label>
+              <label for="servings"><span class="icon-bubble">🍽️</span> 플레이팅 분량 (인원)</label>
               <select id="servings" name="servings">
-                <option value="1인분 (혼밥)">1인분 (나 혼자 냠냠)</option>
-                <option value="2인분" selected>2인분 (알콩달콩 둘이서)</option>
-                <option value="3~4인분 (가족)">3~4인분 (다 함께 왁자지껄)</option>
-                <option value="5인분 이상 (파티)">5인분 이상 (파티 타임! 🎉)</option>
+                <option value="1인분 (혼밥)">1인분 (나를 위한 미식 코스)</option>
+                <option value="2인분" selected>2인분 (페어링 다이닝 🥂)</option>
+                <option value="3~4인분 (가족)">3~4인분 (패밀리 만찬 👑)</option>
+                <option value="5인분 이상 (파티)">5인분 이상 (미슐랭 파티 🏆)</option>
               </select>
             </div>
 
             <div class="form-group">
-              <label for="cookingTime"><span class="icon-bubble">⏰</span> 조리 시간</label>
+              <label for="cookingTime"><span class="icon-bubble">⏰</span> 제한 시간 (조리 시간)</label>
               <select id="cookingTime" name="cookingTime">
-                <option value="10분 컷 초간단">10분 컷 (초스피드 ⚡)</option>
-                <option value="20분 이내" selected>20분 이내 (적당히 뚝딱 🍳)</option>
-                <option value="30분 이내">30분 이내 (여유롭게 🍲)</option>
-                <option value="40분 이상 정성 요리">40분 이상 (정성 가득 특식 👑)</option>
+                <option value="10분 컷 초간단">10분 컷 (스피드 서바이벌 ⚡)</option>
+                <option value="20분 이내" selected>20분 이내 (황금 밸런스 🍳)</option>
+                <option value="30분 이내">30분 이내 (정통 파인다이닝 🍲)</option>
+                <option value="40분 이상 정성 요리">40분 이상 (최고급 시그니처 👑)</option>
               </select>
             </div>
           </div>
 
           <!-- 조리도구 -->
           <div class="form-group">
-            <label for="tools"><span class="icon-bubble">🍳</span> 사용 가능한 조리도구</label>
+            <label for="tools"><span class="icon-bubble">🍳</span> 사용 가능한 조리 스테이션 (도구)</label>
             <input type="text" id="tools" name="tools" 
                    placeholder="예: 프라이팬, 냄비, 전자레인지, 에어프라이어" 
                    value="프라이팬, 냄비">
@@ -1879,65 +1899,61 @@ select:focus {
 
           <!-- 알레르기 & 비선호 성분 -->
           <div class="form-group">
-            <label for="allergies"><span class="icon-bubble">🚫</span> 피하고 싶은 재료 (알레르기)</label>
+            <label for="allergies"><span class="icon-bubble">🚫</span> 블라인드 제외 성분 (알레르기)</label>
             <input type="text" id="allergies" name="allergies" 
-                   placeholder="예: 땅콩 빼주세요, 갑각류 알레르기 (없으면 비워두세요)">
+                   placeholder="예: 땅콩 제외, 갑각류 알레르기 (없으면 공란)">
           </div>
 
           <!-- 선호 음식 / 스타일 -->
           <div class="form-group">
-            <label for="preference"><span class="icon-bubble">💖</span> 내가 원하는 요리 스타일</label>
+            <label for="preference"><span class="icon-bubble">🔥</span> 원하는 셰프의 시그니처 스타일</label>
             <input type="text" id="preference" name="preference" 
-                   placeholder="예: 매콤 칼칼한 맛, 치즈 듬뿍, 저탄고지 다이어트, 달콤 짭조름">
+                   placeholder="예: 알 덴테 파스타 스타일, 매콤한 불맛 킥, 크리미한 치즈 듬뿍, 고단백 다이어트">
           </div>
 
           <!-- 생성 버튼 -->
           <button type="submit" id="generateBtn" class="btn btn-cute-submit">
-            <span class="btn-sparkle">✨</span> 맛있는 맞춤 요리 만들어줘! 🪄
+            <span class="btn-sparkle">⚔️</span> 블라인드 심사 시작 (미슐랭 레시피 생성) 🔥
           </button>
         </form>
       </section>
 
-      <!-- 2. 로딩 인디케이터 (보글보글 요리 애니메이션) -->
+      <!-- 2. 로딩 인디케이터 (블라인드 테이스팅 애니메이션) -->
       <section id="loadingSection" class="card loading-card cute-card hidden">
         <div class="cute-cooking-pot">
-          <span class="steam steam-1">🫧</span>
-          <span class="steam steam-2">💨</span>
-          <span class="steam steam-3">🫧</span>
+          <span class="steam steam-1">🔥</span>
+          <span class="steam steam-2">✨</span>
+          <span class="steam steam-3">🔥</span>
           <div class="pot-emoji">🍲</div>
         </div>
-        <h3 class="loading-title">서울맛피아가 보글보글 요리 구상 중... 🍳</h3>
-        <p class="loading-subtext">영양 가득 3가지 요리와 유튜브 영상 레시피를 정성껏 끓이고 있어요 🧂✨</p>
+        <h3 class="loading-title">심사위원단의 블라인드 테이스팅 진행 중...</h3>
+        <p class="loading-subtext">"익힘의 정도와 간의 밸런스, 셰프의 킥을 엄격하게 심사하고 있습니다." ⚖️✨</p>
       </section>
 
       <!-- 3. 에러 알림창 -->
       <div id="errorAlert" class="alert alert-danger cute-alert hidden">
-        <span class="alert-icon">😿</span>
-        <span id="errorMessage">앗! 요리 레시피를 만드는 중 문제가 생겼어요.</span>
+        <span class="alert-icon">⚠️</span>
+        <span id="errorMessage">레시피를 심사하는 중 문제가 발생했습니다.</span>
       </div>
 
-      <!-- 4. 다중 레시피 선택 탭 (3종 메뉴 선택 카드) -->
+      <!-- 4. 다중 레시피 선택 탭 (3종 서바이버 랭킹 카드) -->
       <section id="recipeSelectionSection" class="recipe-selection-section hidden">
         <h3 class="selection-title">
-          <span>✨</span> 오늘의 특급 추천 메뉴 3가지! <span>👇</span>
+          <span>🏆</span> 심사위원단 선정 3대 경연 메뉴 <span>👇</span>
         </h3>
         <div id="recipeTabs" class="recipe-tabs-grid">
           <!-- 3가지 요리 카드가 동적으로 생성됩니다 -->
         </div>
       </section>
 
-      <!-- 5. 선택된 레시피 상세 결과 카드 (레시피 북 스타일) -->
+      <!-- 5. 선택된 레시피 상세 결과 카드 -->
       <section id="resultSection" class="card result-card recipe-book-card hidden">
-        <div class="spiral-binding" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-
         <!-- 결과 상단 헤더 & 액션 버튼 -->
         <div class="result-header">
-          <div id="categoryBadge" class="recipe-badge cute-badge">✨ 서울맛피아의 특선 요리</div>
+          <div id="categoryBadge" class="recipe-badge cute-badge">🏆 서울맛피아 챔피언 시그니처</div>
           <div class="recipe-actions">
-            <button id="bookmarkBtn" class="btn btn-cute-action" title="보관함에 찜하기">
-              <i class="fa-regular fa-heart"></i> <span>찜하기</span>
+            <button id="bookmarkBtn" class="btn btn-cute-action" title="시크릿 보관함에 찜하기">
+              <i class="fa-regular fa-star"></i> <span>즐겨찾기</span>
             </button>
             <button id="copyBtn" class="btn btn-cute-action" title="레시피 복사">
               <i class="fa-regular fa-copy"></i> 복사
@@ -1958,26 +1974,26 @@ select:focus {
           <div class="menu-tags">
             <span class="tag-cute"><i class="fa-solid fa-clock"></i> <span id="metaTime">20분</span></span>
             <span class="tag-cute"><i class="fa-solid fa-user-group"></i> <span id="metaServings">2인분</span></span>
-            <span class="tag-cute"><i class="fa-solid fa-star"></i> <span id="metaDifficulty">초급</span></span>
+            <span class="tag-cute"><i class="fa-solid fa-medal"></i> <span id="metaDifficulty">초급</span></span>
           </div>
         </div>
 
-        <!-- 6. 유튜브 요리 영상 연동 배너 (귀여운 TV 스타일) -->
+        <!-- 6. 유튜브 요리 영상 연동 배너 -->
         <div class="youtube-card cute-tv-card">
           <div class="youtube-info">
-            <div class="youtube-badge"><i class="fa-brands fa-youtube"></i> 📺 셰프 영상 레시피</div>
-            <h4 id="ytTitle" class="yt-title">유튜브에서 실제 조리 영상을 함께 봐요!</h4>
-            <p id="ytChannel" class="yt-channel">따라 하기 쉬운 셰프들의 생생한 꿀팁이 담겨있어요 🎬</p>
+            <div class="youtube-badge"><i class="fa-brands fa-youtube"></i> NETFLIX MASTERCLASS</div>
+            <h4 id="ytTitle" class="yt-title">셰프의 실제 조리 영상을 함께 확인하세요!</h4>
+            <p id="ytChannel" class="yt-channel">미슐랭 스타 셰프들의 생생한 조리 테크닉과 꿀팁이 담겨있습니다 🎬</p>
           </div>
           <a id="ytLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-youtube-cute">
-            <i class="fa-solid fa-play"></i> 영상 보러가기!
+            <i class="fa-solid fa-play"></i> 마스터클래스 시청
           </a>
         </div>
 
-        <!-- 7. 스마트 영양 성분 & 칼로리 카드 (건강 쑥쑥 노트) -->
+        <!-- 7. 스마트 영양 성분 & 칼로리 카드 -->
         <div class="nutrition-card cute-nutrition-card">
           <div class="nutrition-header">
-            <h3><span class="nutri-icon">💖</span> 건강 쑥쑥 영양 노트</h3>
+            <h3><span class="nutri-icon">⚡</span> 영양 분석 & 밸런스 데이터</h3>
             <span id="nutriCalories" class="calories-badge-cute">약 420 kcal</span>
           </div>
           <div class="nutrition-grid">
@@ -1998,41 +2014,41 @@ select:focus {
               <span id="nutriSodium" class="nutri-val">650mg</span>
             </div>
           </div>
-          <p id="nutriSummary" class="nutri-summary-cute"><i class="fa-solid fa-seedling"></i> 단백질이 풍부하고 영양이 꽉 찬 건강한 한 끼예요!</p>
+          <p id="nutriSummary" class="nutri-summary-cute"><i class="fa-solid fa-circle-check"></i> 완벽한 단백질과 영양 밸런스를 갖춘 미식 코스입니다.</p>
         </div>
 
-        <div class="cute-divider"><span>🥕 🍳 🧅</span></div>
+        <div class="cute-divider"><span>⚔️ 🥄 ⚔️</span></div>
 
-        <!-- 재료 & 양념 섹션 -->
+        <!-- 재료 & 양념 그리드 -->
         <div class="recipe-grid">
           <div class="recipe-box cute-box">
-            <h3><span class="box-icon">🧺</span> 필요한 쏙쏙 재료</h3>
+            <h3><span class="box-icon">🧺</span> 엄선된 식재료</h3>
             <ul id="ingredientsList" class="custom-list cute-list"></ul>
           </div>
           <div class="recipe-box cute-box">
-            <h3><span class="box-icon">🍯</span> 황금 양념장 비율</h3>
+            <h3><span class="box-icon">🥄</span> 황금 소스 & 시즈닝 비율</h3>
             <ul id="sauceList" class="custom-list cute-list"></ul>
           </div>
         </div>
 
-        <div class="cute-divider"><span>🍳 🍲 🍳</span></div>
+        <div class="cute-divider"><span>🔥 🍳 🔥</span></div>
 
         <!-- 조리 순서 -->
         <div class="cooking-section cute-box">
-          <h3><span class="box-icon">👩‍🍳</span> 차근차근 조리 순서</h3>
+          <h3><span class="box-icon">👨‍🍳</span> 셰프의 조리 시퀀스 (Steps)</h3>
           <ol id="cookingSteps" class="step-list cute-steps"></ol>
         </div>
 
-        <div class="cute-divider"><span>✨ 💡 🪄</span></div>
+        <div class="cute-divider"><span>🏆 💡 ⚔️</span></div>
 
         <!-- 팁 & 대체 가이드 -->
         <div class="tips-grid">
           <div class="tip-box fail-proof cute-tip-box">
-            <h4><span class="tip-icon">🛡️</span> 절대 안 망하는 비법 팁</h4>
+            <h4><span class="tip-icon">🛡️</span> 블라인드 탈락 방지 핵심 킥 (Kick)</h4>
             <ul id="failProofTips"></ul>
           </div>
           <div class="tip-box substitute cute-tip-box">
-            <h4><span class="tip-icon">🔄</span> 없으면 이걸로 대체해요</h4>
+            <h4><span class="tip-icon">🔄</span> 즉흥 식재료 체인지 가이드</h4>
             <ul id="substituteGuide"></ul>
           </div>
         </div>
@@ -2041,15 +2057,15 @@ select:focus {
 
     <!-- 푸터 -->
     <footer class="footer">
-      <p>🐾 서울맛피아의 비밀 요리책 🐾 | 맛있게 드시고 행복한 하루 되세요 💖</p>
+      <p>⚔️ 흑백요리사 : 서울맛피아의 비밀 요리책 🏆 | 오직 '맛'으로 승부하는 블라인드 미식 배틀</p>
     </footer>
   </div>
 
-  <!-- 비밀 요리책 보관함 드로어 -->
+  <!-- 시크릿 레시피북 보관함 드로어 -->
   <div id="bookmarkDrawer" class="drawer-overlay hidden">
     <div class="drawer-content cute-drawer">
       <div class="drawer-header">
-        <h2><span>🎀</span> 서울맛피아의 비밀 요리책 <span>📖</span></h2>
+        <h2><span>⭐</span> 시크릿 레시피 보관함</h2>
         <button id="closeDrawerBtn" class="btn-close">&times;</button>
       </div>
       <div id="bookmarkList" class="bookmark-list">
@@ -2058,7 +2074,70 @@ select:focus {
     </div>
   </div>
 
-  <!-- 자바스크립트 인라인 임베드 (Vercel 배포 시 스크립트 실행 100% 무적 보장) -->
+  <!-- 📲 모바일 하단 고정 설치 플로팅 바 -->
+  <div id="mobileFloatingInstall" class="mobile-floating-install">
+    <div class="floating-install-content">
+      <div class="floating-app-left">
+        <img src="/static/icons/icon-192.png" alt="앱 아이콘" class="floating-app-icon">
+        <div class="floating-app-info">
+          <strong>흑백요리사 : 서울맛피아</strong>
+          <span>홈 화면에 앱으로 추가하고 간편 소장</span>
+        </div>
+      </div>
+      <div class="floating-actions">
+        <button type="button" class="btn-floating-install trigger-pwa-install">
+          <span>📲 설치</span>
+        </button>
+        <button type="button" id="closeFloatingInstallBtn" class="btn-floating-close" title="닫기">&times;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 📲 PWA 모바일 홈 화면 설치 가이드 모달 -->
+  <div id="pwaGuideModal" class="pwa-modal-overlay hidden">
+    <div class="pwa-modal-card">
+      <div class="pwa-modal-header">
+        <h3><span>📲</span> 홈 화면에 앱 설치하기</h3>
+        <button id="closePwaModalBtn" class="btn-close">&times;</button>
+      </div>
+      <div class="pwa-modal-body">
+        <div class="pwa-app-preview">
+          <img src="/static/icons/icon-192.png" alt="앱 아이콘" class="pwa-preview-icon">
+          <div>
+            <strong>흑백요리사 : 서울맛피아</strong>
+            <p style="font-size:0.85rem; color:var(--text-sub);">스마트폰 앱처럼 빠르고 편리하게 즐기세요!</p>
+          </div>
+        </div>
+
+        <div class="inapp-warning-box">
+          <span class="warning-icon">💡</span>
+          <span>카카오톡/인스타 등에서 접속하셨다면 우측 상단 메뉴(<strong>⋮</strong> 또는 <strong>···</strong>)에서 <strong>'기본 브라우저(사파리/크롬)로 열기'</strong>를 먼저 눌러주세요!</span>
+        </div>
+
+        <div id="iosInstallGuide" class="install-guide-box">
+          <h4>🍎 아이폰 (Safari) 설치 방법:</h4>
+          <ol class="guide-steps">
+            <li>1. 사파리 브라우저 하단의 <strong>공유 버튼 <i class="fa-solid fa-arrow-up-from-bracket"></i></strong> 을 누릅니다.</li>
+            <li>2. 메뉴를 아래로 내려 <strong>'홈 화면에 추가' <i class="fa-regular fa-square-plus"></i></strong> 를 선택합니다.</li>
+            <li>3. 우측 상단 <strong>'추가'</strong>를 누르면 바탕화면에 앱이 설치됩니다! 🏆</li>
+          </ol>
+        </div>
+
+        <div id="androidInstallGuide" class="install-guide-box">
+          <h4>🤖 안드로이드 (Chrome) 설치 방법:</h4>
+          <p style="margin-bottom:10px; font-size:0.9rem; color:var(--text-sub);">아래 버튼을 누르면 스마트폰에 즉시 앱이 설치됩니다.</p>
+          <button type="button" id="triggerNativeInstallBtn" class="btn btn-cute-submit" style="width:100%; margin-bottom:10px;">
+            <span>📲 지금 바로 앱 설치하기</span>
+          </button>
+          <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.4;">
+            ※ 팝업이 뜨지 않는 경우, 브라우저 우측 상단 메뉴(<strong>⋮</strong>) ➔ <strong>[홈 화면에 추가]</strong> 또는 <strong>[앱 설치]</strong>를 눌러주세요.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 자바스크립트 인라인 임베드 -->
   <script>
 document.addEventListener('DOMContentLoaded', () => {
   // DOM 요소 선택
@@ -2088,7 +2167,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentRecipeList = [];
   let activeRecipeIndex = 0;
   let currentRecipeData = null;
-  const STORAGE_KEY = 'ai_recipe_studio_bookmarks';
+  const STORAGE_KEY = 'culinary_class_wars_bookmarks';
 
   // 1. 초기화 및 북마크 뱃지 설정
   updateBookmarkBadge();
@@ -2104,11 +2183,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const existsIndex = items.findIndex(item => item.includes(name) || name.includes(item));
 
       if (existsIndex >= 0) {
-        // 이미 있으면 제거 (토글)
         items.splice(existsIndex, 1);
         chip.classList.remove('chip-active');
       } else {
-        // 없으면 추가
         items.push(name);
         chip.classList.add('chip-active');
       }
@@ -2152,68 +2229,63 @@ document.addEventListener('DOMContentLoaded', () => {
     ingredientsInput.focus();
   });
 
-  // 3. "오늘 뭐 먹지? 랜덤 추천 (Surprise Me)" 큐레이션 세트
+  // 3. "블라인드 랜덤 미션" 큐레이션 세트
   const randomCombos = [
     {
       ingredients: '감자 2개, 양파 1개, 스팸 1캔, 계란',
       servings: '2인분',
       time: '20분 이내',
       tools: '프라이팬, 냄비',
-      pref: '간단하고 든든한 밥반찬'
+      pref: '나폴리 맛피아 스타일의 겉바속촉 감자 갈레트'
     },
     {
-      ingredients: '신김치 반포기, 돼지고기, 두부 반모, 대파',
+      ingredients: '신김치 반포기, 돼지고기 삼겹살, 두부 반모, 대파',
       servings: '2인분',
       time: '20분 이내',
       tools: '냄비',
-      pref: '칼칼하고 깊은 국물 요리'
+      pref: '묵은지의 산미와 고기 기름의 감칠맛을 극대화한 찌개'
     },
     {
       ingredients: '참치캔 1개, 계란 2개, 양파 반개, 김치',
       servings: '1인분 (혼밥)',
       time: '10분 컷 초간단',
       tools: '프라이팬',
-      pref: '초간단 자취 한그릇 요리'
+      pref: '센 불에 빠르게 볶아낸 불맛 참치 볶음밥'
     },
     {
       ingredients: '순두부 1봉, 계란 1개, 대파, 참치캔, 고춧가루',
       servings: '2인분',
       time: '20분 이내',
       tools: '냄비',
-      pref: '얼큰하고 부드러운 국물 요리'
+      pref: '얼큰하고 크리미한 에그 드롭 순두부 열라면 스타일'
     },
     {
       ingredients: '식빵, 계란 2개, 치즈, 버터, 마늘',
       servings: '1인분 (혼밥)',
       time: '10분 컷 초간단',
       tools: '프라이팬, 전자레인지',
-      pref: '고소하고 달콤한 브런치'
+      pref: '갈릭 버터의 풍미를 듬뿍 입힌 크로크무슈 토스트'
     },
     {
-      ingredients: '돼지고기, 양파 1개, 대파, 버섯, 청양고추',
+      ingredients: '돼지고기 목살, 양파 1개, 대파, 버섯, 청양고추',
       servings: '2인분',
       time: '20분 이내',
       tools: '프라이팬',
-      pref: '매콤달콤 불맛 제육볶음'
+      pref: '마이야르 반응을 극대화한 매콤 직화 제육구이'
     }
   ];
 
   randomRecipeBtn.addEventListener('click', () => {
-    // 랜덤 세트 선택
     const randomPick = randomCombos[Math.floor(Math.random() * randomCombos.length)];
-
-    // 폼 값 자동 채우기
     ingredientsInput.value = randomPick.ingredients;
     document.getElementById('servings').value = randomPick.servings;
     document.getElementById('cookingTime').value = randomPick.time;
     document.getElementById('tools').value = randomPick.tools;
     document.getElementById('preference').value = randomPick.pref;
 
-    // 칩 동기화 & 비우기 버튼 노출
     syncChipsWithInput();
     toggleClearButton();
 
-    // 버튼 피드백 애니메이션
     randomRecipeBtn.style.transform = 'scale(0.95)';
     setTimeout(() => {
       randomRecipeBtn.style.transform = '';
@@ -2232,17 +2304,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const preference = document.getElementById('preference').value.trim();
 
     if (!ingredients) {
-      showError('보유 재료를 1개 이상 입력하거나 아래 칩을 눌러주세요!');
+      showError('보유 재료를 1개 이상 입력하거나 추천 칩을 선택해 주세요!');
       return;
     }
 
-    // UI 상태: 로딩 시작
     hideError();
     recipeSelectionSection.classList.add('hidden');
     resultSection.classList.add('hidden');
     loadingSection.classList.remove('hidden');
     generateBtn.disabled = true;
-    generateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 3가지 요리 & 유튜브 영상 분석 중...';
+    generateBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 심사위원 블라인드 테이스팅 중...';
 
     try {
       const response = await fetch('/generate', {
@@ -2263,7 +2334,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.json();
 
       if (!response.ok || !result.success) {
-        throw new Error(result.error || '레시피 생성 중 오류가 발생했습니다.');
+        throw new Error(result.error || '레시피 심사 중 오류가 발생했습니다.');
       }
 
       currentRecipeList = result.recipes || [];
@@ -2271,13 +2342,8 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('생성된 레시피가 없습니다.');
       }
 
-      // 3종 레시피 선택 탭 렌더링
       renderRecipeSelectionTabs(currentRecipeList);
-
-      // 첫 번째 레시피를 기본 선택하여 상세 표시
       selectRecipeByIndex(0);
-
-      // 결과 영역으로 스크롤 이동
       recipeSelectionSection.scrollIntoView({ behavior: 'smooth' });
     } catch (error) {
       console.error('API Error:', error);
@@ -2285,19 +2351,21 @@ document.addEventListener('DOMContentLoaded', () => {
     } finally {
       loadingSection.classList.add('hidden');
       generateBtn.disabled = false;
-      generateBtn.innerHTML = '<i class="fa-solid fa-wand-magic-sparkles"></i> 3가지 맞춤 요리 & 영상 추천받기';
+      generateBtn.innerHTML = '<span>⚔️</span> 블라인드 심사 시작 (미슐랭 레시피 생성) 🔥';
     }
   });
 
-  // 5. 3가지 요리 후보 선택 탭 렌더링 함수
+  // 5. 3가지 요리 후보 선택 탭 렌더링
   function renderRecipeSelectionTabs(recipes) {
     recipeTabs.innerHTML = '';
+    const rankTitles = ['🥇 1위 : 생존 레시피', '🥈 2위 : 백수저의 미학', '🥉 3위 : 흑수저의 킥'];
+
     recipes.forEach((recipe, index) => {
       const tabCard = document.createElement('div');
       tabCard.className = `recipe-tab-card ${index === 0 ? 'active-tab' : ''}`;
       tabCard.setAttribute('data-index', index);
       tabCard.innerHTML = `
-        <span class="tab-tag">${recipe.category_tag || `추천 ${index + 1}`}</span>
+        <span class="tab-tag">${recipe.category_tag || rankTitles[index] || `추천 ${index + 1}`}</span>
         <h4 class="tab-title">${recipe.menu_name}</h4>
         <div class="tab-meta">
           <span>⏱ ${recipe.estimated_time || '20분'}</span>
@@ -2334,7 +2402,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. 레시피 상세 화면 바인딩 함수
   function renderRecipeDetail(recipe) {
-    document.getElementById('categoryBadge').textContent = recipe.category_tag || '✨ AI 맞춤 추천 요리';
+    document.getElementById('categoryBadge').textContent = recipe.category_tag || '🏆 흑백요리사 챔피언 시그니처';
     document.getElementById('menuName').textContent = recipe.menu_name || '추천 요리';
     document.getElementById('oneLineIntro').textContent = recipe.one_line_intro || '';
     document.getElementById('metaTime').textContent = recipe.estimated_time || '20분';
@@ -2343,8 +2411,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 유튜브 정보 바인딩
     const yt = recipe.youtube || {};
-    document.getElementById('ytTitle').textContent = yt.title || `${recipe.menu_name} 영상 레시피`;
-    document.getElementById('ytChannel').textContent = yt.channel ? `${yt.channel}에서 시청 가능` : '유튜브에서 실제 조리 영상을 바로 확인해 보세요.';
+    document.getElementById('ytTitle').textContent = yt.title || `${recipe.menu_name} 셰프 조리 영상`;
+    document.getElementById('ytChannel').textContent = yt.channel ? `${yt.channel} 채널에서 시청 가능` : '유튜브에서 실제 조리 영상을 바로 확인해 보세요.';
     const ytLink = document.getElementById('ytLink');
     ytLink.href = yt.youtube_url || `https://www.youtube.com/results?search_query=${encodeURIComponent(recipe.menu_name + ' 만드는법')}`;
 
@@ -2355,7 +2423,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('nutriProtein').textContent = nutri.protein || '-';
     document.getElementById('nutriFat').textContent = nutri.fat || '-';
     document.getElementById('nutriSodium').textContent = nutri.sodium || '-';
-    document.getElementById('nutriSummary').innerHTML = `<i class="fa-solid fa-lightbulb"></i> ${nutri.health_summary || '균형 잡힌 영양 식단입니다.'}`;
+    document.getElementById('nutriSummary').innerHTML = `<i class="fa-solid fa-circle-check"></i> ${nutri.health_summary || '완벽한 영양 밸런스를 갖춘 미식 코스입니다.'}`;
 
     // 식재료 목록 채우기
     const ingredientsList = document.getElementById('ingredientsList');
@@ -2436,7 +2504,7 @@ document.addEventListener('DOMContentLoaded', () => {
       bookmarkBtn.innerHTML = '<i class="fa-solid fa-star"></i> <span>보관됨</span>';
       bookmarkBtn.classList.add('btn-bookmarked');
     } else {
-      bookmarkBtn.innerHTML = '<i class="fa-regular fa-star"></i> <span>즐겨찾기 저장</span>';
+      bookmarkBtn.innerHTML = '<i class="fa-regular fa-star"></i> <span>즐겨찾기</span>';
       bookmarkBtn.classList.remove('btn-bookmarked');
     }
   }
@@ -2481,7 +2549,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bookmarkList.innerHTML = '';
 
     if (list.length === 0) {
-      bookmarkList.innerHTML = '<div class="empty-bookmarks"><i class="fa-regular fa-folder-open fa-2x"></i><p style="margin-top:10px;">보관된 레시피가 없습니다.<br>마음에 드는 요리를 별표로 저장해 보세요!</p></div>';
+      bookmarkList.innerHTML = '<div class="empty-bookmarks" style="text-align:center; padding:40px 10px; color:var(--text-muted);"><i class="fa-regular fa-folder-open fa-2x"></i><p style="margin-top:12px;">보관된 시크릿 레시피가 없습니다.<br>마음에 드는 요리를 별표로 저장해 보세요!</p></div>';
       return;
     }
 
@@ -2492,10 +2560,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="bookmark-item-title">${item.menu_name}</div>
         <div class="bookmark-item-meta">⏱ ${item.estimated_time || '20분'} | 👥 ${item.servings || '2인분'} | ⚡ ${item.nutrition_info?.calories || '약 400 kcal'}</div>
         <div class="bookmark-item-actions">
-          <button class="btn btn-primary btn-sm load-btn" data-index="${index}">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> 보기
+          <button class="load-btn" data-index="${index}">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> 레시피 보기
           </button>
-          <button class="btn btn-secondary btn-sm delete-btn" data-index="${index}">
+          <button class="delete-btn" data-index="${index}">
             <i class="fa-solid fa-trash-can"></i> 삭제
           </button>
         </div>
@@ -2542,10 +2610,12 @@ document.addEventListener('DOMContentLoaded', () => {
       await navigator.clipboard.writeText(formattedText);
       const originalHtml = copyBtn.innerHTML;
       copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> 복사 완료!';
-      copyBtn.style.background = '#c6f6d5';
+      copyBtn.style.background = 'rgba(34, 197, 94, 0.2)';
+      copyBtn.style.borderColor = '#22c55e';
       setTimeout(() => {
         copyBtn.innerHTML = originalHtml;
         copyBtn.style.background = '';
+        copyBtn.style.borderColor = '';
       }, 2000);
     } catch (err) {
       alert('클립보드 복사에 실패했습니다. 수동으로 복사해 주세요.');
@@ -2561,7 +2631,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `${currentRecipeData.menu_name || 'AI_레시피'}.txt`;
+    a.download = `${currentRecipeData.menu_name || '흑백요리사_레시피'}.txt`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -2572,21 +2642,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function generateRecipeText(r) {
     const nutri = r.nutrition_info || {};
     const ytUrl = r.youtube?.youtube_url || '';
-    return `[ AI Recipe Studio - 맞춤형 스마트 레시피 ]\n\n` +
-      `🍳 요리명: ${r.menu_name} (${r.category_tag || '추천 요리'})\n` +
+    return `[ ⚔️ 흑백요리사 : 서울맛피아의 비밀 요리책 ]\n\n` +
+      `🏆 요리명: ${r.menu_name} (${r.category_tag || '챔피언 시그니처'})\n` +
       `💡 한줄 소개: ${r.one_line_intro}\n` +
       `⏱ 소요시간: ${r.estimated_time} | 👥 인원: ${r.servings} | 📊 난이도: ${r.difficulty || '초급'}\n` +
       `🥗 칼로리 & 영양: ${nutri.calories || '약 400 kcal'} (탄수화물: ${nutri.carbs || '-'}, 단백질: ${nutri.protein || '-'}, 지방: ${nutri.fat || '-'}, 나트륨: ${nutri.sodium || '-'})\n` +
-      `📺 유튜브 영상 링크: ${ytUrl}\n\n` +
-      `[ 🥗 필요 식재료 ]\n` +
+      `📺 셰프 영상 링크: ${ytUrl}\n\n` +
+      `[ 🥗 엄선 식재료 ]\n` +
       (r.ingredients_list || []).map(i => `• ${i}`).join('\n') + `\n\n` +
       `[ 🥄 황금 양념 비율 ]\n` +
       (r.sauce_ratios || []).map(s => `• ${s}`).join('\n') + `\n\n` +
-      `[ 👨‍🍳 조리 순서 ]\n` +
+      `[ 👨‍🍳 조리 시퀀스 ]\n` +
       (r.cooking_steps || []).map((step, idx) => `${idx + 1}. ${step}`).join('\n') + `\n\n` +
-      `[ 🛡 실패 방지 핵심 팁 ]\n` +
+      `[ 🛡 탈락 방지 핵심 킥 ]\n` +
       (r.fail_proof_tips || []).map(t => `- ${t}`).join('\n') + `\n\n` +
-      `[ 🔄 재료 대체 가이드 ]\n` +
+      `[ 🔄 즉흥 재료 대체 가이드 ]\n` +
       (r.substitute_guide || []).map(g => `- ${g}`).join('\n');
   }
 
@@ -2601,16 +2671,14 @@ document.addEventListener('DOMContentLoaded', () => {
     errorAlert.classList.add('hidden');
   }
 
-  // --- PWA (Progressive Web App) 서비스 워커 등록 및 설치 지원 ---
+  // --- PWA 서비스 워커 등록 ---
   if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
     window.addEventListener('load', () => {
       navigator.serviceWorker.register('/sw.js', { scope: '/' })
         .then((reg) => {
           console.log('Service Worker 활성화됨');
         })
-        .catch(() => {
-          // 프리뷰 배포 잠금 환경에서는 조용히 넘어감
-        });
+        .catch(() => {});
     });
   }
 
@@ -2624,7 +2692,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const iosInstallGuide = document.getElementById('iosInstallGuide');
   const androidInstallGuide = document.getElementById('androidInstallGuide');
 
-  // 이미 홈화면 앱으로 실행 중인 경우 설치 버튼 숨김
   const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
   if (isStandalone) {
     if (installPwaBtn) installPwaBtn.style.display = 'none';
@@ -2635,7 +2702,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    console.log('beforeinstallprompt 이벤트 캡처 완료');
   });
 
   function openPwaGuide() {
@@ -2663,14 +2729,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleInstallClick() {
-    // 🔒 잠금 해제되지 않은 상태에서는 앱 설치 차단
     if (sessionStorage.getItem('hooni_recipe_unlocked') !== 'true') {
       return;
     }
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
-        console.log('PWA 설치 응답:', choiceResult.outcome);
         if (choiceResult.outcome === 'accepted') {
           deferredPrompt = null;
           closePwaGuide();
@@ -2681,7 +2745,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 모바일 하단 플로팅 배너 표시 여부 제어 (오직 잠금 해제 후에만 모바일에서 노출)
   const mobileFloatingInstall = document.getElementById('mobileFloatingInstall');
   const closeFloatingInstallBtn = document.getElementById('closeFloatingInstallBtn');
 
@@ -2698,14 +2761,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 모든 설치 트리거 버튼에 클릭 이벤트 일괄 바인딩
   document.querySelectorAll('.trigger-pwa-install').forEach(btn => {
     btn.addEventListener('click', handleInstallClick);
   });
   if (triggerNativeInstallBtn) triggerNativeInstallBtn.addEventListener('click', handleInstallClick);
   if (closePwaModalBtn) closePwaModalBtn.addEventListener('click', closePwaGuide);
 
-  // 하단 플로팅 배너 닫기 버튼
   if (closeFloatingInstallBtn && mobileFloatingInstall) {
     closeFloatingInstallBtn.addEventListener('click', () => {
       mobileFloatingInstall.style.display = 'none';
@@ -2720,7 +2781,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('appinstalled', () => {
-    console.log('PWA가 성공적으로 설치되었습니다!');
     closePwaGuide();
     document.querySelectorAll('.trigger-pwa-install, .pwa-hero-banner, .mobile-floating-install').forEach(el => {
       el.style.display = 'none';
@@ -2728,7 +2788,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- 🔒 비밀번호 잠금 해제 시스템 ---
-  const CORRECT_PASSWORD = "1234"; // 🔑 기본 비밀번호 (원하시는 비밀번호로 자유롭게 변경 가능)
+  const CORRECT_PASSWORD = "1234";
   const lockScreen = document.getElementById('lockScreen');
   const lockForm = document.getElementById('lockForm');
   const appPasswordInput = document.getElementById('appPasswordInput');
@@ -2736,35 +2796,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const togglePasswordBtn = document.getElementById('togglePasswordBtn');
   const lockAppBtn = document.getElementById('lockAppBtn');
 
-  // 세션 스토리지에서 잠금 해제 상태 확인
   if (sessionStorage.getItem('hooni_recipe_unlocked') === 'true') {
     if (lockScreen) lockScreen.classList.add('unlocked');
   }
   updateFloatingInstallVisibility();
   window.addEventListener('resize', updateFloatingInstallVisibility);
 
-  // 잠금 폼 제출 (비밀번호 확인)
   if (lockForm) {
     lockForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const enteredPassword = appPasswordInput.value.trim();
       
       if (enteredPassword === CORRECT_PASSWORD) {
-        // 성공!
         sessionStorage.setItem('hooni_recipe_unlocked', 'true');
         if (lockErrorMsg) lockErrorMsg.classList.add('hidden');
         if (lockScreen) {
           lockScreen.classList.add('unlocked');
         }
         appPasswordInput.value = '';
-        updateFloatingInstallVisibility(); // 비밀번호 해제 후 플로팅 배너 활성화
+        updateFloatingInstallVisibility();
       } else {
-        // 실패 - 흔들림 및 에러 표시
         if (lockErrorMsg) lockErrorMsg.classList.remove('hidden');
         const lockCard = document.querySelector('.lock-card');
         if (lockCard) {
           lockCard.classList.remove('shake');
-          void lockCard.offsetWidth; // 리플로우 강제
+          void lockCard.offsetWidth;
           lockCard.classList.add('shake');
         }
         appPasswordInput.value = '';
@@ -2773,7 +2829,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 비밀번호 보기 / 숨기기 토글
   if (togglePasswordBtn) {
     togglePasswordBtn.addEventListener('click', () => {
       const type = appPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -2782,7 +2837,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 상단 바 '잠그기' 버튼
   if (lockAppBtn) {
     lockAppBtn.addEventListener('click', () => {
       sessionStorage.removeItem('hooni_recipe_unlocked');
@@ -2793,75 +2847,12 @@ document.addEventListener('DOMContentLoaded', () => {
         appPasswordInput.value = '';
         appPasswordInput.focus();
       }
-      updateFloatingInstallVisibility(); // 다시 잠그면 플로팅 배너 숨김
+      updateFloatingInstallVisibility();
       closePwaGuide();
     });
   }
 
 });
   </script>
-
-  <!-- 📲 모바일 하단 고정 설치 플로팅 바 -->
-  <div id="mobileFloatingInstall" class="mobile-floating-install">
-    <div class="floating-install-content">
-      <div class="floating-app-left">
-        <img src="/static/icons/icon-192.png" alt="앱 아이콘" class="floating-app-icon">
-        <div class="floating-app-info">
-          <strong>서울맛피아 요리책</strong>
-          <span>홈 화면에 앱으로 추가하기</span>
-        </div>
-      </div>
-      <div class="floating-actions">
-        <button type="button" class="btn-floating-install trigger-pwa-install">
-          <span>📲 설치</span>
-        </button>
-        <button type="button" id="closeFloatingInstallBtn" class="btn-floating-close" title="닫기">&times;</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- 📲 PWA 모바일 홈 화면 설치 가이드 모달 -->
-  <div id="pwaGuideModal" class="pwa-modal-overlay hidden">
-    <div class="pwa-modal-card cute-card">
-      <div class="pwa-modal-header">
-        <h3><span>📲</span> 홈 화면에 앱 설치하기</h3>
-        <button id="closePwaModalBtn" class="btn-close">&times;</button>
-      </div>
-      <div class="pwa-modal-body">
-        <div class="pwa-app-preview">
-          <img src="/static/icons/icon-192.png" alt="앱 아이콘" class="pwa-preview-icon">
-          <div>
-            <strong>서울맛피아의 비밀 요리책</strong>
-            <p style="font-size:0.85rem; color:#7a7684;">스마트폰 앱처럼 빠르고 편리하게 사용하세요!</p>
-          </div>
-        </div>
-
-        <div class="inapp-warning-box">
-          <span class="warning-icon">💡</span>
-          <span>카카오톡/인스타 등에서 접속하셨다면 우측 상단 메뉴(<strong>⋮</strong> 또는 <strong>···</strong>)에서 <strong>'기본 브라우저(사파리/크롬)로 열기'</strong>를 눌러주세요!</span>
-        </div>
-
-        <div id="iosInstallGuide" class="install-guide-box">
-          <h4>🍎 아이폰 (Safari) 설치 방법:</h4>
-          <ol class="guide-steps">
-            <li>1. 사파리 브라우저 하단의 <strong>공유 버튼 <i class="fa-solid fa-arrow-up-from-bracket"></i></strong> 을 누릅니다.</li>
-            <li>2. 메뉴를 아래로 내려 <strong>'홈 화면에 추가' <i class="fa-regular fa-square-plus"></i></strong> 를 선택합니다.</li>
-            <li>3. 우측 상단 <strong>'추가'</strong>를 누르면 바탕화면에 앱이 생성됩니다! 🎉</li>
-          </ol>
-        </div>
-
-        <div id="androidInstallGuide" class="install-guide-box">
-          <h4>🤖 안드로이드 (Chrome) 설치 방법:</h4>
-          <p style="margin-bottom:10px; font-size:0.9rem;">아래 버튼을 누르면 스마트폰에 즉시 앱이 설치됩니다.</p>
-          <button type="button" id="triggerNativeInstallBtn" class="btn btn-cute-submit" style="width:100%; margin-bottom:10px;">
-            <span>📲 지금 바로 앱 설치하기</span>
-          </button>
-          <p style="font-size:0.82rem; color:#7a7684; line-height:1.4;">
-            ※ 팝업이 뜨지 않는 경우, 브라우저 우측 상단 메뉴(<strong>⋮</strong>) ➔ <strong>[홈 화면에 추가]</strong> 또는 <strong>[앱 설치]</strong>를 눌러주세요.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
 </body>
 </html>
