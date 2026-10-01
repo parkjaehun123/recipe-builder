@@ -1753,7 +1753,7 @@ select option {
       
       <form id="lockForm" class="lock-form" onsubmit="return false;">
         <div class="lock-input-group">
-          <input type="password" id="appPasswordInput" class="lock-input" placeholder="심사 암호 입력 (1234)" autocomplete="current-password" required autofocus>
+          <input type="password" id="appPasswordInput" class="lock-input" placeholder="심사 암호를 입력하세요" autocomplete="current-password" required autofocus>
           <button type="button" id="togglePasswordBtn" class="btn-toggle-pw" title="암호 보기/숨기기">
             <i class="fa-regular fa-eye"></i>
           </button>
@@ -2788,7 +2788,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- 🔒 비밀번호 잠금 해제 시스템 ---
-  const CORRECT_PASSWORD = "1234";
+  const CORRECT_PASSWORD = "1102";
   const lockScreen = document.getElementById('lockScreen');
   const lockForm = document.getElementById('lockForm');
   const appPasswordInput = document.getElementById('appPasswordInput');
