@@ -160,107 +160,116 @@ def generate_recipe():
                 "error": "Gemini API 키가 설정되지 않았습니다. .env 파일을 확인해 주세요."
             }), 500
 
-        # Gemini 프롬프트 엔지니어링 (3가지 스타일의 다채로운 레시피 생성)
+        # Gemini 프롬프트 엔지니어링 (3가지 스타일의 고품질 맞춤형 셰프 레시피 생성)
         prompt = f"""
 당신은 대한민국 최고의 스타 셰프이자 전문 영양사입니다.
-사용자가 제공한 조건을 분석하여, 사용자가 골라 먹을 수 있는 서로 다른 매력의 **3가지 맞춤형 추천 요리 레시피**를 만들어주세요.
+사용자가 입력한 냉장고 재료와 요청 조건을 바탕으로, 집에서도 손쉽고 완벽하게 성공할 수 있는 **서로 다른 매력의 3가지 추천 요리 레시피**를 만들어주세요.
 
 [사용자 요청 조건]
-- 보유 재료: {ingredients}
+- 보유 식재료: {ingredients}
 - 인원수: {servings}
 - 희망 조리시간: {cooking_time}
 - 보유 조리도구: {tools}
-- 알레르기/비선호 성분: {allergies}
-- 선호 음식/스타일: {preference}
+- 제외/알레르기 성분: {allergies}
+- 희망 요리 스타일: {preference}
 
-[3가지 요리 구성 방향]
-1. 첫 번째 메뉴: 가장 빠르고 간단하게 만드는 초간단 스피드 요리 (예: 볶음/덮밥/전)
-2. 두 번째 메뉴: 든든하고 깊은 맛의 국물/찌개 또는 정성 요리
-3. 세 번째 메뉴: 색다르고 트렌디한 이색 퓨전/별미 요리
+[3가지 메뉴 구성 원칙]
+1. 첫 번째 메뉴 (⚡ 초간단 스피드): 가장 빠르고 손쉽게 뚝딱 만드는 볶음/덮밥/전/한그릇 요리
+2. 두 번째 메뉴 (🍲 든든한 정성 한 끼): 깊은 감칠맛의 국물, 찌개, 조림, 또는 든든한 밥도둑 메인 요리
+3. 세 번째 메뉴 (✨ 트렌디 별미/퓨전): 색다르고 입맛을 돋우는 이색 브런치/야식/퓨전 별미 요리
 
-반드시 아래 JSON 포맷 형식에 맞춰 한국어로 응답해 주세요. 마크다운 코드블록(```json) 없이 오직 유효한 순수 JSON 문자열만 출력해야 합니다.
+[응답 규칙]
+- 모든 레시피는 실제로 조리 가능한 현실적이고 맛있는 레시피여야 합니다.
+- 양념 비율은 밥숟가락(T), 찻숟가락(t), 종이컵 기준으로 정확히 계량해 주세요.
+- 조리 순서는 불 세기(강불/중불/약불)와 시간(분 단위)을 명확하게 기재해 주세요.
+- 마크다운(```json) 없이 순수 JSON 포맷으로 한국어로만 응답해 주세요.
 
 {{
   "recipes": [
     {{
       "id": 1,
       "category_tag": "⚡ 초간단 스피드",
-      "menu_name": "메뉴 이름 1",
-      "one_line_intro": "이 요리의 매력을 담은 한 줄 소개",
+      "menu_name": "매력적이고 군침도는 실제 요리명 1",
+      "one_line_intro": "이 요리의 핵심 매력과 맛을 설명하는 감성적인 한 줄 소개",
       "estimated_time": "15분",
       "servings": "{servings}",
       "difficulty": "초급",
       "nutrition_info": {{
         "calories": "약 380 kcal",
-        "carbs": "40g",
-        "protein": "22g",
+        "carbs": "42g",
+        "protein": "24g",
         "fat": "12g",
-        "sodium": "580mg",
-        "health_summary": "소화가 잘되고 가볍게 즐길 수 있는 균형 식단입니다."
+        "sodium": "540mg",
+        "health_summary": "소화가 편안하고 활력을 돋우는 균형 잡힌 영양 식단입니다."
       }},
       "ingredients_list": [
-        "재료명 1 (정확한 분량)",
-        "재료명 2 (정확한 분량)"
+        "주재료 1 (예: 신김치 1컵, 송송 썬 것)",
+        "주재료 2 (예: 계란 2개)",
+        "부재료 (예: 대파 1/2대)"
       ],
       "sauce_ratios": [
-        "양념 1 (계량 스푼 기준 비율)",
-        "양념 2 (계량 스푼 기준 비율)"
+        "진간장 1큰술",
+        "설탕 1/2큰술",
+        "참기름 1큰술",
+        "통깨 약간"
       ],
       "cooking_steps": [
-        "1단계: 재료 손질 방법 및 팁",
-        "2단계: 조리 과정 (불 조절 세기, 가열 시간 명시)",
-        "3단계: 마무리 및 플레이팅"
+        "1단계: 재료를 먹기 좋은 크기로 썰어 준비합니다.",
+        "2단계: 팬에 식용유 1큰술을 두르고 중불에서 파를 볶아 향을 냅니다.",
+        "3단계: 나머지 재료와 양념장을 넣고 센불에서 3분간 빠르게 볶아 완성합니다."
       ],
       "substitute_guide": [
-        "대체 가능한 재료 안내"
+        "스팸 대신 참치캔이나 베이컨을 사용해도 아주 맛있습니다.",
+        "대파가 없으면 쪽파나 양파로 대체 가능합니다."
       ],
       "fail_proof_tips": [
-        "절대 실패하지 않는 핵심 팁"
+        "센불에서 너무 오래 볶으면 양념이 탈 수 있으니 중약불로 조절해 주세요.",
+        "마지막에 참기름을 둘러주면 고소한 풍미가 2배로 살아납니다."
       ]
     }},
     {{
       "id": 2,
-      "category_tag": "🍲 든든한 국물/일품",
-      "menu_name": "메뉴 이름 2",
-      "one_line_intro": "한 줄 소개 2",
+      "category_tag": "🍲 든든한 정성 한 끼",
+      "menu_name": "매력적인 실제 요리명 2",
+      "one_line_intro": "깊고 진한 풍미를 자랑하는 든든한 밥도둑 요리",
       "estimated_time": "20분",
       "servings": "{servings}",
       "difficulty": "초중급",
       "nutrition_info": {{
-        "calories": "약 430 kcal",
-        "carbs": "45g",
-        "protein": "26g",
-        "fat": "15g",
+        "calories": "약 450 kcal",
+        "carbs": "46g",
+        "protein": "28g",
+        "fat": "16g",
         "sodium": "680mg",
-        "health_summary": "단백질과 수분이 풍부하여 포만감이 뛰어납니다."
+        "health_summary": "단백질과 수분이 듬뿍 담겨 속을 든든하게 채워줍니다."
       }},
-      "ingredients_list": ["재료 목록"],
-      "sauce_ratios": ["양념 비율"],
-      "cooking_steps": ["조리 순서"],
-      "substitute_guide": ["대체 재료"],
-      "fail_proof_tips": ["실패 방지 팁"]
+      "ingredients_list": ["구체적인 재료와 분량"],
+      "sauce_ratios": ["정확한 양념 비율"],
+      "cooking_steps": ["상세한 단계별 조리 순서"],
+      "substitute_guide": ["대체 가능한 식재료 팁"],
+      "fail_proof_tips": ["실패 없는 맛보장 꿀팁"]
     }},
     {{
       "id": 3,
-      "category_tag": "✨ 색다른 별미/퓨전",
-      "menu_name": "메뉴 이름 3",
-      "one_line_intro": "한 줄 소개 3",
+      "category_tag": "✨ 트렌디 별미/퓨전",
+      "menu_name": "매력적인 실제 요리명 3",
+      "one_line_intro": "입맛을 돋우는 이색적이고 특별한 한 접시",
       "estimated_time": "25분",
       "servings": "{servings}",
       "difficulty": "중급",
       "nutrition_info": {{
-        "calories": "약 460 kcal",
-        "carbs": "50g",
-        "protein": "24g",
-        "fat": "18g",
-        "sodium": "620mg",
-        "health_summary": "입맛을 돋우는 풍미 가득한 특별식입니다."
+        "calories": "약 490 kcal",
+        "carbs": "52g",
+        "protein": "22g",
+        "fat": "19g",
+        "sodium": "610mg",
+        "health_summary": "기분 전환을 돕는 풍성하고 즐거운 식사입니다."
       }},
-      "ingredients_list": ["재료 목록"],
-      "sauce_ratios": ["양념 비율"],
-      "cooking_steps": ["조리 순서"],
-      "substitute_guide": ["대체 재료"],
-      "fail_proof_tips": ["실패 방지 팁"]
+      "ingredients_list": ["구체적인 재료와 분량"],
+      "sauce_ratios": ["정확한 양념 비율"],
+      "cooking_steps": ["상세한 단계별 조리 순서"],
+      "substitute_guide": ["대체 가능한 식재료 팁"],
+      "fail_proof_tips": ["실패 없는 맛보장 꿀팁"]
     }}
   ]
 }}
