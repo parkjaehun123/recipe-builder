@@ -20,6 +20,1262 @@
   <meta property="og:image" content="/static/icons/icon-512.png">
   
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- 인라인 CSS 임베드 (Vercel Serverless 배포 시 스타일 100% 무적 보장) -->
+  <style>
+/* --- 귀여운 꼬마 셰프 테마 스타일 --- */
+:root {
+  --primary: #ff7e67;
+  --primary-hover: #ff654a;
+  --primary-light: #fff0ec;
+  --yellow-accent: #ffd166;
+  --yellow-light: #fff9e6;
+  --mint-accent: #06d6a0;
+  --mint-light: #e8fbf6;
+  --bg-color: #fdfaf5;
+  --card-bg: #ffffff;
+  --text-dark: #3d3a45;
+  --text-soft: #7a7684;
+  --border-cute: #f2e8dc;
+  --border-highlight: #ffd8cc;
+  --youtube-red: #ff334b;
+  --radius-xl: 26px;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-cute: 0 10px 25px -4px rgba(230, 160, 130, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 16px 30px -4px rgba(255, 126, 103, 0.22);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', 'Pretendard', sans-serif;
+  background-color: var(--bg-color);
+  background-image: radial-gradient(#faecd8 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* --- 귀여운 배경 떠다니는 장식 --- */
+.bg-decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.decor-item {
+  position: absolute;
+  font-size: 2.2rem;
+  opacity: 0.35;
+  animation: floatEmoji 7s ease-in-out infinite alternate;
+}
+
+.decor-1 { top: 12%; left: 4%; animation-delay: 0s; }
+.decor-2 { top: 28%; right: 5%; animation-delay: 1.5s; font-size: 2rem; }
+.decor-3 { top: 58%; left: 3%; animation-delay: 3s; }
+.decor-4 { top: 75%; right: 4%; animation-delay: 2s; }
+.decor-5 { top: 90%; left: 8%; animation-delay: 4.5s; }
+.decor-6 { top: 45%; right: 3%; animation-delay: 3.5s; }
+
+@keyframes floatEmoji {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(12deg); }
+}
+
+/* --- 귀여운 상단 내비게이션 바 --- */
+.navbar {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px dashed #f5decb;
+  padding: 14px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Jua', cursive;
+  font-size: 1.4rem;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.chef-hat {
+  font-size: 1.6rem;
+  display: inline-block;
+  animation: bounceHead 2s infinite ease-in-out;
+}
+
+@keyframes bounceHead {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.sparkle {
+  color: #ffb703;
+  font-size: 1.1rem;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-cute-install {
+  background: var(--coral-light);
+  border: 2px solid var(--primary);
+  color: var(--primary-dark);
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-cute-install:hover {
+  transform: scale(1.05);
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-cute-bookmark {
+  background: var(--yellow-light);
+  border: 2px solid var(--yellow-accent);
+  color: #8f5a00;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-cute-bookmark:hover {
+  transform: scale(1.05);
+  background: var(--yellow-accent);
+  color: #fff;
+}
+
+.badge-cute {
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+/* --- 메인 컨테이너 & 헤더 --- */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-badge {
+  display: inline-block;
+  background: #fff2e0;
+  color: #c96218;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1.5px dashed #f8c291;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-family: 'Jua', cursive;
+  font-size: 2.3rem;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+}
+
+/* --- 귀여운 카드 공통 스타일 --- */
+.cute-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: 32px 28px;
+  box-shadow: var(--shadow-cute);
+  margin-bottom: 28px;
+  border: 2px solid var(--border-cute);
+  position: relative;
+}
+
+/* 마스킹 테이프 장식 */
+.tape-sticker {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-1deg);
+  width: 120px;
+  height: 26px;
+  background: rgba(255, 222, 173, 0.75);
+  border-left: 2px dashed rgba(200, 160, 120, 0.4);
+  border-right: 2px dashed rgba(200, 160, 120, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.form-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card-title {
+  font-family: 'Jua', cursive;
+  font-size: 1.45rem;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-surprise-cute {
+  background: linear-gradient(135deg, #fff3b0 0%, #ffcbf2 100%);
+  border: 2px solid #ffb3c6;
+  color: #6a1b9a;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 10px rgba(255, 179, 198, 0.35);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-surprise-cute:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 16px rgba(255, 179, 198, 0.5);
+}
+
+/* --- 폼 스타일 --- */
+.form-group {
+  margin-bottom: 22px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-group label {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.icon-bubble {
+  font-size: 1.15rem;
+}
+
+.required-star {
+  color: var(--primary);
+  font-size: 1.1rem;
+}
+
+.btn-text-clear {
+  background: none;
+  border: none;
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-text-clear:hover {
+  color: var(--primary);
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #ecdcd0;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  color: var(--text-dark);
+  background-color: #fffdfa;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--primary);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 126, 103, 0.18);
+}
+
+/* --- 톡톡 누르는 인기 재료 칩 --- */
+.quick-chips-wrapper {
+  margin-top: 12px;
+}
+
+.chips-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #b5835a;
+  margin-bottom: 8px;
+}
+
+.chips-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ingredient-chip {
+  background: #ffffff;
+  border: 2px solid #fae1d2;
+  border-radius: 20px;
+  padding: 6px 13px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #634b3e;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 5px rgba(230, 160, 130, 0.08);
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ingredient-chip:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.ingredient-chip.chip-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(255, 126, 103, 0.35);
+}
+
+.chip-emoji {
+  font-size: 1.05rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* --- 메인 버튼 스타일 --- */
+.btn-cute-submit {
+  width: 100%;
+  background: linear-gradient(135deg, #ff7e67 0%, #ff5252 100%);
+  color: #fff;
+  padding: 16px 24px;
+  font-family: 'Jua', cursive;
+  font-size: 1.35rem;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 82, 82, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-top: 10px;
+}
+
+.btn-cute-submit:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(255, 82, 82, 0.45);
+}
+
+/* --- 보글보글 로딩 애니메이션 --- */
+.cute-cooking-pot {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pot-emoji {
+  font-size: 4.5rem;
+  animation: potWiggle 1.2s infinite ease-in-out;
+}
+
+@keyframes potWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg) scale(1.05); }
+  75% { transform: rotate(5deg) scale(1.05); }
+}
+
+.steam {
+  position: absolute;
+  font-size: 1.3rem;
+  opacity: 0;
+  animation: steamRise 2s infinite ease-out;
+}
+
+.steam-1 { top: 0px; left: 20px; animation-delay: 0s; }
+.steam-2 { top: -10px; left: 40px; animation-delay: 0.6s; }
+.steam-3 { top: 0px; right: 20px; animation-delay: 1.2s; }
+
+@keyframes steamRise {
+  0% { transform: translateY(10px) scale(0.6); opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { transform: translateY(-30px) scale(1.2); opacity: 0; }
+}
+
+.loading-title {
+  font-family: 'Jua', cursive;
+  font-size: 1.4rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.loading-subtext {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+/* --- 3종 추천 요리 선택 탭 --- */
+.recipe-selection-section {
+  margin-bottom: 25px;
+}
+
+.selection-title {
+  font-family: 'Jua', cursive;
+  font-size: 1.4rem;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.recipe-tabs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.recipe-tab-card {
+  background: #ffffff;
+  border: 2.5px solid #fae3d5;
+  border-radius: var(--radius-lg);
+  padding: 16px 14px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(240, 180, 150, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recipe-tab-card:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.recipe-tab-card.active-tab {
+  border-color: var(--primary);
+  background: #fff8f5;
+  box-shadow: 0 0 0 3px rgba(255, 126, 103, 0.25), var(--shadow-hover);
+}
+
+.tab-tag {
+  font-family: 'Jua', cursive;
+  font-size: 0.85rem;
+  color: #ff5252;
+  background: #ffebe6;
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 8px;
+  align-self: flex-start;
+}
+
+.tab-title {
+  font-family: 'Jua', cursive;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.tab-meta {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  display: flex;
+  gap: 8px;
+  font-weight: 600;
+}
+
+/* --- 레시피 북 스타일 상세 결과 카드 --- */
+.recipe-book-card {
+  border: 3px solid #f2dbcb;
+  background: #ffffff;
+  position: relative;
+  padding-top: 40px;
+}
+
+.spiral-binding {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.spiral-binding span {
+  width: 14px;
+  height: 14px;
+  background: #f7ede2;
+  border: 2px solid #dfcfc0;
+  border-radius: 50%;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cute-badge {
+  background: #fff0eb;
+  color: var(--primary);
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #ffd2c7;
+}
+
+.btn-cute-action {
+  background: #f7fafc;
+  border: 1.5px solid #e2e8f0;
+  color: var(--text-dark);
+  padding: 8px 14px;
+  border-radius: 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-cute-action:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.btn-bookmarked {
+  background: #fff0f3 !important;
+  color: #ff3366 !important;
+  border-color: #ffb3c6 !important;
+}
+
+.menu-title {
+  font-family: 'Jua', cursive;
+  font-size: 2.1rem;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.menu-desc {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.menu-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag-cute {
+  background: #fef7ee;
+  border: 1.5px solid #fae1c5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #a45a19;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* --- 귀여운 TV 유튜브 배너 --- */
+.cute-tv-card {
+  background: #fff5f5;
+  border: 2px dashed #ffccd5;
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.youtube-badge {
+  color: var(--youtube-red);
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+.yt-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+
+.yt-channel {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.btn-youtube-cute {
+  background: var(--youtube-red);
+  color: #fff;
+  padding: 10px 20px;
+  font-family: 'Jua', cursive;
+  font-size: 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(255, 51, 75, 0.3);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-youtube-cute:hover {
+  transform: scale(1.05);
+  background: #e6203a;
+  color: #fff;
+}
+
+/* --- 귀여운 건강 쑥쑥 영양 노트 --- */
+.cute-nutrition-card {
+  background: #fffcf7;
+  border: 2px solid #ffeedb;
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.nutrition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.nutrition-header h3 {
+  font-family: 'Jua', cursive;
+  font-size: 1.25rem;
+  color: #d96b27;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calories-badge-cute {
+  background: var(--yellow-accent);
+  color: #704800;
+  font-family: 'Jua', cursive;
+  font-size: 1.05rem;
+  padding: 4px 14px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(255, 209, 102, 0.4);
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cute-nutri-item {
+  background: #ffffff;
+  border: 1.5px solid #ffe3c6;
+  border-radius: var(--radius-md);
+  padding: 10px;
+  text-align: center;
+}
+
+.nutri-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-bottom: 2px;
+}
+
+.nutri-val {
+  font-family: 'Jua', cursive;
+  font-size: 1.15rem;
+  color: var(--text-dark);
+}
+
+.nutri-summary-cute {
+  font-size: 0.88rem;
+  color: #634720;
+  background: #fff8eb;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  margin-top: 8px;
+  border: 1px dashed #fbd79e;
+}
+
+/* 귀여운 구분선 */
+.cute-divider {
+  text-align: center;
+  margin: 25px 0;
+  position: relative;
+}
+
+.cute-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #f7e6d7;
+  z-index: 0;
+}
+
+.cute-divider span {
+  background: #fff;
+  padding: 0 15px;
+  position: relative;
+  z-index: 1;
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+}
+
+/* --- 재료 & 양념 그리드 --- */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.cute-box h3 {
+  font-family: 'Jua', cursive;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cute-list {
+  list-style: none;
+}
+
+.cute-list li {
+  position: relative;
+  padding: 8px 0 8px 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 1px dashed #f5e4d5;
+}
+
+.cute-list li:last-child {
+  border-bottom: none;
+}
+
+.cute-list li::before {
+  content: "✨";
+  font-size: 0.85rem;
+  position: absolute;
+  left: 2px;
+  top: 8px;
+}
+
+/* --- 단계별 조리 순서 --- */
+.cute-steps {
+  list-style: none;
+  counter-reset: cute-step;
+}
+
+.cute-steps li {
+  counter-increment: cute-step;
+  position: relative;
+  padding: 14px 16px 14px 54px;
+  background: #fffcf8;
+  border: 1.5px solid #fae8d8;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+.cute-steps li::before {
+  content: counter(cute-step);
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: var(--primary);
+  color: #fff;
+  font-family: 'Jua', cursive;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(255, 126, 103, 0.4);
+}
+
+/* --- 팁 & 대체 가이드 --- */
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.cute-tip-box {
+  padding: 18px;
+  border-radius: var(--radius-lg);
+}
+
+.cute-tip-box h4 {
+  font-family: 'Jua', cursive;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cute-tip-box ul {
+  padding-left: 18px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.cute-tip-box li {
+  margin-bottom: 6px;
+}
+
+.fail-proof {
+  background-color: #fff8eb;
+  border: 2px solid #ffe1a8;
+}
+
+.fail-proof h4 {
+  color: #c96218;
+}
+
+.substitute {
+  background-color: #f0fdf4;
+  border: 2px solid #bbf7d0;
+}
+
+.substitute h4 {
+  color: #15803d;
+}
+
+/* --- 비밀 요리책 드로어 --- */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(80, 50, 40, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cute-drawer {
+  background: #fffaf4;
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  padding: 28px 22px;
+  overflow-y: auto;
+  box-shadow: -8px 0 30px rgba(100, 50, 30, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-header h2 {
+  font-family: 'Jua', cursive;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-soft);
+}
+
+.bookmark-item {
+  background: #ffffff;
+  border: 2px solid #f8e5d7;
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(220, 160, 130, 0.08);
+}
+
+.bookmark-item-title {
+  font-family: 'Jua', cursive;
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.bookmark-item-meta {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.bookmark-item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* --- 에러 알림 --- */
+.cute-alert {
+  background: #fff1f2;
+  border: 2px solid #fecdd3;
+  color: #e11d48;
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+}
+
+.alert-icon {
+  font-size: 1.5rem;
+}
+
+/* --- 유틸리티 & 푸터 --- */
+.hidden {
+  display: none !important;
+}
+
+.footer {
+  text-align: center;
+  color: #a49688;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  margin-top: 40px;
+  padding-bottom: 25px;
+}
+
+/* --- 완벽 모바일 최적화 미디어 쿼리 --- */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  .container {
+    padding: 18px 12px;
+  }
+
+  /* 상단 네비게이션 모바일 최적화 */
+  .navbar {
+    padding: 10px 14px;
+  }
+
+  .nav-container {
+    gap: 6px;
+  }
+
+  .logo {
+    font-size: 1.15rem;
+    gap: 5px;
+  }
+
+  .chef-hat {
+    font-size: 1.35rem;
+  }
+
+  .nav-actions {
+    gap: 6px;
+  }
+
+  .btn-cute-install,
+  .btn-cute-bookmark {
+    padding: 6px 10px;
+    font-size: 0.82rem;
+    border-radius: 18px;
+    gap: 4px;
+  }
+
+  /* 헤더 텍스트 모바일 크기 */
+  .header-badge {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+
+  .main-title {
+    font-size: 1.55rem;
+    line-height: 1.35;
+    margin-top: 8px;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    padding: 0 5px;
+  }
+
+  /* 카드 패딩 및 레이아웃 */
+  .cute-card {
+    padding: 20px 14px;
+    border-radius: var(--radius-lg);
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+  }
+
+  .btn-surprise-cute {
+    font-size: 0.82rem;
+    padding: 6px 10px;
+  }
+
+  .form-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* 폼 요소 모바일 최적화 */
+  .form-row,
+  .recipe-grid,
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  input[type="text"],
+  select {
+    font-size: 16px !important; /* iOS 자동 확대 방지 */
+    padding: 12px 14px;
+    height: 48px; /* 터치 친화적 높이 */
+  }
+
+  /* 재료 칩 모바일 터치 최적화 */
+  .chips-list {
+    gap: 6px;
+  }
+
+  .ingredient-chip {
+    padding: 6px 10px;
+    font-size: 0.84rem;
+    height: 36px;
+  }
+
+  /* 추천 메뉴 3가지 탭 모바일 1열 카드 배치 */
+  .recipe-tabs-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .tab-card {
+    padding: 14px 16px;
+  }
+
+  /* 상세 결과 헤더 및 액션 버튼 그리드 */
+  .result-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .recipe-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .btn-cute-action {
+    width: 100%;
+    justify-content: center;
+    padding: 8px 10px;
+    font-size: 0.84rem;
+  }
+
+  .menu-title {
+    font-size: 1.45rem;
+  }
+
+  /* 영양 성분 카드 2열 그리드 */
+  .nutrition-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .cute-nutri-item {
+    padding: 10px 8px;
+  }
+
+  .nutri-val {
+    font-size: 1.05rem;
+  }
+
+  /* 유튜브 카드 세로 정렬 */
+  .cute-tv-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px;
+  }
+
+  .btn-youtube-cute {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  /* 배경 이모지 모바일에서 은은하게 */
+  .decor-item {
+    opacity: 0.18;
+    font-size: 1.6rem;
+  }
+}
+
+/* 400px 이하 초소형 스마트폰 (iPhone SE 등) */
+@media (max-width: 400px) {
+  .logo-text {
+    font-size: 0.98rem;
+  }
+  .btn-cute-install span,
+  .btn-cute-bookmark span:first-child {
+    display: none; /* 아이콘과 뱃지만 표시 */
+  }
+  .btn-cute-install,
+  .btn-cute-bookmark {
+    padding: 6px 8px;
+  }
+  .main-title {
+    font-size: 1.35rem;
+  }
+}
+
+/* --- 인쇄 최적화 --- */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .bg-decorations,
+  .navbar,
+  .input-card,
+  .loading-card,
+  .recipe-selection-section,
+  .alert,
+  .recipe-actions,
+  .footer,
+  .drawer-overlay {
+    display: none !important;
+  }
+  .cute-card {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+  </style>
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- 귀여운 한글 폰트 (Jua & Pretendard) -->
