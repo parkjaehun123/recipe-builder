@@ -12,9 +12,12 @@ from google.genai import types
 load_dotenv()
 
 # 로깅 설정
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
-
-app = Flask(__name__)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+app = Flask(
+    __name__,
+    template_folder=os.path.join(BASE_DIR, "templates"),
+    static_folder=os.path.join(BASE_DIR, "static")
+)
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 SERPER_API_KEY = os.getenv("SERPER_API_KEY")
@@ -73,6 +76,9 @@ def search_youtube_video(menu_name):
 
 
 @app.route("/")
+@app.route("/api/index.py")
+@app.route("/api/index")
+@app.route("/api")
 def index():
     """메인 페이지 렌더링"""
     return render_template("index.html")
@@ -93,6 +99,7 @@ def service_worker():
 
 
 @app.route("/generate", methods=["POST"])
+@app.route("/api/generate", methods=["POST"])
 def generate_recipe():
     """레시피 3종 후보 생성 및 유튜브 연동 엔드포인트"""
     try:
