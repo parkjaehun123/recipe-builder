@@ -1,6 +1,6 @@
 {
-  "name": "후니의 비밀 요리책",
-  "short_name": "후니요리책",
+  "name": "서울맛피아의 비밀 요리책",
+  "short_name": "서울맛피아",
   "description": "냉장고 속 재료로 맞춤 요리 레시피를 만드는 AI 스마트 요리책",
   "start_url": "/",
   "display": "standalone",
