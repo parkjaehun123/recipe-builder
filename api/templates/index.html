@@ -1274,7 +1274,176 @@ select:focus {
     padding: 0;
   }
 }
-  </style>
+  
+/* --- 🔒 비밀번호 잠금 화면 스타일 --- */
+.lock-screen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(253, 250, 245, 0.96);
+  backdrop-filter: blur(16px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.lock-screen-overlay.unlocked {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.lock-card {
+  width: 100%;
+  max-width: 380px;
+  background: #ffffff;
+  border: 3px solid #fbd9c8;
+  border-radius: 28px;
+  padding: 34px 26px;
+  text-align: center;
+  box-shadow: 0 20px 45px rgba(255, 126, 103, 0.18);
+  animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.lock-card.shake {
+  animation: shakeCard 0.4s ease;
+}
+
+@keyframes shakeCard {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.lock-icon-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.lock-chef {
+  font-size: 3.5rem;
+  display: inline-block;
+  animation: floatEmoji 4s infinite alternate;
+}
+
+.lock-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+  font-size: 1.5rem;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.lock-title {
+  font-family: 'Jua', cursive;
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+
+.lock-desc {
+  font-size: 0.92rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.lock-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lock-input-group {
+  position: relative;
+  width: 100%;
+}
+
+.lock-input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid #f2dfd3;
+  border-radius: 16px;
+  padding: 0 45px 0 16px;
+  font-size: 1.1rem;
+  text-align: center;
+  background: #fffaf7;
+  color: var(--text-dark);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.lock-input:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 126, 103, 0.15);
+}
+
+.btn-toggle-pw {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #a49688;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.lock-error-msg {
+  color: #e11d48;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.btn-unlock {
+  margin-top: 6px;
+  padding: 14px;
+  font-size: 1.1rem;
+}
+
+.btn-lock-app {
+  background: #f4ede4;
+  border: 2px solid #e0d2c1;
+  color: #7a6e60;
+  padding: 6px 12px;
+  border-radius: 18px;
+  font-family: 'Jua', cursive;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s;
+}
+
+.btn-lock-app:hover {
+  background: #e2d3c0;
+  color: #4a3e30;
+}
+
+</style>
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- 귀여운 한글 폰트 (Jua & Pretendard) -->
@@ -1283,6 +1452,32 @@ select:focus {
   <link href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- 🔒 비밀번호 잠금 화면 오버레이 -->
+  <div id="lockScreen" class="lock-screen-overlay">
+    <div class="lock-card cute-card">
+      <div class="lock-icon-wrapper">
+        <span class="lock-chef">👩‍🍳</span>
+        <span class="lock-badge">🔒</span>
+      </div>
+      <h2 class="lock-title">쉿! 후니의 비밀 요리책</h2>
+      <p class="lock-desc">맛있는 마법 레시피를 보려면<br>비밀번호를 입력해 주세요 ✨</p>
+      
+      <form id="lockForm" class="lock-form" onsubmit="return false;">
+        <div class="lock-input-group">
+          <input type="password" id="appPasswordInput" class="lock-input" placeholder="비밀번호를 입력하세요" autocomplete="current-password" required autofocus>
+          <button type="button" id="togglePasswordBtn" class="btn-toggle-pw" title="비밀번호 보기/숨기기">
+            <i class="fa-regular fa-eye"></i>
+          </button>
+        </div>
+        <div id="lockErrorMsg" class="lock-error-msg hidden">
+          <span>😿 비밀번호가 맞지 않아요! 다시 입력해 보세요.</span>
+        </div>
+        <button type="submit" id="unlockBtn" class="btn btn-cute-submit btn-unlock">
+          <span>🪄 요리책 열기 🔓</span>
+        </button>
+      </form>
+    </div>
+  </div>
   <!-- 귀여운 배경 장식 요소들 -->
   <div class="bg-decorations" aria-hidden="true">
     <span class="decor-item decor-1">🍳</span>
@@ -1305,6 +1500,7 @@ select:focus {
         <button id="installPwaBtn" class="btn btn-cute-install hidden" title="홈 화면에 앱 설치하기">
           <i class="fa-solid fa-cloud-arrow-down"></i> <span>앱 설치</span>
         </button>
+        <button id="lockAppBtn" class="btn-lock-app" title="앱 다시 잠그기"><i class="fa-solid fa-lock"></i> <span>잠그기</span></button>
         <button id="openBookmarksBtn" class="btn btn-cute-bookmark">
           <span>🎀 비밀 요리책</span>
           <span id="bookmarkCountBadge" class="badge-cute">0</span>
@@ -2169,6 +2365,73 @@ document.addEventListener('DOMContentLoaded', () => {
       installPwaBtn.classList.add('hidden');
     }
   });
+
+  // --- 🔒 비밀번호 잠금 해제 시스템 ---
+  const CORRECT_PASSWORD = "1234"; // 🔑 기본 비밀번호 (원하시는 비밀번호로 자유롭게 변경 가능)
+  const lockScreen = document.getElementById('lockScreen');
+  const lockForm = document.getElementById('lockForm');
+  const appPasswordInput = document.getElementById('appPasswordInput');
+  const lockErrorMsg = document.getElementById('lockErrorMsg');
+  const togglePasswordBtn = document.getElementById('togglePasswordBtn');
+  const lockAppBtn = document.getElementById('lockAppBtn');
+
+  // 세션 스토리지에서 잠금 해제 상태 확인
+  if (sessionStorage.getItem('hooni_recipe_unlocked') === 'true') {
+    if (lockScreen) lockScreen.classList.add('unlocked');
+  }
+
+  // 잠금 폼 제출 (비밀번호 확인)
+  if (lockForm) {
+    lockForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredPassword = appPasswordInput.value.trim();
+      
+      if (enteredPassword === CORRECT_PASSWORD) {
+        // 성공!
+        sessionStorage.setItem('hooni_recipe_unlocked', 'true');
+        if (lockErrorMsg) lockErrorMsg.classList.add('hidden');
+        if (lockScreen) {
+          lockScreen.classList.add('unlocked');
+        }
+        appPasswordInput.value = '';
+      } else {
+        // 실패 - 흔들림 및 에러 표시
+        if (lockErrorMsg) lockErrorMsg.classList.remove('hidden');
+        const lockCard = document.querySelector('.lock-card');
+        if (lockCard) {
+          lockCard.classList.remove('shake');
+          void lockCard.offsetWidth; // 리플로우 강제
+          lockCard.classList.add('shake');
+        }
+        appPasswordInput.value = '';
+        appPasswordInput.focus();
+      }
+    });
+  }
+
+  // 비밀번호 보기 / 숨기기 토글
+  if (togglePasswordBtn) {
+    togglePasswordBtn.addEventListener('click', () => {
+      const type = appPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+      appPasswordInput.setAttribute('type', type);
+      togglePasswordBtn.innerHTML = type === 'password' ? '<i class="fa-regular fa-eye"></i>' : '<i class="fa-regular fa-eye-slash"></i>';
+    });
+  }
+
+  // 상단 바 '잠그기' 버튼
+  if (lockAppBtn) {
+    lockAppBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('hooni_recipe_unlocked');
+      if (lockScreen) {
+        lockScreen.classList.remove('unlocked');
+      }
+      if (appPasswordInput) {
+        appPasswordInput.value = '';
+        appPasswordInput.focus();
+      }
+    });
+  }
+
 });
   </script>
 </body>
