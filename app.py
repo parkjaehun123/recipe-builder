@@ -3,7 +3,7 @@ import json
 import logging
 import urllib.parse
 import requests
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -76,6 +76,20 @@ def search_youtube_video(menu_name):
 def index():
     """메인 페이지 렌더링"""
     return render_template("index.html")
+
+
+@app.route("/manifest.json")
+def manifest():
+    """PWA 매니페스트 제공"""
+    return send_from_directory("static", "manifest.json", mimetype="application/manifest+json")
+
+
+@app.route("/sw.js")
+def service_worker():
+    """PWA 서비스 워커 제공 (루트 스코프 헤더 포함)"""
+    response = send_from_directory("static", "sw.js", mimetype="application/javascript")
+    response.headers["Service-Worker-Allowed"] = "/"
+    return response
 
 
 @app.route("/generate", methods=["POST"])

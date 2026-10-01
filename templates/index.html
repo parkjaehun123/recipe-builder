@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>👨‍🍳 후니의 비밀 요리책 ✨</title>
+  <!-- PWA 설정 -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#FF7E67">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="후니요리책">
+  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+  
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,10 +39,15 @@
         <span class="logo-text">후니의 비밀 요리책</span>
         <span class="sparkle">✨</span>
       </div>
-      <button id="openBookmarksBtn" class="btn btn-cute-bookmark">
-        <span>🎀 비밀 요리책</span>
-        <span id="bookmarkCountBadge" class="badge-cute">0</span>
-      </button>
+      <div class="nav-actions">
+        <button id="installPwaBtn" class="btn btn-cute-install hidden" title="홈 화면에 앱 설치하기">
+          <i class="fa-solid fa-cloud-arrow-down"></i> <span>앱 설치</span>
+        </button>
+        <button id="openBookmarksBtn" class="btn btn-cute-bookmark">
+          <span>🎀 비밀 요리책</span>
+          <span id="bookmarkCountBadge" class="badge-cute">0</span>
+        </button>
+      </div>
     </div>
   </nav>
 

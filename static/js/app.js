@@ -538,4 +538,47 @@ document.addEventListener('DOMContentLoaded', () => {
   function hideError() {
     errorAlert.classList.add('hidden');
   }
+
+  // --- PWA (Progressive Web App) 서비스 워커 등록 및 설치 지원 ---
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then((reg) => {
+          console.log('Service Worker 등록 성공:', reg.scope);
+        })
+        .catch((err) => {
+          console.log('Service Worker 등록 실패:', err);
+        });
+    });
+  }
+
+  // PWA 설치 버튼 핸들러
+  let deferredPrompt = null;
+  const installPwaBtn = document.getElementById('installPwaBtn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (installPwaBtn) {
+      installPwaBtn.classList.remove('hidden');
+    }
+  });
+
+  if (installPwaBtn) {
+    installPwaBtn.addEventListener('click', async () => {
+      if (!deferredPrompt) return;
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log('PWA 설치 응답:', outcome);
+      deferredPrompt = null;
+      installPwaBtn.classList.add('hidden');
+    });
+  }
+
+  window.addEventListener('appinstalled', () => {
+    console.log('PWA가 성공적으로 설치되었습니다!');
+    if (installPwaBtn) {
+      installPwaBtn.classList.add('hidden');
+    }
+  });
 });

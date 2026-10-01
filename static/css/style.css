@@ -116,6 +116,33 @@ body {
   font-size: 1.1rem;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-cute-install {
+  background: var(--coral-light);
+  border: 2px solid var(--primary);
+  color: var(--primary-dark);
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-cute-install:hover {
+  transform: scale(1.05);
+  background: var(--primary);
+  color: #fff;
+}
+
 .btn-cute-bookmark {
   background: var(--yellow-light);
   border: 2px solid var(--yellow-accent);
