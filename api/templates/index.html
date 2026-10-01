@@ -1237,15 +1237,15 @@ select:focus {
 /* 400px 이하 초소형 스마트폰 (iPhone SE 등) */
 @media (max-width: 400px) {
   .logo-text {
-    font-size: 0.98rem;
+    font-size: 0.95rem;
   }
-  .btn-cute-install span,
   .btn-cute-bookmark span:first-child {
-    display: none; /* 아이콘과 뱃지만 표시 */
+    display: none; /* 북마크는 아이콘과 뱃지만 표시 */
   }
   .btn-cute-install,
   .btn-cute-bookmark {
-    padding: 6px 8px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
   .main-title {
     font-size: 1.35rem;
@@ -1589,6 +1589,158 @@ select:focus {
   50% { transform: translateY(-4px); }
 }
 
+/* --- 📲 잠금화면 설치 버튼 스타일 --- */
+.lock-footer-install {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 2px dashed #f5decb;
+}
+
+.btn-lock-install {
+  width: 100%;
+  background: #fff4ed;
+  border: 2px dashed #ff9e88;
+  color: #ff5722;
+  border-radius: 14px;
+  padding: 11px 14px;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-lock-install:hover {
+  background: #ffe6db;
+  transform: translateY(-2px);
+}
+
+/* --- 📲 모바일 하단 고정 설치 플로팅 바 스타일 --- */
+.mobile-floating-install {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 2px solid #ffccba;
+  padding: 10px 16px;
+  padding-bottom: max(10px, env(safe-area-inset-bottom));
+  z-index: 99990;
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.12);
+  animation: slideUpFloat 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFloat {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+.floating-install-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.floating-app-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.floating-app-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.floating-app-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.floating-app-info strong {
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  color: #2d2620;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.floating-app-info span {
+  font-size: 0.78rem;
+  color: #ff5722;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.floating-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-floating-install {
+  background: linear-gradient(135deg, #FF6B4A 0%, #FF8E53 100%);
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Jua', cursive;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255, 107, 74, 0.35);
+  white-space: nowrap;
+}
+
+.btn-floating-close {
+  background: none;
+  border: none;
+  color: #a89f91;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+}
+
+.inapp-warning-box {
+  background: #fff8e6;
+  border: 1.5px solid #fde047;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  color: #854d0e;
+  line-height: 1.45;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* 모바일 화면에서 하단 플로팅 배너 노출 */
+@media (max-width: 768px) {
+  .mobile-floating-install {
+    display: block;
+  }
+}
+
 </style>
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1622,6 +1774,13 @@ select:focus {
           <span>🪄 요리책 열기 🔓</span>
         </button>
       </form>
+
+      <!-- 📲 잠금 화면에서도 바로 설치 가능한 버튼 -->
+      <div class="lock-footer-install">
+        <button type="button" class="btn-lock-install trigger-pwa-install">
+          <i class="fa-solid fa-cloud-arrow-down"></i> <span>스마트폰 홈 화면에 앱 설치하기</span>
+        </button>
+      </div>
     </div>
   </div>
   <!-- 귀여운 배경 장식 요소들 -->
@@ -1643,7 +1802,7 @@ select:focus {
         <span class="sparkle">✨</span>
       </div>
       <div class="nav-actions">
-        <button id="installPwaBtn" class="btn btn-cute-install" title="홈 화면에 앱 설치하기">
+        <button id="installPwaBtn" class="btn btn-cute-install trigger-pwa-install" title="홈 화면에 앱 설치하기">
           <i class="fa-solid fa-cloud-arrow-down"></i> <span>앱 설치</span>
         </button>
         <button id="lockAppBtn" class="btn-lock-app" title="앱 다시 잠그기"><i class="fa-solid fa-lock"></i> <span>잠그기</span></button>
@@ -1664,7 +1823,7 @@ select:focus {
       
       <!-- 📲 눈에 잘 띄는 홈 화면 앱 설치 배너 -->
       <div class="pwa-hero-banner" style="margin-top: 14px;">
-        <button type="button" id="heroInstallBtn" class="btn-hero-install">
+        <button type="button" id="heroInstallBtn" class="btn-hero-install trigger-pwa-install">
           <span class="pulse-icon">📲</span>
           <strong>스마트폰 홈 화면에 '서울맛피아' 앱 설치하기</strong>
           <span class="badge-free">원클릭</span>
@@ -2539,24 +2698,41 @@ document.addEventListener('DOMContentLoaded', () => {
     if (pwaGuideModal) pwaGuideModal.classList.add('hidden');
   }
 
-  async function handleInstallClick() {
+  function handleInstallClick() {
     if (deferredPrompt) {
       deferredPrompt.prompt();
-      const { outcome } = await deferredPrompt.userChoice;
-      console.log('PWA 설치 응답:', outcome);
-      if (outcome === 'accepted') {
-        deferredPrompt = null;
-        closePwaGuide();
-      }
+      deferredPrompt.userChoice.then((choiceResult) => {
+        console.log('PWA 설치 응답:', choiceResult.outcome);
+        if (choiceResult.outcome === 'accepted') {
+          deferredPrompt = null;
+          closePwaGuide();
+        }
+      });
     } else {
       openPwaGuide();
     }
   }
 
-  if (installPwaBtn) installPwaBtn.addEventListener('click', handleInstallClick);
-  if (heroInstallBtn) heroInstallBtn.addEventListener('click', handleInstallClick);
+  // 모든 설치 트리거 버튼에 클릭 이벤트 일괄 바인딩
+  document.querySelectorAll('.trigger-pwa-install').forEach(btn => {
+    btn.addEventListener('click', handleInstallClick);
+  });
   if (triggerNativeInstallBtn) triggerNativeInstallBtn.addEventListener('click', handleInstallClick);
   if (closePwaModalBtn) closePwaModalBtn.addEventListener('click', closePwaGuide);
+
+  // 하단 플로팅 배너 닫기 버튼
+  const mobileFloatingInstall = document.getElementById('mobileFloatingInstall');
+  const closeFloatingInstallBtn = document.getElementById('closeFloatingInstallBtn');
+  if (closeFloatingInstallBtn && mobileFloatingInstall) {
+    closeFloatingInstallBtn.addEventListener('click', () => {
+      mobileFloatingInstall.style.display = 'none';
+      sessionStorage.setItem('dismissed_floating_install', 'true');
+    });
+  }
+
+  if (sessionStorage.getItem('dismissed_floating_install') === 'true' && mobileFloatingInstall) {
+    mobileFloatingInstall.style.display = 'none';
+  }
 
   if (pwaGuideModal) {
     pwaGuideModal.addEventListener('click', (e) => {
@@ -2567,9 +2743,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('appinstalled', () => {
     console.log('PWA가 성공적으로 설치되었습니다!');
     closePwaGuide();
-    if (installPwaBtn) installPwaBtn.style.display = 'none';
-    const heroBanner = document.querySelector('.pwa-hero-banner');
-    if (heroBanner) heroBanner.style.display = 'none';
+    document.querySelectorAll('.trigger-pwa-install, .pwa-hero-banner, .mobile-floating-install, .lock-footer-install').forEach(el => {
+      el.style.display = 'none';
+    });
   });
 
   // --- 🔒 비밀번호 잠금 해제 시스템 ---
@@ -2640,6 +2816,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
   </script>
+
+  <!-- 📲 모바일 하단 고정 설치 플로팅 바 -->
+  <div id="mobileFloatingInstall" class="mobile-floating-install">
+    <div class="floating-install-content">
+      <div class="floating-app-left">
+        <img src="/static/icons/icon-192.png" alt="앱 아이콘" class="floating-app-icon">
+        <div class="floating-app-info">
+          <strong>서울맛피아 요리책</strong>
+          <span>홈 화면에 앱으로 추가하기</span>
+        </div>
+      </div>
+      <div class="floating-actions">
+        <button type="button" class="btn-floating-install trigger-pwa-install">
+          <span>📲 설치</span>
+        </button>
+        <button type="button" id="closeFloatingInstallBtn" class="btn-floating-close" title="닫기">&times;</button>
+      </div>
+    </div>
+  </div>
+
   <!-- 📲 PWA 모바일 홈 화면 설치 가이드 모달 -->
   <div id="pwaGuideModal" class="pwa-modal-overlay hidden">
     <div class="pwa-modal-card cute-card">
@@ -2656,6 +2852,11 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
+        <div class="inapp-warning-box">
+          <span class="warning-icon">💡</span>
+          <span>카카오톡/인스타 등에서 접속하셨다면 우측 상단 메뉴(<strong>⋮</strong> 또는 <strong>···</strong>)에서 <strong>'기본 브라우저(사파리/크롬)로 열기'</strong>를 눌러주세요!</span>
+        </div>
+
         <div id="iosInstallGuide" class="install-guide-box">
           <h4>🍎 아이폰 (Safari) 설치 방법:</h4>
           <ol class="guide-steps">
@@ -2667,10 +2868,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div id="androidInstallGuide" class="install-guide-box">
           <h4>🤖 안드로이드 (Chrome) 설치 방법:</h4>
-          <p style="margin-bottom:10px;">아래 버튼을 누르면 스마트폰에 즉시 앱이 설치됩니다.</p>
-          <button type="button" id="triggerNativeInstallBtn" class="btn btn-cute-submit" style="width:100%;">
+          <p style="margin-bottom:10px; font-size:0.9rem;">아래 버튼을 누르면 스마트폰에 즉시 앱이 설치됩니다.</p>
+          <button type="button" id="triggerNativeInstallBtn" class="btn btn-cute-submit" style="width:100%; margin-bottom:10px;">
             <span>📲 지금 바로 앱 설치하기</span>
           </button>
+          <p style="font-size:0.82rem; color:#7a7684; line-height:1.4;">
+            ※ 팝업이 뜨지 않는 경우, 브라우저 우측 상단 메뉴(<strong>⋮</strong>) ➔ <strong>[홈 화면에 추가]</strong> 또는 <strong>[앱 설치]</strong>를 눌러주세요.
+          </p>
         </div>
       </div>
     </div>
