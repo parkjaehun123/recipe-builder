@@ -1589,35 +1589,6 @@ select:focus {
   50% { transform: translateY(-4px); }
 }
 
-/* --- 📲 잠금화면 설치 버튼 스타일 --- */
-.lock-footer-install {
-  margin-top: 18px;
-  padding-top: 14px;
-  border-top: 2px dashed #f5decb;
-}
-
-.btn-lock-install {
-  width: 100%;
-  background: #fff4ed;
-  border: 2px dashed #ff9e88;
-  color: #ff5722;
-  border-radius: 14px;
-  padding: 11px 14px;
-  font-family: 'Jua', cursive;
-  font-size: 0.95rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.2s ease;
-}
-
-.btn-lock-install:hover {
-  background: #ffe6db;
-  transform: translateY(-2px);
-}
-
 /* --- 📲 모바일 하단 고정 설치 플로팅 바 스타일 --- */
 .mobile-floating-install {
   display: none;
@@ -1774,13 +1745,6 @@ select:focus {
           <span>🪄 요리책 열기 🔓</span>
         </button>
       </form>
-
-      <!-- 📲 잠금 화면에서도 바로 설치 가능한 버튼 -->
-      <div class="lock-footer-install">
-        <button type="button" class="btn-lock-install trigger-pwa-install">
-          <i class="fa-solid fa-cloud-arrow-down"></i> <span>스마트폰 홈 화면에 앱 설치하기</span>
-        </button>
-      </div>
     </div>
   </div>
   <!-- 귀여운 배경 장식 요소들 -->
@@ -2699,6 +2663,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleInstallClick() {
+    // 🔒 잠금 해제되지 않은 상태에서는 앱 설치 차단
+    if (sessionStorage.getItem('hooni_recipe_unlocked') !== 'true') {
+      return;
+    }
     if (deferredPrompt) {
       deferredPrompt.prompt();
       deferredPrompt.userChoice.then((choiceResult) => {
@@ -2713,6 +2681,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // 모바일 하단 플로팅 배너 표시 여부 제어 (오직 잠금 해제 후에만 모바일에서 노출)
+  const mobileFloatingInstall = document.getElementById('mobileFloatingInstall');
+  const closeFloatingInstallBtn = document.getElementById('closeFloatingInstallBtn');
+
+  function updateFloatingInstallVisibility() {
+    const isUnlocked = sessionStorage.getItem('hooni_recipe_unlocked') === 'true';
+    const isDismissed = sessionStorage.getItem('dismissed_floating_install') === 'true';
+    const isMobile = window.innerWidth <= 768;
+    if (mobileFloatingInstall) {
+      if (isUnlocked && !isStandalone && !isDismissed && isMobile) {
+        mobileFloatingInstall.style.display = 'block';
+      } else {
+        mobileFloatingInstall.style.display = 'none';
+      }
+    }
+  }
+
   // 모든 설치 트리거 버튼에 클릭 이벤트 일괄 바인딩
   document.querySelectorAll('.trigger-pwa-install').forEach(btn => {
     btn.addEventListener('click', handleInstallClick);
@@ -2721,17 +2706,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closePwaModalBtn) closePwaModalBtn.addEventListener('click', closePwaGuide);
 
   // 하단 플로팅 배너 닫기 버튼
-  const mobileFloatingInstall = document.getElementById('mobileFloatingInstall');
-  const closeFloatingInstallBtn = document.getElementById('closeFloatingInstallBtn');
   if (closeFloatingInstallBtn && mobileFloatingInstall) {
     closeFloatingInstallBtn.addEventListener('click', () => {
       mobileFloatingInstall.style.display = 'none';
       sessionStorage.setItem('dismissed_floating_install', 'true');
     });
-  }
-
-  if (sessionStorage.getItem('dismissed_floating_install') === 'true' && mobileFloatingInstall) {
-    mobileFloatingInstall.style.display = 'none';
   }
 
   if (pwaGuideModal) {
@@ -2743,7 +2722,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('appinstalled', () => {
     console.log('PWA가 성공적으로 설치되었습니다!');
     closePwaGuide();
-    document.querySelectorAll('.trigger-pwa-install, .pwa-hero-banner, .mobile-floating-install, .lock-footer-install').forEach(el => {
+    document.querySelectorAll('.trigger-pwa-install, .pwa-hero-banner, .mobile-floating-install').forEach(el => {
       el.style.display = 'none';
     });
   });
@@ -2761,6 +2740,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (sessionStorage.getItem('hooni_recipe_unlocked') === 'true') {
     if (lockScreen) lockScreen.classList.add('unlocked');
   }
+  updateFloatingInstallVisibility();
+  window.addEventListener('resize', updateFloatingInstallVisibility);
 
   // 잠금 폼 제출 (비밀번호 확인)
   if (lockForm) {
@@ -2776,6 +2757,7 @@ document.addEventListener('DOMContentLoaded', () => {
           lockScreen.classList.add('unlocked');
         }
         appPasswordInput.value = '';
+        updateFloatingInstallVisibility(); // 비밀번호 해제 후 플로팅 배너 활성화
       } else {
         // 실패 - 흔들림 및 에러 표시
         if (lockErrorMsg) lockErrorMsg.classList.remove('hidden');
@@ -2811,6 +2793,8 @@ document.addEventListener('DOMContentLoaded', () => {
         appPasswordInput.value = '';
         appPasswordInput.focus();
       }
+      updateFloatingInstallVisibility(); // 다시 잠그면 플로팅 배너 숨김
+      closePwaGuide();
     });
   }
 
