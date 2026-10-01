@@ -31,17 +31,39 @@ app.jinja_loader = ChoiceLoader([
     FileSystemLoader(os.path.join(os.getcwd(), "api", "templates")),
 ])
 
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-SERPER_API_KEY = os.getenv("SERPER_API_KEY")
 PORT = int(os.getenv("PORT", 5000))
 
-# Gemini 클라이언트 초기화
-genai_client = None
-if GEMINI_API_KEY and GEMINI_API_KEY != "your_gemini_api_key_here":
+
+def get_gemini_api_key():
+    """Vercel Serverless 및 로컬 환경변수에서 Gemini 키 동적 검색"""
+    load_dotenv()
+    for key_name in ["GEMINI_API_KEY", "GOOGLE_API_KEY", "gemini_api_key", "google_api_key"]:
+        val = os.getenv(key_name) or os.environ.get(key_name)
+        if val and val.strip() and val.strip() != "your_gemini_api_key_here":
+            return val.strip()
+    return None
+
+
+def get_serper_api_key():
+    """Serper API 키 동적 검색"""
+    load_dotenv()
+    for key_name in ["SERPER_API_KEY", "serper_api_key"]:
+        val = os.getenv(key_name) or os.environ.get(key_name)
+        if val and val.strip() and val.strip() != "your_serper_api_key_here":
+            return val.strip()
+    return None
+
+
+def get_genai_client():
+    """요청 시점에 동적으로 Gemini 클라이언트 생성"""
+    api_key = get_gemini_api_key()
+    if not api_key:
+        return None
     try:
-        genai_client = genai.Client(api_key=GEMINI_API_KEY)
+        return genai.Client(api_key=api_key)
     except Exception as e:
-        logging.error(f"Gemini 클라이언트 초기화 실패: {e}")
+        logging.error(f"Gemini 클라이언트 생성 실패: {e}")
+        return None
 
 # 다중 모델 자동 폴백 목록
 FALLBACK_MODELS = [
@@ -180,10 +202,11 @@ def generate_recipe():
         if not ingredients:
             return jsonify({"success": False, "error": "보유하고 계신 재료를 1개 이상 입력해 주세요."}), 400
 
+        genai_client = get_genai_client()
         if not genai_client:
             return jsonify({
                 "success": False,
-                "error": "Gemini API 키가 설정되지 않았습니다. .env 파일을 확인해 주세요."
+                "error": "Gemini API 키를 불러올 수 없습니다. Vercel Settings -> Environment Variables에 GEMINI_API_KEY가 등록되어 있는지 확인해 주세요."
             }), 500
 
         # Gemini 프롬프트 엔지니어링 (3가지 스타일의 고품질 맞춤형 셰프 레시피 생성)
