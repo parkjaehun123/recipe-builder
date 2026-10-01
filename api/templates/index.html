@@ -7,7 +7,8 @@
   <!-- 파비콘 및 PWA 설정 -->
   <link rel="icon" type="image/svg+xml" href="/static/icons/icon.svg">
   <link rel="icon" type="image/png" href="/static/icons/icon-192.png">
-  <link rel="manifest" href="data:application/manifest+json;utf-8,%7B%22name%22%3A%22%EC%84%9C%EC%9A%B8%EB%A7%9B%ED%94%BC%EC%95%84%EC%9D%98%20%EB%B9%84%EB%B0%80%20%EC%9A%94%EB%A6%AC%EC%B1%85%22%2C%22short_name%22%3A%22%EC%84%9C%EC%9A%B8%EB%A7%9B%ED%94%BC%EC%95%84%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FFFDF9%22%2C%22theme_color%22%3A%22%23FF7E67%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-192.png%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-512.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
+  <link rel="manifest" href="/manifest.json">
+  <!-- <link rel="manifest-data" href="data:application/manifest+json;utf-8,%7B%22name%22%3A%22%EC%84%9C%EC%9A%B8%EB%A7%9B%ED%94%BC%EC%95%84%EC%9D%98%20%EB%B9%84%EB%B0%80%20%EC%9A%94%EB%A6%AC%EC%B1%85%22%2C%22short_name%22%3A%22%EC%84%9C%EC%9A%B8%EB%A7%9B%ED%94%BC%EC%95%84%22%2C%22start_url%22%3A%22%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FFFDF9%22%2C%22theme_color%22%3A%22%23FF7E67%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-192.png%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fpng%22%7D%2C%7B%22src%22%3A%22%2Fstatic%2Ficons%2Ficon-512.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
   <meta name="theme-color" content="#FF7E67">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -1443,6 +1444,92 @@ select:focus {
   color: #4a3e30;
 }
 
+
+/* --- 📲 PWA 설치 가이드 모달 스타일 --- */
+.pwa-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.pwa-modal-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 3px solid #fbd9c8;
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  animation: popIn 0.3s ease;
+}
+
+.pwa-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px dashed #f5decb;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.pwa-modal-header h3 {
+  font-family: 'Jua', cursive;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+.pwa-app-preview {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff8f5;
+  border: 2px solid #ffd8cc;
+  border-radius: 16px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+}
+
+.pwa-preview-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.install-guide-box {
+  background: #faf7f2;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.install-guide-box h4 {
+  font-family: 'Jua', cursive;
+  font-size: 1.05rem;
+  color: #5a4e42;
+  margin-bottom: 8px;
+}
+
+.guide-steps {
+  padding-left: 18px;
+  line-height: 1.6;
+  color: #443c34;
+}
+
+.guide-steps li {
+  margin-bottom: 6px;
+}
+
 </style>
   <!-- Font Awesome 아이콘 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -2434,5 +2521,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
   </script>
+  <!-- 📲 PWA 모바일 홈 화면 설치 가이드 모달 -->
+  <div id="pwaGuideModal" class="pwa-modal-overlay hidden">
+    <div class="pwa-modal-card cute-card">
+      <div class="pwa-modal-header">
+        <h3><span>📲</span> 홈 화면에 앱 설치하기</h3>
+        <button id="closePwaModalBtn" class="btn-close">&times;</button>
+      </div>
+      <div class="pwa-modal-body">
+        <div class="pwa-app-preview">
+          <img src="/static/icons/icon-192.png" alt="앱 아이콘" class="pwa-preview-icon">
+          <div>
+            <strong>서울맛피아의 비밀 요리책</strong>
+            <p style="font-size:0.85rem; color:#7a7684;">스마트폰 앱처럼 빠르고 편리하게 사용하세요!</p>
+          </div>
+        </div>
+
+        <div id="iosInstallGuide" class="install-guide-box">
+          <h4>🍎 아이폰 (Safari) 설치 방법:</h4>
+          <ol class="guide-steps">
+            <li>1. 사파리 브라우저 하단의 <strong>공유 버튼 <i class="fa-solid fa-arrow-up-from-bracket"></i></strong> 을 누릅니다.</li>
+            <li>2. 메뉴를 아래로 내려 <strong>'홈 화면에 추가' <i class="fa-regular fa-square-plus"></i></strong> 를 선택합니다.</li>
+            <li>3. 우측 상단 <strong>'추가'</strong>를 누르면 바탕화면에 앱이 생성됩니다! 🎉</li>
+          </ol>
+        </div>
+
+        <div id="androidInstallGuide" class="install-guide-box">
+          <h4>🤖 안드로이드 (Chrome) 설치 방법:</h4>
+          <p style="margin-bottom:10px;">아래 버튼을 누르면 스마트폰에 즉시 앱이 설치됩니다.</p>
+          <button type="button" id="triggerNativeInstallBtn" class="btn btn-cute-submit" style="width:100%;">
+            <span>📲 지금 바로 앱 설치하기</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,24 +1,39 @@
 {
+  "id": "/",
   "name": "서울맛피아의 비밀 요리책",
   "short_name": "서울맛피아",
   "description": "냉장고 속 재료로 맞춤 요리 레시피를 만드는 AI 스마트 요리책",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#FFFDF9",
   "theme_color": "#FF7E67",
-  "orientation": "portrait",
+  "categories": ["food", "lifestyle", "utilities"],
   "icons": [
     {
       "src": "/static/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/static/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/static/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/static/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
       "src": "/static/icons/icon.svg",
