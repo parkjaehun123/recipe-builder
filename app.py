@@ -11,13 +11,25 @@ from google.genai import types
 # 1. 환경 변수(.env) 로드
 load_dotenv()
 
+from jinja2 import ChoiceLoader, FileSystemLoader
+
 # 로깅 설정
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 app = Flask(
     __name__,
     template_folder=os.path.join(BASE_DIR, "templates"),
     static_folder=os.path.join(BASE_DIR, "static")
 )
+
+# Vercel Serverless 번들 경로를 모두 포함하는 다중 템플릿 로더
+app.jinja_loader = ChoiceLoader([
+    FileSystemLoader(os.path.join(BASE_DIR, "templates")),
+    FileSystemLoader(os.path.join(BASE_DIR, "api", "templates")),
+    FileSystemLoader(os.path.join(os.getcwd(), "templates")),
+    FileSystemLoader(os.path.join(os.getcwd(), "api", "templates")),
+])
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 SERPER_API_KEY = os.getenv("SERPER_API_KEY")
@@ -75,14 +87,29 @@ def search_youtube_video(menu_name):
     return video_info
 
 
+def get_static_dir(rel_path):
+    candidates = [
+        app.static_folder,
+        os.path.join(BASE_DIR, "api", "static"),
+        os.path.join(os.getcwd(), "static"),
+        os.path.join(os.getcwd(), "api", "static"),
+    ]
+    for folder in candidates:
+        if folder and os.path.exists(os.path.join(folder, rel_path)):
+            return folder
+    return app.static_folder
+
+
 @app.route("/", defaults={"path": ""})
 @app.route("/<path:path>", methods=["GET"])
 def catch_all(path):
     """Vercel Serverless 및 PWA 정적 파일/페이지 Catch-All 서빙"""
     if path == "manifest.json" or path == "api/manifest.json":
-        return send_from_directory(app.static_folder, "manifest.json", mimetype="application/manifest+json")
+        static_dir = get_static_dir("manifest.json")
+        return send_from_directory(static_dir, "manifest.json", mimetype="application/manifest+json")
     if path == "sw.js" or path == "api/sw.js":
-        response = send_from_directory(app.static_folder, "sw.js", mimetype="application/javascript")
+        static_dir = get_static_dir("sw.js")
+        response = send_from_directory(static_dir, "sw.js", mimetype="application/javascript")
         response.headers["Service-Worker-Allowed"] = "/"
         return response
     if path.startswith("static/") or path.startswith("api/static/"):
@@ -100,7 +127,8 @@ def catch_all(path):
             mimetype = "application/json"
         elif rel_path.endswith(".ico"):
             mimetype = "image/x-icon"
-        return send_from_directory(app.static_folder, rel_path, mimetype=mimetype)
+        static_dir = get_static_dir(rel_path)
+        return send_from_directory(static_dir, rel_path, mimetype=mimetype)
     return render_template("index.html")
 
 

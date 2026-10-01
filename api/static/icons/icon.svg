@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A7A" />
+      <stop offset="100%" stop-color="#FF6247" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="100%" stop-color="#FFB300" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- 부드러운 둥근 사각형 배경 -->
+  <rect x="24" y="24" width="464" height="464" rx="110" fill="url(#bgGrad)" />
+  
+  <!-- 내부 부드러운 하얀 원형 플레이트 -->
+  <circle cx="256" cy="256" r="190" fill="#FFFDF9" filter="url(#dropShadow)" />
+  
+  <!-- 요리사 모자 (Chef Hat) -->
+  <g id="chef-hat" filter="url(#dropShadow)">
+    <!-- 모자 윗부분 구름 볼륨 -->
+    <path d="M175 240 C145 240 130 205 155 175 C145 135 185 110 220 125 C240 95 272 95 292 125 C327 110 367 135 357 175 C382 205 367 240 337 240 Z" fill="#FFFFFF" stroke="#FF7E67" stroke-width="8" stroke-linejoin="round" />
+    
+    <!-- 모자 주름 음영 -->
+    <path d="M220 135 C230 170 230 210 225 240" stroke="#FFE4DF" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path d="M256 120 C256 160 256 205 256 240" stroke="#FFE4DF" stroke-width="6" stroke-linecap="round" fill="none" />
+    <path d="M292 135 C282 170 282 210 287 240" stroke="#FFE4DF" stroke-width="6" stroke-linecap="round" fill="none" />
+    
+    <!-- 모자 밴드 (주황빛 리본 띠) -->
+    <rect x="170" y="240" width="172" height="48" rx="12" fill="url(#goldGrad)" stroke="#E65100" stroke-width="4" />
+    
+    <!-- 귀여운 미소 스마일 -->
+    <path d="M236 325 Q256 345 276 325" stroke="#FF6247" stroke-width="6" stroke-linecap="round" fill="none" />
+    <circle cx="220" cy="305" r="8" fill="#FF6247" />
+    <circle cx="292" cy="305" r="8" fill="#FF6247" />
+    <ellipse cx="205" cy="318" rx="10" ry="6" fill="#FFAFA3" />
+    <ellipse cx="307" cy="318" rx="10" ry="6" fill="#FFAFA3" />
+  </g>
+
+  <!-- 반짝이 요리 마법 별 (Sparkles) -->
+  <g fill="#FFD54F">
+    <path d="M370 140 Q385 155 400 155 Q385 155 370 170 Q370 155 355 155 Q370 155 370 140 Z" />
+    <path d="M130 150 Q140 160 150 160 Q140 160 130 170 Q130 160 120 160 Q130 160 130 150 Z" />
+    <path d="M380 340 Q390 350 400 350 Q390 350 380 360 Q380 350 370 350 Q380 350 380 340 Z" />
+  </g>
+</svg>
