@@ -4,13 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>👩‍🍳 후니의 비밀 요리책 ✨</title>
-  <!-- PWA 설정 -->
+  <!-- 파비콘 및 PWA 설정 -->
+  <link rel="icon" type="image/svg+xml" href="/static/icons/icon.svg">
+  <link rel="icon" type="image/png" href="/static/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#FF7E67">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="후니요리책">
-  <link rel="apple-touch-icon" href="/static/icons/icon-192.png">
+  
+  <!-- OpenGraph 메타 (미리보기 이미지) -->
+  <meta property="og:title" content="후니의 비밀 요리책">
+  <meta property="og:description" content="냉장고 속 재료로 만드는 AI 맞춤형 레시피 스튜디오">
+  <meta property="og:image" content="/static/icons/icon-512.png">
   
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- Font Awesome 아이콘 -->

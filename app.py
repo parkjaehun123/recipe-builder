@@ -85,12 +85,22 @@ def catch_all(path):
         response = send_from_directory(app.static_folder, "sw.js", mimetype="application/javascript")
         response.headers["Service-Worker-Allowed"] = "/"
         return response
-    if path.startswith("static/"):
-        rel_path = path[7:]
-        return send_from_directory(app.static_folder, rel_path)
-    if path.startswith("api/static/"):
-        rel_path = path[11:]
-        return send_from_directory(app.static_folder, rel_path)
+    if path.startswith("static/") or path.startswith("api/static/"):
+        rel_path = path[7:] if path.startswith("static/") else path[11:]
+        mimetype = None
+        if rel_path.endswith(".css"):
+            mimetype = "text/css; charset=utf-8"
+        elif rel_path.endswith(".js"):
+            mimetype = "application/javascript; charset=utf-8"
+        elif rel_path.endswith(".png"):
+            mimetype = "image/png"
+        elif rel_path.endswith(".svg"):
+            mimetype = "image/svg+xml"
+        elif rel_path.endswith(".json"):
+            mimetype = "application/json"
+        elif rel_path.endswith(".ico"):
+            mimetype = "image/x-icon"
+        return send_from_directory(app.static_folder, rel_path, mimetype=mimetype)
     return render_template("index.html")
 
 
